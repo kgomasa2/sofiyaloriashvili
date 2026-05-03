@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440">
+    <title>Product · SHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Babylonica&family=Beau+Rivage&family=Bitcount+Prop+Single&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/base.css">
+    <link rel="stylesheet" href="assets/detail.css">
+</head>
+
+<body>
+    <div class="canvas-wrap">
+        <div class="canvas">
+
+            <div class="header-fixed">
+                <div class="logo-block">
+                    <a href="index.html"><img src="assets/Group.svg" alt="SOFIYA"></a>
+                </div>
+                <a href="projects.html" class="nav-item">PROJECTS</a>
+                <a href="shop.html" class="nav-item">SHOP</a>
+                <a href="about.html" class="nav-item">ABOUT</a>
+                <a href="contact.html" class="nav-item">CONTACT</a>
+            </div>
+
+            <div class="page-top"></div>
+
+            <main id="product-main">
+                <p style="padding:120px 64px;font-family:sans-serif;">Loading…</p>
+            </main>
+
+            <footer class="site-footer">
+                <div class="footer-links">
+                    <a href="#">instagram</a>
+                    <a href="#">onlyfans</a>
+                    <a href="#">e-mail</a>
+                </div>
+                <div class="footer-logo-container">
+                    <img src="assets/logo_footer.svg" alt="SOFIYA LORIASHVILI" class="footer-logo">
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="assets/base.js"></script>
+    <script>
+        (function () {
+            const main = document.getElementById('product-main');
+
+            function escapeHtml(s) {
+                return String(s == null ? '' : s)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+            }
+
+            function getSlug() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('slug');
+            }
+
+            function slugFromUrl(item) {
+                if (item.slug) return item.slug;
+                if (!item.url) return '';
+                const m = item.url.match(/([^/]+?)(?:\.html?)?$/);
+                return m ? m[1] : '';
+            }
+
+            function renderNotFound(slug) {
+                main.innerHTML =
+                    '<section style="padding:120px 64px;font-family:sans-serif;">' +
+                        '<h1 class="pd-title">Not found</h1>' +
+                        '<p>No product with slug "' + escapeHtml(slug) + '". ' +
+                        '<a href="shop.html">Back to shop</a>.</p>' +
+                    '</section>';
+            }
+
+            function renderRelated(items, currentSlug) {
+                const pool = items.filter(function (i) { return slugFromUrl(i) !== currentSlug; });
+                pool.sort(function () { return Math.random() - 0.5; });
+                const picks = pool.slice(0, 3);
+                if (picks.length === 0) return '';
+                const cards = picks.map(function (it) {
+                    const s = slugFromUrl(it);
+                    return '<a class="pd-related-card" href="product.html?slug=' + encodeURIComponent(s) + '">' +
+                        '<div class="rc-image"><img src="' + escapeHtml(it.image) + '" alt=""></div>' +
+                        '<div class="rc-info">' +
+                            '<div class="rc-title">' + escapeHtml(it.title) + '</div>' +
+                            '<div class="rc-price">' + escapeHtml(it.price) + '</div>' +
+                        '</div>' +
+                    '</a>';
+                }).join('');
+                return '<section class="pd-related">' +
+                        '<h2>You may also like</h2>' +
+                        '<div class="pd-related-grid">' + cards + '</div>' +
+                    '</section>';
+            }
+
+            function renderProduct(product, allItems) {
+                document.title = (product.title || 'Product') + ' · SHOP';
+
+                const gallery = (product.gallery && product.gallery.length)
+                    ? product.gallery
+                    : (product.image ? [product.image] : []);
+
+                const mainSrc = gallery[0] || '';
+                const thumbsHTML = gallery.map(function (src, i) {
+                    return '<div class="pd-thumb' + (i === 0 ? ' is-active' : '') + '" data-src="' + escapeHtml(src) + '">' +
+                        '<img src="' + escapeHtml(src) + '" alt=""></div>';
+                }).join('');
+
+                const descHTML = (product.description || [])
+                    .map(function (p) { return '<p>' + escapeHtml(p) + '</p>'; })
+                    .join('');
+
+                const specsHTML = (product.specs || [])
+                    .map(function (s) { return '<dt>' + escapeHtml(s.label) + '</dt><dd>' + escapeHtml(s.value) + '</dd>'; })
+                    .join('');
+
+                const isSold = !!product.soldOut;
+                const stockClass = isSold ? ' sold' : '';
+                const stockText = isSold ? 'Sold out' : (product.stock || '');
+                const breadcrumb = product.breadcrumb || '';
+                const maxQty = product.maxQty || 10;
+
+                main.innerHTML =
+                    '<section class="product-detail">' +
+                        '<div class="pd-gallery">' +
+                            '<div class="pd-main-image">' +
+                                '<img id="pd-main" src="' + escapeHtml(mainSrc) + '" alt="' + escapeHtml(product.title || '') + '">' +
+                            '</div>' +
+                            (gallery.length > 1 ? '<div class="pd-thumbs">' + thumbsHTML + '</div>' : '') +
+                        '</div>' +
+                        '<div class="pd-info">' +
+                            '<div class="pd-breadcrumb"><a href="shop.html">Shop</a>' + (breadcrumb ? ' · ' + escapeHtml(breadcrumb) : '') + '</div>' +
+                            '<h1 class="pd-title">' + escapeHtml(product.title || '') + '</h1>' +
+                            (product.subtitle ? '<div class="pd-pub">' + escapeHtml(product.subtitle) + '</div>' : '') +
+                            '<div class="pd-price-row">' +
+                                '<div class="pd-price">' + escapeHtml(product.price || '') + '</div>' +
+                                (stockText ? '<div class="pd-stock' + stockClass + '">' + escapeHtml(stockText) + '</div>' : '') +
+                            '</div>' +
+                            (descHTML ? '<div class="pd-desc">' + descHTML + '</div>' : '') +
+                            (specsHTML ? '<dl class="pd-specs">' + specsHTML + '</dl>' : '') +
+                            '<form class="pd-buy" onsubmit="event.preventDefault();">' +
+                                '<input class="pd-qty" type="number" name="qty" value="1" min="1" max="' + maxQty + '"' + (isSold ? ' disabled' : '') + '>' +
+                                '<button class="pd-add" type="submit"' + (isSold ? ' disabled' : '') + '>' + (isSold ? 'Sold out' : 'Add to cart') + '</button>' +
+                            '</form>' +
+                            (product.shippingNote ? '<p class="pd-shipping">' + escapeHtml(product.shippingNote) + '</p>' : '') +
+                        '</div>' +
+                    '</section>' +
+                    renderRelated(allItems, slugFromUrl(product));
+
+                const mainImg = document.getElementById('pd-main');
+                document.querySelectorAll('.pd-thumb').forEach(function (t) {
+                    t.addEventListener('click', function () {
+                        document.querySelectorAll('.pd-thumb').forEach(function (x) { x.classList.remove('is-active'); });
+                        t.classList.add('is-active');
+                        mainImg.src = t.dataset.src;
+                    });
+                });
+            }
+
+            const slug = getSlug();
+            if (!slug) {
+                renderNotFound('');
+                return;
+            }
+
+            fetch('data/shop.json')
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    const items = (data && data.items) || [];
+                    const product = items.find(function (it) { return slugFromUrl(it) === slug; });
+                    if (!product) {
+                        renderNotFound(slug);
+                        return;
+                    }
+                    renderProduct(product, items);
+                })
+                .catch(function (err) {
+                    console.error('Failed to load shop.json:', err);
+                    renderNotFound(slug);
+                });
+        })();
+    </script>
+</body>
+
+</html>
