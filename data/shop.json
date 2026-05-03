@@ -1,122 +1,134 @@
 {
   "items": [
     {
-      "title": "SUB#4 — Only U and Me",
+      "badge": "New",
+      "meta": "140 × 210 mm · 96 pages · Edition of 500",
       "price": "$34",
+      "span": "span-8",
+      "url": "shop/sub-4-only-u-and-me.html",
+      "title": "ADMIN_SUB#4 — Only U and Me",
+      "soldOut": false,
       "image": "/assets/image 31.png",
       "publisher": "Fisheye éditions",
-      "meta": "140 × 210 mm · 96 pages · Edition of 500",
-      "category": "books",
-      "badge": "New",
-      "soldOut": false,
-      "url": "shop/sub-4-only-u-and-me.html",
-      "span": "span-8"
+      "category": "books"
     },
     {
-      "title": "Chiken Wing",
+      "badge": "",
+      "meta": "100 pages · Perfect bound · 5.82 × 8.26\nEdition of 100",
       "price": "$60",
+      "span": "span-4",
+      "url": "shop/chiken-wing-paperwork.html",
+      "title": "Chiken Wing",
+      "soldOut": false,
       "image": "/assets/image 30.png",
       "publisher": "PAPERWORK",
-      "meta": "100 pages · Perfect bound · 5.82 × 8.26\nEdition of 100",
-      "category": "zines",
-      "badge": "",
-      "soldOut": false,
-      "url": "shop/chiken-wing-paperwork.html",
-      "span": "span-4"
+      "category": "zines"
     },
     {
-      "title": "Untitled №7",
+      "badge": "",
+      "meta": "A3 · Edition of 30",
       "price": "$70",
+      "span": "span-4",
+      "url": "shop/untitled-7.html",
+      "title": "Untitled №7",
+      "soldOut": false,
       "image": "/assets/image 32.png",
       "publisher": "Signed Giclée print",
-      "meta": "A3 · Edition of 30",
-      "category": "prints",
-      "badge": "",
-      "soldOut": false,
-      "url": "shop/untitled-7.html",
-      "span": "span-4"
+      "category": "prints"
     },
     {
-      "title": "Mini Zine",
+      "badge": "",
+      "meta": "A6 · 32 pages · Stapled",
       "price": "$20",
+      "span": "span-4",
+      "url": "shop/mini-zine.html",
+      "title": "Mini Zine",
+      "soldOut": false,
       "image": "/assets/image 33.png",
       "publisher": "Self-published",
-      "meta": "A6 · 32 pages · Stapled",
-      "category": "zines",
-      "badge": "",
-      "soldOut": false,
-      "url": "shop/mini-zine.html",
-      "span": "span-4"
+      "category": "zines"
     },
     {
-      "title": "From Ukraine — №3",
+      "badge": "Sold out",
+      "meta": "A2 · Edition of 20",
       "price": "$80",
+      "span": "span-4",
+      "url": "shop/from-ukraine-3.html",
+      "title": "From Ukraine — №3",
+      "soldOut": true,
       "image": "/assets/image 29.png",
       "publisher": "Limited print",
-      "meta": "A2 · Edition of 20",
-      "category": "prints",
-      "badge": "Sold out",
-      "soldOut": true,
-      "url": "shop/from-ukraine-3.html",
-      "span": "span-4"
+      "category": "prints"
     },
     {
-      "title": "4 the boyz — book",
+      "badge": "Featured",
+      "meta": "First edition · Signed & numbered · Edition of 250",
       "price": "$120",
+      "span": "span-12",
+      "url": "shop/4-the-boyz-book.html",
+      "title": "4 the boyz — book",
+      "soldOut": false,
       "image": "/assets/2025_LORIASHVILI_KINGKONG_MYSSIA__143.jpg",
       "publisher": "Hardcover · 240 pages · 24 × 32 cm",
-      "meta": "First edition · Signed & numbered · Edition of 250",
-      "category": "books",
-      "badge": "Featured",
-      "soldOut": false,
-      "url": "shop/4-the-boyz-book.html",
-      "span": "span-12"
+      "category": "books"
     },
     {
-      "title": "Strip Strip — Tee",
+      "badge": "",
+      "meta": "XS — XXL · Black / Yellow",
       "price": "$45",
+      "span": "span-6",
+      "url": "shop/strip-strip-tee.html",
+      "title": "Strip Strip — Tee",
+      "soldOut": false,
       "image": "/assets/2025_STAFFIE_loriashvili_02.jpg",
       "publisher": "100% organic cotton",
-      "meta": "XS — XXL · Black / Yellow",
-      "category": "merch",
-      "badge": "",
-      "soldOut": false,
-      "url": "shop/strip-strip-tee.html",
-      "span": "span-6"
+      "category": "merch"
     },
     {
-      "title": "Japan — №12",
-      "slug": "japan-print",
-      "price": "$90",
-      "image": "/assets/24_MUNE_LORIASHVILI_05.jpg",
-      "publisher": "Signed archival print",
-      "meta": "A3 · Edition of 25",
-      "category": "prints",
-      "badge": "",
-      "soldOut": false,
-      "url": "shop/japan-print.html",
-      "span": "span-6",
+      "shippingNote": "Worldwide shipping · Free above $120 · Returns accepted within 14 days",
       "breadcrumb": "Prints",
-      "subtitle": "Signed archival print · 2024",
-      "stock": "In stock — 14 of 25",
+      "badge": "",
+      "meta": "A3 · Edition of 25",
+      "price": "$90",
+      "span": "span-6",
+      "slug": "japan-print",
+      "url": "shop/japan-print.html",
+      "maxQty": 3,
       "gallery": [
         "/assets/24_MUNE_LORIASHVILI_05.jpg",
         "/assets/telegram/photo_2026-03-31_14-33-22.jpg",
         "/assets/telegram/photo_2026-04-01_19-49-05.jpg",
         "/assets/telegram/photo_2026-04-01_19-49-15.jpg"
       ],
+      "stock": "In stock — 14 of 25",
+      "specs": [
+        {
+          "label": "Format",
+          "value": "A3 (297 × 420 mm)"
+        },
+        {
+          "label": "Paper",
+          "value": "Hahnemühle Photo Rag 308 gsm"
+        },
+        {
+          "label": "Edition",
+          "value": "25 signed copies"
+        },
+        {
+          "label": "Year",
+          "value": "2024"
+        }
+      ],
+      "subtitle": "Signed archival print · 2024",
+      "title": "Japan — №12",
+      "soldOut": false,
+      "image": "/assets/24_MUNE_LORIASHVILI_05.jpg",
+      "publisher": "Signed archival print",
       "description": [
         "From the Japan series — frame №12, shot in a kissaten near Asakusa station on a slow Tuesday afternoon.",
         "Archival print on cotton rag, signed and numbered. Ships flat in a protective sleeve."
       ],
-      "specs": [
-        { "label": "Format", "value": "A3 (297 × 420 mm)" },
-        { "label": "Paper", "value": "Hahnemühle Photo Rag 308 gsm" },
-        { "label": "Edition", "value": "25 signed copies" },
-        { "label": "Year", "value": "2024" }
-      ],
-      "shippingNote": "Worldwide shipping · Free above $120 · Returns accepted within 14 days",
-      "maxQty": 3
+      "category": "prints"
     }
   ]
 }
