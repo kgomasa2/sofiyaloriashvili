@@ -13,6 +13,74 @@ public_folder: /assets/uploads
 # ─────────────────────────────────────────
 collections:
 
+  # ── PROJECTS ──────────────────────────
+  - name: projects
+    label: "🎞 Проекти (Projects)"
+    files:
+      - label: "Список проектів"
+        name: projects_list
+        file: data/projects.json
+        fields:
+          - label: "Проекти"
+            name: items
+            widget: list
+            label_singular: "Проект"
+            summary: "{{fields.title}} ({{fields.year}})"
+            fields:
+              - { label: "URL-ім'я (slug)", name: slug, widget: string, hint: "Латиницею через дефіс. Напр: japan, only-you-and-me" }
+              - { label: "Заголовок", name: title, widget: string }
+              - label: "Шрифт заголовка"
+                name: titleFont
+                widget: select
+                default: ""
+                options:
+                  - { label: "Стандарт (Casino)", value: "" }
+                  - { label: "Benzin (жирний)", value: "f-benzin" }
+                  - { label: "Bayon",            value: "f-bayon" }
+                  - { label: "Cochin (serif)",   value: "f-cochin" }
+                  - { label: "Babylonica (рукописний)", value: "f-babylonica" }
+                  - { label: "Beau Rivage (рукописний)", value: "f-beau" }
+              - { label: "Підзаголовок", name: subtitle, widget: text }
+              - { label: "Рік", name: year, widget: string, hint: "Напр: 2024 або 2022 — ongoing" }
+              - label: "Теги"
+                name: tags
+                widget: list
+                default: []
+                field: { label: "Тег", name: tag, widget: string }
+              - { label: "Обкладинка", name: cover, widget: image }
+              - label: "Бічна мета (Year / Medium / Locations / Published)"
+                name: sideMeta
+                widget: list
+                label_singular: "Запис"
+                summary: "{{fields.label}} — {{fields.value}}"
+                fields:
+                  - { label: "Назва", name: label, widget: string }
+                  - { label: "Значення", name: value, widget: string }
+              - label: "Опис (абзаци)"
+                name: body
+                widget: list
+                label_singular: "Абзац"
+                field: { label: "Текст", name: text, widget: text }
+              - label: "Галерея (рядки)"
+                name: gallery
+                widget: list
+                label_singular: "Рядок галереї"
+                summary: "{{fields.layout}} — {{fields.images.length}} фото"
+                fields:
+                  - label: "Розкладка"
+                    name: layout
+                    widget: select
+                    default: full
+                    options:
+                      - { label: "На весь рядок (1 фото)", value: full }
+                      - { label: "Дві у рядок", value: split-2 }
+                      - { label: "Три у рядок", value: split-3 }
+                  - { label: "Портретні фото?", name: portrait, widget: boolean, default: false, hint: "Ставити 'так' якщо фото вертикальні" }
+                  - label: "Фото"
+                    name: images
+                    widget: list
+                    field: { label: "Фото", name: image, widget: image }
+
   # ── SHOP ──────────────────────────────
   - name: shop
     label: "🛍 Магазин (Shop)"
@@ -27,9 +95,11 @@ collections:
             label_singular: "Товар"
             summary: "{{fields.title}} — {{fields.price}}"
             fields:
+              # — Картка в каталозі —
               - { label: "Назва",         name: title,     widget: string }
+              - { label: "URL-ім'я (slug)", name: slug, widget: string, required: false, hint: "Латиницею через дефіс. Напр: japan-print" }
               - { label: "Ціна",          name: price,     widget: string, hint: "Напр: $34" }
-              - label: "Фото"
+              - label: "Головне фото"
                 name: image
                 widget: image
               - { label: "Видавець / матеріал", name: publisher, widget: string }
@@ -44,7 +114,7 @@ collections:
                   - { label: "Мерч",   value: merch }
               - { label: "Бейдж (New / Featured / порожньо)", name: badge, widget: string, required: false, default: "" }
               - { label: "Sold out?", name: soldOut, widget: boolean, default: false }
-              - { label: "Посилання на сторінку товару", name: url, widget: string }
+              - { label: "Посилання на сторінку товару", name: url, widget: string, required: false, hint: "Залиш порожнім якщо використовуєш slug" }
               - label: "Розмір картки"
                 name: span
                 widget: select
@@ -55,6 +125,34 @@ collections:
                   - { label: "Стандарт (6 кол.)",   value: span-6 }
                   - { label: "Широка (8 кол.)",     value: span-8 }
                   - { label: "На весь рядок (12)", value: span-12 }
+
+              # — Деталі на сторінці товару —
+              - { label: "Категорія в крихтах (breadcrumb)", name: breadcrumb, widget: string, required: false, hint: "Напр: Prints, Books" }
+              - { label: "Підзаголовок", name: subtitle, widget: string, required: false, hint: "Напр: Signed archival print · 2024" }
+              - { label: "Наявність (текст)", name: stock, widget: string, required: false, hint: "Напр: In stock — 14 of 25" }
+              - label: "Галерея фото товару"
+                name: gallery
+                widget: list
+                required: false
+                label_singular: "Фото"
+                field: { label: "Фото", name: image, widget: image }
+              - label: "Опис (абзаци)"
+                name: description
+                widget: list
+                required: false
+                label_singular: "Абзац"
+                field: { label: "Текст", name: text, widget: text }
+              - label: "Характеристики"
+                name: specs
+                widget: list
+                required: false
+                label_singular: "Запис"
+                summary: "{{fields.label}} — {{fields.value}}"
+                fields:
+                  - { label: "Назва", name: label, widget: string }
+                  - { label: "Значення", name: value, widget: string }
+              - { label: "Примітка про доставку", name: shippingNote, widget: text, required: false }
+              - { label: "Макс. кількість для замовлення", name: maxQty, widget: number, default: 10, required: false, value_type: int, min: 1 }
 
   # ── ABOUT ─────────────────────────────
   - name: about

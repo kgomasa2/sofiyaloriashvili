@@ -1,0 +1,47 @@
+{
+  "items": [
+    {
+      "slug": "japan",
+      "title": "japan",
+      "titleFont": "f-babylonica",
+      "subtitle": "31 days in Japan — published in Dazed and exhibited at the Design Festa Gallery.",
+      "year": "2024",
+      "tags": ["Travel", "Series", "Tokyo"],
+      "cover": "/assets/24_MUNE_LORIASHVILI_05.jpg",
+      "sideMeta": [
+        { "label": "Year", "value": "2024" },
+        { "label": "Medium", "value": "35mm + digital" },
+        { "label": "Locations", "value": "Tokyo, Kyoto, Osaka" },
+        { "label": "Published", "value": "Dazed" }
+      ],
+      "body": [
+        "One month, three cities, two cameras. \"Japan\" is a slow walk through the country I'd been postponing for years — the tiny kissaten coffee shops, late-night izakayas, and the very specific quality of light that falls through Tokyo windows in November.",
+        "The full series was published as \"31 days in Japan\" by Dazed and shown at the Design Festa Gallery in Tokyo in November 2024."
+      ],
+      "gallery": [
+        {
+          "layout": "full",
+          "portrait": false,
+          "images": ["/assets/24_MUNE_LORIASHVILI_05.jpg"]
+        },
+        {
+          "layout": "split-3",
+          "portrait": true,
+          "images": [
+            "/assets/telegram/photo_2026-03-31_14-33-22.jpg",
+            "/assets/telegram/photo_2026-04-01_19-49-05.jpg",
+            "/assets/telegram/photo_2026-04-01_19-49-15.jpg"
+          ]
+        },
+        {
+          "layout": "split-2",
+          "portrait": false,
+          "images": [
+            "/assets/telegram/photo_2026-04-18_20-09-45.jpg",
+            "/assets/telegram/photo_2026-04-18_20-09-45 (4).jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}
