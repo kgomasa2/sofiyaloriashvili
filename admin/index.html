@@ -8,15 +8,15 @@
   <style>
     body { margin: 0; font-family: sans-serif; }
   </style>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</head>
-<body>
   <script>
     // Force www host so OAuth callback origin matches GitHub OAuth App registration.
+    // Must run BEFORE decap-cms.js loads to avoid initializing on the wrong origin.
     if (location.hostname === 'adultxoma.com') {
       location.replace('https://www.adultxoma.com' + location.pathname + location.search + location.hash);
     }
   </script>
+</head>
+<body>
   <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
