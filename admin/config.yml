@@ -1,0 +1,91 @@
+backend:
+  name: github
+  repo: kgomasa2/sofiyaloriashvili
+  branch: main
+  base_url: https://www.adultxoma.com
+  auth_endpoint: api/auth
+
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+# ─────────────────────────────────────────
+# COLLECTIONS
+# ─────────────────────────────────────────
+collections:
+
+  # ── SHOP ──────────────────────────────
+  - name: shop
+    label: "🛍 Магазин (Shop)"
+    files:
+      - label: "Товари"
+        name: shop_items
+        file: data/shop.json
+        fields:
+          - label: "Товари"
+            name: items
+            widget: list
+            label_singular: "Товар"
+            summary: "{{fields.title}} — {{fields.price}}"
+            fields:
+              - { label: "Назва",         name: title,     widget: string }
+              - { label: "Ціна",          name: price,     widget: string, hint: "Напр: $34" }
+              - label: "Фото"
+                name: image
+                widget: image
+              - { label: "Видавець / матеріал", name: publisher, widget: string }
+              - { label: "Деталі (мета)", name: meta,      widget: string }
+              - label: "Категорія"
+                name: category
+                widget: select
+                options:
+                  - { label: "Книги",  value: books }
+                  - { label: "Принти", value: prints }
+                  - { label: "Зіни",   value: zines }
+                  - { label: "Мерч",   value: merch }
+              - { label: "Бейдж (New / Featured / порожньо)", name: badge, widget: string, required: false, default: "" }
+              - { label: "Sold out?", name: soldOut, widget: boolean, default: false }
+              - { label: "Посилання на сторінку товару", name: url, widget: string }
+              - label: "Розмір картки"
+                name: span
+                widget: select
+                default: span-6
+                options:
+                  - { label: "Маленька (3 кол.)",   value: span-3 }
+                  - { label: "Середня (4 кол.)",    value: span-4 }
+                  - { label: "Стандарт (6 кол.)",   value: span-6 }
+                  - { label: "Широка (8 кол.)",     value: span-8 }
+                  - { label: "На весь рядок (12)", value: span-12 }
+
+  # ── ABOUT ─────────────────────────────
+  - name: about
+    label: "👤 Про мене (About)"
+    files:
+      - label: "Біо та CV"
+        name: about_data
+        file: data/about.json
+        fields:
+          - label: "Біо (абзаци)"
+            name: bio
+            widget: list
+            label_singular: "Абзац"
+            field: { label: "Текст", name: text, widget: text }
+
+          - label: "Виставки"
+            name: exhibitions
+            widget: list
+            label_singular: "Виставка"
+            summary: "{{fields.year}} — {{fields.title}}"
+            fields:
+              - { label: "Рік",     name: year,  widget: string }
+              - { label: "Назва",   name: title, widget: string }
+              - { label: "Місце",   name: place, widget: string }
+
+          - label: "Медіа"
+            name: media
+            widget: list
+            label_singular: "Медіа"
+            summary: "{{fields.outlet}} — {{fields.title}}"
+            fields:
+              - { label: "Видання",  name: outlet, widget: string }
+              - { label: "Назва",    name: title,  widget: string }
+              - { label: "Посилання", name: url,   widget: string }

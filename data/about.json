@@ -1,0 +1,39 @@
+{
+  "bio": [
+    "Sofiya Loriashvili is a contemporary artist working at the intersection of photography, painting and experimental visual narratives.",
+    "Her work explores the transformation of classical forms through modern technical lenses — mysticism, architectural rhythm and anatomical deconstruction — with a sophisticated use of color and texture.",
+    "Born in Ukraine, currently based between Paris and Tbilisi."
+  ],
+  "exhibitions": [
+    { "year": "2025", "title": "\"Dissonant Shelter\" — collective exhibition", "place": "229 lab · October" },
+    { "year": "2025", "title": "\"En plein coeur\" — Guerlain collective exhibition", "place": "22 Oct — 16 Nov" },
+    { "year": "2024", "title": "Japan — collective exhibition at the Design Festa Gallery", "place": "November" },
+    { "year": "2024", "title": "Le Sample — Maison 2024", "place": "Paris" },
+    { "year": "2024", "title": "Festival d'Arles — 10/10 Fisheye, \"ONLY YOU AND ME\"", "place": "Arles" },
+    { "year": "2023", "title": "Museum of Warsaw — projection of \"Rezavod\"", "place": "18.08.2023" },
+    { "year": "2023", "title": "Arles \"Night of the Year\" — projection of \"Rezavod\"", "place": "Arles" },
+    { "year": "2022", "title": "59 rue Notre Dame de Nazareth — \"Approches du bonheur\"", "place": "30.06 — 06.07" },
+    { "year": "2022", "title": "Stock Gallery — « Ça fait comme si on était demain alors qu'on est déjà hier »", "place": "06.05.2022" },
+    { "year": "2022", "title": "Chapelle XIV — projection & talk", "place": "14.04.2022" },
+    { "year": "2022", "title": "DOC — « SLAVA UKRAÏNI », collective exhibition", "place": "13.03.2022" },
+    { "year": "2022", "title": "35–37 — « LOOK AT US », permanent solo exhibition", "place": "18.01.2022" },
+    { "year": "2021", "title": "Espace Cosme — « Place's I've », solo exhibition", "place": "Paris" },
+    { "year": "2021", "title": "35–37 — « CHAOS », collective exhibition", "place": "26.08.2021" },
+    { "year": "2021", "title": "Espace Cosme — « éxutoire », collective", "place": "01.07.2021" }
+  ],
+  "media": [
+    { "outlet": "Libération", "title": "Only U and Me", "url": "#" },
+    { "outlet": "Joia Magazine", "title": "Feature", "url": "#" },
+    { "outlet": "Perimetro Magazine", "title": "Feature", "url": "#" },
+    { "outlet": "Fisheye Magazine", "title": "The perfect woman is a love doll", "url": "#" },
+    { "outlet": "Dazed", "title": "31 days in Japan", "url": "#" },
+    { "outlet": "Dazed", "title": "My Book", "url": "#" },
+    { "outlet": "Fisheye Magazine", "title": "My Book", "url": "#" },
+    { "outlet": "Metal Magazine", "title": "Interview", "url": "#" },
+    { "outlet": "VICE", "title": "Feature №3", "url": "#" },
+    { "outlet": "i-D", "title": "Poignant photographs of daily life in Ukraine", "url": "#" },
+    { "outlet": "VICE", "title": "Feature №2", "url": "#" },
+    { "outlet": "VICE", "title": "Feature №1", "url": "#" },
+    { "outlet": "Konbini", "title": "Interview", "url": "#" }
+  ]
+}
