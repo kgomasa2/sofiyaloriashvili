@@ -49,14 +49,36 @@ export async function onRequestGet(context) {
     : `authorization:github:success:${JSON.stringify({ token: tokenData.access_token, provider: 'github' })}`;
 
   const html = `<!doctype html>
-<html><body><script>
+<html><body style="font-family:sans-serif;padding:24px;color:#333;">
+<p id="status">Finalizing login…</p>
+<script>
 (function() {
+  var status = document.getElementById('status');
+  function log(msg) {
+    console.log('[oauth-popup]', msg);
+    if (status) status.textContent = msg;
+  }
   function receiveMessage(e) {
-    window.opener.postMessage(${JSON.stringify(message)}, e.origin);
+    log('got message from opener: ' + JSON.stringify(e.data) + ' (origin: ' + e.origin + ')');
+    if (e.data !== "authorizing:github") {
+      log('ignoring unrelated message');
+      return;
+    }
     window.removeEventListener("message", receiveMessage, false);
+    log('handshake matched, sending token to ' + e.origin);
+    window.opener.postMessage(${JSON.stringify(message)}, e.origin);
+  }
+  if (!window.opener) {
+    log('No window.opener — open this from the admin login button, not directly.');
+    return;
   }
   window.addEventListener("message", receiveMessage, false);
+  log('Listening, sending "authorizing:github" to opener…');
   window.opener.postMessage("authorizing:github", "*");
+  // Safety net: close popup after 30s even if Decap forgets to.
+  setTimeout(function () {
+    try { window.close(); } catch (e) {}
+  }, 30000);
 })();
 </script></body></html>`;
 
