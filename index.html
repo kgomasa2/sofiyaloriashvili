@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440">
+    <title>SOFIYA LORIASHVILI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Babylonica&family=Beau+Rivage&family=Bitcount+Prop+Single&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ──────── LOCAL FONTS ──────── */
+        @font-face {
+            font-family: 'Compagnon';
+            src: url('fonts/Compagnon-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        @font-face {
+            font-family: 'Compagnon';
+            src: url('fonts/Compagnon-Medium.otf') format('opentype');
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: 'Compagnon';
+            src: url('fonts/Compagnon-Roman.otf') format('opentype');
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: 'Compagnon';
+            src: url('fonts/Compagnon-Light.otf') format('opentype');
+            font-weight: 300;
+        }
+
+        @font-face {
+            font-family: 'Compagnon';
+            src: url('fonts/Compagnon-LightItalic.otf') format('opentype');
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Benzin';
+            src: url('fonts/Benzin-ExtraBold.ttf') format('truetype');
+            font-weight: 800;
+        }
+
+        @font-face {
+            font-family: 'Benzin';
+            src: url('fonts/Benzin-Bold.ttf') format('truetype');
+            font-weight: 700;
+        }
+
+        @font-face {
+            font-family: 'Benzin';
+            src: url('fonts/Benzin-Medium.ttf') format('truetype');
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: 'Casino';
+            src: url('fonts/Casino.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Casino';
+            src: url('fonts/Casino-Italic.ttf') format('truetype');
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Casino3DFilledMarquee';
+            src: url('fonts/Casino3DFilledMarquee.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'ArialNarrow';
+            src: url('fonts/Arial Narrow.ttf') format('truetype');
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: 'ArialNarrow';
+            src: url('fonts/Arial Narrow Bold.ttf') format('truetype');
+            font-weight: 700;
+        }
+
+        @font-face {
+            font-family: 'eUkraineHead';
+            src: url('fonts/e-UkraineHead-LOGO.otf') format('opentype');
+        }
+
+        @font-face {
+            font-family: 'Bayon';
+            src: url('fonts/Bayon-Regular.ttf') format('truetype');
+            font-weight: 400;
+        }
+
+        /* ──────── RESET ──────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        body {
+            background: #fff70b;
+            font-family: 'ArialNarrow', Arial, sans-serif;
+            color: #fa2935;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ──────── CANVAS (1442 reference, scaled to viewport via zoom) ──────── */
+        .canvas-wrap {
+            width: 100%;
+            overflow: hidden;
+            background: #fff70b;
+            position: relative;
+        }
+
+        .canvas {
+            position: relative;
+            width: 1442px;
+            background: #fff70b;
+            height: 8862px;
+            overflow: hidden;
+        }
+
+        /* Helper: absolutely positioned text/element */
+        .abs {
+            position: absolute;
+        }
+
+        /* ──────── NAV BARS (flex layout) ──────── */
+        .header-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 1442px;
+            height: 55px;
+            z-index: 50;
+            display: flex;
+            gap: 4px;
+            align-items: flex-start;
+        }
+
+        .nav-item {
+            flex: 1;
+            height: 55px;
+            background: #b5b5b5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 19.4px;
+            letter-spacing: -0.58px;
+            color: #fa2935;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .nav-item:hover {
+            color: #fff70b;
+        }
+
+        /* Top-left logo (red star/heart svg placeholder) */
+        .logo-block {
+            width: 121px;
+            height: 84px;
+            background: #b5b5b5;
+            flex-shrink: 0;
+        }
+
+        .logo-block img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ──────── HERO TOP ──────── */
+        /* Title transitions */
+        .media-top,
+        .artifacts,
+        .exh-top,
+        .projects-label.proj-top {
+            cursor: pointer;
+        }
+
+        @keyframes blinkColors {
+
+            0%,
+            100% {
+                color: #FA2935;
+            }
+
+            25% {
+                color: #B5B5B5;
+            }
+
+            50% {
+                color: #81D0FC;
+            }
+
+            75% {
+                color: #09D24B;
+            }
+        }
+
+        .hover-blink:hover {
+            animation: blinkColors 0.45s infinite step-end;
+        }
+
+        /* Top "MEDIA" gray Bangers */
+        .media-top {
+            position: absolute;
+            top: 58px;
+            left: calc(50% + 236px);
+            font-family: 'Bangers', cursive;
+            font-size: 180px;
+            letter-spacing: -0.03em;
+            color: #b5b5b5;
+            white-space: nowrap;
+            line-height: 1;
+        }
+
+        /* Top "Exhibitions" gray script */
+        .exh-top {
+            position: absolute;
+            top: 306px;
+            left: calc(50% - 701px);
+            font-family: 'Beau Rivage', cursive;
+            font-size: 148px;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            color: #b5b5b5;
+            white-space: nowrap;
+            z-index: 7;
+        }
+
+        /* "Artifacts" -> "TELE- GRAM" Compagnon-Light gray */
+        .artifacts {
+            position: absolute;
+            top: 233px;
+            left: calc(50% + 269px);
+            font-family: 'Compagnon', sans-serif;
+            font-weight: 300;
+            font-size: 79px;
+            letter-spacing: -0.03em;
+            color: #b5b5b5;
+            text-transform: uppercase;
+            line-height: 0.8;
+            z-index: 7;
+        }
+
+        /* Main logo (replaces top SOFIYA marquee) */
+        .main-logo {
+            position: absolute;
+            top: 83px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 505px;
+            height: 511px;
+            z-index: 5;
+        }
+
+        .main-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            pointer-events: none;
+        }
+
+        /* "PROJECTS" labels (small e-UkraineHead style) */
+        .projects-label {
+            position: absolute;
+            font-family: 'eUkraineHead', sans-serif;
+            font-size: 46px;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            line-height: 1;
+        }
+
+        .projects-label.proj-top {
+            top: 706px;
+            left: calc(50% - 130px);
+            color: #b5b5b5;
+            z-index: 7;
+        }
+
+        .projects-label.proj-mid {
+            top: 3183px;
+            left: calc(50% - 113px);
+            color: #81d0fc;
+        }
+
+        /* "SHOP" repeating gray dotted text */
+        .shop-dot {
+            position: absolute;
+            font-family: 'Bitcount Prop Single', monospace;
+            font-size: 138px;
+            line-height: 1;
+            letter-spacing: -4.15px;
+            color: #b5b5b5;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .shop-dot.s0 {
+            top: 586px;
+            left: calc(50% - 329px);
+            z-index: 7;
+        }
+
+        /* "SHOP" repeating marquee text (for shop section) */
+        .shop-marquee-container {
+            position: absolute;
+            width: 1442px;
+            overflow: hidden;
+            white-space: nowrap;
+            font-family: 'Bitcount Prop Single', monospace;
+            font-size: 138px;
+            line-height: 1;
+            letter-spacing: -4.15px;
+            color: #b5b5b5;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .shop-marquee-container.sm2 {
+            top: 4285px;
+        }
+
+        .shop-marquee-content {
+            display: inline-block;
+            animation: marquee 15s linear infinite;
+        }
+
+        .shop-marquee-content span {
+            display: inline-block;
+            padding-right: 50px;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Hero photo crops */
+        .hero-crop {
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .hero-crop img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .crop-glasses {
+            left: 103px;
+            top: 4px;
+            width: 350px;
+            height: 523px;
+            z-index: 6;
+        }
+
+        .crop-couple {
+            left: -35px;
+            top: 474px;
+            width: 489px;
+            height: 396px;
+            z-index: 6;
+        }
+
+        .crop-wet {
+            left: 796px;
+            top: 515px;
+            width: 430px;
+            height: 395px;
+            z-index: 6;
+        }
+
+        .crop-rifle {
+            position: absolute;
+            left: 1011px;
+            top: 90px;
+            width: 512px;
+            height: 664px;
+            z-index: 6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .crop-rifle .inner {
+            width: 399px;
+            height: 595px;
+            transform: rotate(-11.88deg);
+            overflow: hidden;
+        }
+
+        .crop-rifle .inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Decorative star/heart svg under top SOFIYA at left of MEDIA top */
+        .svg-deco-1 {
+            position: absolute;
+            top: 74px;
+            left: calc(455px + 168px);
+            width: 167px;
+            height: 117px;
+            z-index: 5;
+        }
+
+        .svg-deco-2 {
+            position: absolute;
+            top: 78px;
+            left: calc(455px + 211px);
+            width: 130px;
+            height: 108px;
+            z-index: 6;
+        }
+
+        /* Hero "view" links */
+        .view-link-sub {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(110%, -30%);
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 18px;
+            text-decoration: underline;
+            color: #fa2935;
+            letter-spacing: -0.54px;
+            line-height: 0.93;
+            text-transform: none;
+            font-weight: normal;
+            white-space: nowrap;
+        }
+
+        /* contact links */
+        .contact-link {
+            position: absolute;
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 18px;
+            text-decoration: underline;
+            color: #fa2935;
+            letter-spacing: -0.54px;
+            white-space: nowrap;
+            transform: translateX(-50%);
+        }
+
+        .contact-link.cl1 {
+            top: 725px;
+            left: calc(50% + 621.5px);
+        }
+
+        .contact-link.cl2 {
+            top: 743px;
+            left: calc(50% + 644px);
+        }
+
+        .contact-link.cl3 {
+            top: 763px;
+            left: calc(50% + 638px);
+        }
+
+        /* Hero description */
+        .hero-desc {
+            position: absolute;
+            top: 628px;
+            left: calc(50% - 0.5px);
+            width: 1163px;
+            transform: translateX(-50%);
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 18px;
+            line-height: 0.93;
+            letter-spacing: -0.54px;
+            color: #fa2935;
+            text-align: center;
+        }
+
+        /* ──────── BLUE SECTION (huge SOFIYA + exhibitions) ──────── */
+        .bg-blue1 {
+            position: absolute;
+            left: -6px;
+            top: 820px;
+            width: 1446px;
+            height: 1296px;
+            background: #81d0fc;
+        }
+
+        /* Huge SOFIYA Casino */
+        .sofiya-huge {
+            position: absolute;
+            top: 810px;
+            left: calc(50% - 718px);
+            font-family: 'Casino', serif;
+            font-size: 512px;
+            line-height: 1;
+            letter-spacing: -10px;
+            color: #fa2935;
+            text-transform: uppercase;
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+        /* ABOUT (yellow) Casino + view */
+        .about-yellow {
+            position: absolute;
+            top: 2020px;
+            left: calc(50% - 559px);
+            font-family: 'Casino', serif;
+            font-size: 55px;
+            letter-spacing: -1.1px;
+            color: #fff70b;
+            text-transform: uppercase;
+            line-height: 1;
+            z-index: 3;
+            white-space: nowrap;
+        }
+
+        .about-view-yellow {
+            position: absolute;
+            top: 2020px;
+            left: calc(50% - 395px);
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 18px;
+            color: #fff70b;
+            text-decoration: underline;
+            letter-spacing: -0.54px;
+            transform: translateX(-50%);
+        }
+
+        /* Description below huge SOFIYA */
+        .huge-desc {
+            position: absolute;
+            top: 1210px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1402px;
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 18px;
+            line-height: 0.93;
+            letter-spacing: -0.54px;
+            color: #fa2935;
+            text-align: center;
+        }
+
+        /* image 34 (couch) */
+        .img-couch {
+            position: absolute;
+            top: 1301px;
+            left: 161px;
+            width: 276px;
+            height: 183px;
+            z-index: 3;
+        }
+
+        .img-couch img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* "Exhibitions" red Beau Rivage in middle section */
+        .exh-mid {
+            position: absolute;
+            top: 1613px;
+            left: calc(50% - 265px);
+            font-family: 'Beau Rivage', cursive;
+            font-size: 170px;
+            line-height: 1;
+            letter-spacing: -5.1px;
+            color: #fa2935;
+            white-space: nowrap;
+            z-index: 3;
+        }
+
+        /* "Media" red Bangers */
+        .media-mid {
+            position: absolute;
+            top: 1484px;
+            left: calc(50% + 279px);
+            font-family: 'Bangers', cursive;
+            font-size: 180px;
+            letter-spacing: -5.4px;
+            color: #fa2935;
+            white-space: nowrap;
+            line-height: 1;
+        }
+
+        /* Exhibitions list */
+        .exh-list {
+            position: absolute;
+            top: 1760px;
+            left: calc(50% + 58px);
+            width: 800px;
+            transform: translateX(-50%);
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 18px;
+            line-height: 0.52;
+            letter-spacing: -0.54px;
+            color: #fa2935;
+            text-align: center;
+            white-space: pre-wrap;
+        }
+
+        /* Media list */
+        .media-list {
+            position: absolute;
+            top: 1652px;
+            left: calc(50% + 487px);
+            width: 416px;
+            transform: translateX(-50%);
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 18px;
+            line-height: 0.47;
+            letter-spacing: -0.54px;
+            color: #fa2935;
+            text-align: center;
+            white-space: pre-wrap;
+        }
+
+        /* Logos: DAZED + VICE */
+        .logo-dazed {
+            position: absolute;
+            top: 1869px;
+            left: 1010px;
+            width: 147px;
+            height: 35px;
+            mix-blend-mode: color-burn;
+        }
+
+        .logo-vice {
+            position: absolute;
+            top: 1862px;
+            left: 1180px;
+            width: 154px;
+            height: 49px;
+            mix-blend-mode: color-burn;
+        }
+
+        .logo-dazed img,
+        .logo-vice img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ──────── BIG GRASS PHOTO ──────── */
+        .grass-band {
+            position: absolute;
+            top: 2108px;
+            left: 1px;
+            width: 1439px;
+            height: 896px;
+            overflow: hidden;
+        }
+
+        .grass-band img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            min-height: 100%;
+        }
+
+        /* ──────── PROJECTS (red bg) ──────── */
+        .bg-red {
+            position: absolute;
+            left: -1px;
+            top: 3004px;
+            width: 1441px;
+            height: 1271px;
+            background: #fa2935;
+        }
+
+        /* Projects headings */
+        .proj-line {
+            position: absolute;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            line-height: 0.8;
+            white-space: nowrap;
+            z-index: 3;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        /* Hover green bar that appears BEHIND the project name */
+        .proj-hover-bar {
+            position: absolute;
+            left: 1px;
+            width: 1439px;
+            height: 0;
+            background: #09d24b;
+            z-index: 2;
+            overflow: hidden;
+            transition: height 0.25s ease;
+            pointer-events: none;
+        }
+
+        .proj-4boys {
+            top: 3286px;
+            left: calc(50% - 544px);
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 138.5px;
+            color: #81d0fc;
+            letter-spacing: -0.03em;
+            line-height: 0.85;
+        }
+
+        .proj-only {
+            top: 3407px;
+            left: calc(50% + 4.5px);
+            transform: translateX(-50%);
+            font-family: 'Bayon', 'Arial', sans-serif;
+            font-weight: 400;
+            font-size: 165.8px;
+            color: #81d0fc;
+            letter-spacing: -0.03em;
+            width: 854px;
+            text-align: center;
+        }
+
+        .proj-japan {
+            top: 3529px;
+            left: calc(50% + 4px);
+            transform: translateX(-50%);
+            font-family: 'Babylonica', cursive;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 165.8px;
+            color: #81d0fc;
+            letter-spacing: -0.03em;
+            width: 1096px;
+            text-align: center;
+        }
+
+        /* Green stripe behind FROM UKRAINE (hidden by default, shown on hover) */
+        .green-stripe {
+            position: absolute;
+            top: 3648px;
+            left: 1px;
+            width: 1439px;
+            height: 0;
+            background: #09d24b;
+            z-index: 2;
+            overflow: hidden;
+            transition: height 0.25s ease;
+        }
+
+        .proj-from {
+            top: 3648px;
+            left: calc(50% + 4.5px);
+            transform: translateX(-50%);
+            font-family: 'Cochin', 'Playfair Display', serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 164.5px;
+            color: #81d0fc;
+            letter-spacing: -0.03em;
+            text-align: center;
+            z-index: 3;
+        }
+
+        .proj-strip {
+            top: 3790px;
+            left: calc(50% + 0.5px);
+            transform: translateX(-50%);
+            font-family: 'Casino', serif;
+            font-style: normal;
+            font-size: 173.8px;
+            color: #81d0fc;
+            letter-spacing: -0.03em;
+            text-align: center;
+            z-index: 3;
+            line-height: 0.9;
+        }
+
+        .proj-feet {
+            top: 3921px;
+            left: calc(50% - 129px);
+            font-family: 'Beau Rivage', cursive;
+            font-size: 195.6px;
+            letter-spacing: -0.03em;
+            color: #81d0fc;
+            z-index: 4;
+            text-transform: none;
+            line-height: 0.9;
+        }
+
+        /* Hover state: text turns yellow on green bar */
+        .proj-line.hovered {
+            color: #fff70b !important;
+        }
+
+        /* Project image overlay (changes on hover, dynamic position) */
+        .proj-couple {
+            position: absolute;
+            right: 0;
+            width: 230px;
+            height: 153px;
+            z-index: 5;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, top 0.3s;
+            pointer-events: none;
+        }
+
+        .proj-couple img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ──────── SHOP GRID SECTION ──────── */
+        .shop-section {
+            position: absolute;
+            top: 4433px;
+            left: 0;
+            width: 1442px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            /* Це створить жовті лінії-розділювачі */
+            background: #fff70b;
+            z-index: 2;
+        }
+
+        .shop-item {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .shop-img {
+            width: 100%;
+            height: 534px;
+            position: relative;
+            /* Запасний фон "килимка", якщо картинки прозорі */
+            background: #1f3d2e;
+            background-image:
+                linear-gradient(0deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .shop-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .shop-info {
+            background: #b5b5b5;
+            height: 206px;
+            padding: 24px 20px;
+            /* Внутрішні відступи сірого блоку */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .shop-info-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .shop-title {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 46px;
+            letter-spacing: -1.4px;
+            color: #fa2935;
+            text-transform: uppercase;
+            line-height: 0.95;
+            max-width: 440px;
+            /* Щоб довгі назви переносились, як у "SUB#4..." */
+        }
+
+        .shop-price {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 46px;
+            letter-spacing: -1.4px;
+            color: #fa2935;
+            text-transform: uppercase;
+            line-height: 0.95;
+        }
+
+        .shop-info-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .shop-details {
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+            margin-bottom: 0px;
+        }
+
+        .shop-pub,
+        .shop-meta {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 17px;
+            letter-spacing: -0.52px;
+            color: #fa2935;
+            line-height: 1.1;
+            white-space: nowrap;
+        }
+
+        .shop-buy {
+            background: #ffffff;
+            padding: 8px 16px;
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 46px;
+            letter-spacing: -1.4px;
+            color: #fa2935;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            line-height: 1;
+            transition: transform 0.1s;
+        }
+
+        .shop-buy:hover {
+            transform: scale(0.98);
+        }
+
+        /* ──────── TELEGRAM (blue) ──────── */
+        .bg-blue2 {
+            position: absolute;
+            left: -1px;
+            top: 5931px;
+            width: 1442px;
+            height: 970px;
+            background: #81d0fc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .telegram {
+            font-family: 'Compagnon', sans-serif;
+            font-weight: 300;
+            font-size: 161px;
+            letter-spacing: -0.04em;
+            color: #fff70b;
+            text-align: center;
+            line-height: 0.85;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .telegram p {
+            line-height: 0.85;
+            margin: 0;
+        }
+
+        /* Body shot on blue (rotated) */
+        .body-photo {
+            position: absolute;
+            top: 6901px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 437px;
+            height: 1273px;
+            overflow: hidden;
+            z-index: 6;
+        }
+
+        .body-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ──────── FOOTER ──────── */
+        /* contact row */
+        .footer-link {
+            position: absolute;
+            top: 8161px;
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 16px;
+            letter-spacing: -0.48px;
+            color: #fa2935;
+            line-height: 0.93;
+            text-align: center;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        .footer-link.fl1 {
+            left: calc(50% - 670px);
+        }
+
+        .footer-link.fl2 {
+            left: calc(50% - 573px);
+        }
+
+        .footer-link.fl3 {
+            left: calc(50% - 485px);
+        }
+
+        /* Big SVG footer */
+        .footer-logo-container {
+            position: absolute;
+            top: 8452px;
+            left: 0;
+            width: 1442px;
+            height: 400px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            width: 1300px;
+            transform-origin: bottom center;
+            will-change: transform;
+        }
+
+        /* responsive scaling */
+        @media (max-width:1442px) {
+            .canvas-wrap {
+                overflow-x: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="canvas-wrap">
+        <div class="canvas">
+
+            <div class="header-fixed">
+                <div class="logo-block">
+                    <a href="index.html"><img src="assets/Group.svg" alt=""></a>
+                </div>
+                <a href="projects.html" class="nav-item">PROJECTS</a>
+                <a href="shop.html" class="nav-item">SHOP</a>
+                <a href="about.html" class="nav-item">ABOUT</a>
+                <a href="contact.html" class="nav-item">CONTACT</a>
+            </div>
+
+            <div class="hero-crop crop-glasses"><img src="assets/фіScreenshot 2026-04-27 at 00.38 1.png" alt=""></div>
+            <div class="hero-crop crop-couple"><img src="assets/фScreenshot 2026-04-27 at 00.38 1.png" alt=""></div>
+            <div class="hero-crop crop-wet"><img src="assets/ASDScreenshot 2026-04-27 at 00.38 1.png" alt=""></div>
+            <div class="crop-rifle">
+                <div class="inner"><img src="assets/Screenshot 2026-04-27 at 00.38 1.png" alt=""></div>
+            </div>
+
+            <div class="media-top hover-blink">Media</div>
+            <div class="artifacts hover-blink">TELE-<br>GRAM</div>
+            <div class="exh-top hover-blink">Exhibitions</div>
+            <div class="main-logo">
+                <img src="assets/main logo.png" alt="SOFIYA LORIASHVILI">
+            </div>
+
+            <a href="projects.html" class="projects-label proj-top hover-blink">Projects</a>
+            <a href="shop.html" class="shop-dot s0 hover-blink">SHOP</a>
+
+            <a href="https://instagram.com/" class="contact-link cl1">instagram</a>
+            <a href="https://onlyfans.com/" class="contact-link cl2">onlyfans</a>
+            <a href="mailto:hello@sofiya.art" class="contact-link cl3">e-mail</a>
+
+            <div class="bg-blue1"></div>
+
+            <h1 class="sofiya-huge">SOFIYA</h1>
+
+            <p class="huge-desc">Sofiya Loriashvili is a contemporary artist who focuses on the intersection of
+                painting, digital art, and experimental visual narratives. Her work often explores the transformation of
+                classical forms through modern technical lenses, incorporating elements of mysticism, architectural
+                rhythm, and anatomical deconstruction. Loriashvili's practice is characterized by a sophisticated use of
+                color and texture, blending traditional techniques with a conceptual approach to space and human
+                identity.</p>
+
+            <div class="img-couch"><img src="assets/image 34.png" alt=""></div>
+
+            <div class="exh-mid">Exhibitions</div>
+            <div class="media-mid">Media</div>
+
+            <div class="exh-list">
+                "Dissonant Shelter" 229 lab collective exhibition - october 2025
+
+                "En plein coeur" Guerlain collective exhibition - 22 october - 16 november 2025
+
+                Japan collective exhibition at the Design Festa Gallery - November 2024
+
+                Le Sample - Maison 2024
+
+                Festival d'Arles 2024, 10/10 fisheye - "ONLY YOU AND ME"
+
+                Museum of Warsaw, projection of "Rezavod" 18.08.2023
+
+                Arles "Night of the year" projection of "Rezavod" - 2023
+
+                59 rue notre dame de Nazareth "Approches du bonheur " 30.06-06.07.2022
+
+                STOCK GALLERY « Ça fait comme si on était demain alors qu'on est déjà hier»
+
+                06.05.2022 - collective exhibition
+
+                CHAPELLE XIV 14.04.2022 - projection &amp; talk
+
+                DOC « SLAVA UKRAÏNI » 13.03.2022 - collective exhibition
+
+                35-37 « LOOK AT US » 18.01.2022 - permanent solo exhibition
+
+                Espace Cosme «Place's Iv'e » - solo exhibition
+
+                35-37 « CHAOS » 26.08.21 - collective exhibition
+
+                Espace Cosme « éxutoire » 01.07.21 - collective</div>
+
+            <div class="media-list">Libération - Only U and Me
+
+                Joia Magazine
+
+                Perimetro Magazine
+
+                Fisheye Magazine - the perfect woman is a love doll
+
+                Dazed - 31 days in Japan
+
+                Dazed - My Book
+
+                Fisheye Magazine - My Book
+
+                Metal Magazine - Interview
+
+                VICE - 3
+
+                I.D. - Poignant photographs of daily life in Ukraine
+
+                VICE - 2
+
+                VICE - 1
+
+                Konbini - interview</div>
+
+
+
+            <div class="grass-band"><img src="assets/Rectangle 33.png" alt=""></div>
+
+            <div class="bg-red"></div>
+            <div class="projects-label proj-mid">Projects</div>
+
+            <div class="proj-hover-bar" id="bar-4boys" style="top:3280px;"></div>
+            <div class="proj-hover-bar" id="bar-only" style="top:3407px;"></div>
+            <div class="proj-hover-bar" id="bar-japan" style="top:3529px;"></div>
+            <div class="proj-hover-bar" id="bar-strip" style="top:3790px;"></div>
+            <div class="proj-hover-bar" id="bar-feet" style="top:3921px;"></div>
+
+            <div class="proj-line proj-4boys" data-project="4boys">4 the boyz</div>
+            <div class="proj-line proj-only" data-project="only">only you and me</div>
+            <div class="proj-line proj-japan" data-project="japan">japan</div>
+
+            <div class="green-stripe" id="green-stripe-from"></div>
+            <div class="proj-line proj-from" data-project="from">FROM UKRAINE</div>
+
+            <div class="proj-line proj-strip" data-project="strip">strip strip</div>
+            <div class="proj-line proj-feet" data-project="feet">Feet</div>
+
+            <div class="proj-couple"><img id="proj-img" src="assets/image 29.png" alt=""></div>
+
+            <div class="shop-marquee-container sm2">
+                <div class="shop-marquee-content">
+                    <span>SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP</span>
+                    <span>SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP</span>
+                </div>
+            </div>
+
+            <div class="shop-section">
+
+                <div class="shop-item">
+                    <div class="shop-img">
+                        <img src="assets/image 30.png" alt="Chiken Wing">
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-info-top">
+                            <div class="shop-title">CHIKEN WING</div>
+                            <div class="shop-price">$60</div>
+                        </div>
+                        <div class="shop-info-bottom">
+                            <div class="shop-details">
+                                <div class="shop-pub">published by PAPERWORK</div>
+                                <div class="shop-meta">100 pages<br>Perfect Bound<br>5.82 X 8.26<br>Edition of 100
+                                    copies</div>
+                            </div>
+                            <button class="shop-buy">BUY</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shop-item">
+                    <div class="shop-img">
+                        <img src="assets/image 31.png" alt="Only U and Me">
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-info-top">
+                            <div class="shop-title">SUB#4 ONLY<br>U AND ME</div>
+                            <div class="shop-price">$34</div>
+                        </div>
+                        <div class="shop-info-bottom">
+                            <div class="shop-details">
+                                <div class="shop-pub">Fisheye éditions</div>
+                                <div class="shop-meta">140 × 210 mm<br>96 pages</div>
+                            </div>
+                            <button class="shop-buy">BUY</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shop-item">
+                    <div class="shop-img">
+                        <img src="assets/image 32.png" alt="Chiken Wing">
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-info-top">
+                            <div class="shop-title">CHIKEN WING</div>
+                            <div class="shop-price">$70</div>
+                        </div>
+                        <div class="shop-info-bottom">
+                            <div class="shop-details">
+                                <div class="shop-pub">published by PAPERWORK</div>
+                                <div class="shop-meta">100 pages<br>Perfect Bound<br>5.82 X 8.26<br>Edition of 100
+                                    copies</div>
+                            </div>
+                            <button class="shop-buy">BUY</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shop-item">
+                    <div class="shop-img">
+                        <img src="assets/image 33.png" alt="Chiken Wing">
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-info-top">
+                            <div class="shop-title">CHIKEN WING</div>
+                            <div class="shop-price">$20</div>
+                        </div>
+                        <div class="shop-info-bottom">
+                            <div class="shop-details">
+                                <div class="shop-pub">published by PAPERWORK</div>
+                                <div class="shop-meta">100 pages<br>Perfect Bound<br>5.82 X 8.26<br>Edition of 100
+                                    copies</div>
+                            </div>
+                            <button class="shop-buy">BUY</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bg-blue2">
+                <div class="telegram">
+                    CHECK MY<br>TELEGRAM
+                </div>
+            </div>
+
+            <div class="body-photo"><img src="assets/Screenshot 2026-04-27 at 17.07.12 1.png" alt=""></div>
+
+            <a class="footer-link fl1" href="#">instagram</a>
+            <a class="footer-link fl2" href="#">onlyfans</a>
+            <a class="footer-link fl3" href="#">e-mail</a>
+
+            <div class="footer-logo-container">
+                <img src="assets/logo_footer.svg" alt="SOFIYA LORIASHVILI" class="footer-logo">
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Scale canvas to viewport width using CSS zoom (scales layout box too)
+        (function () {
+            const canvas = document.querySelector('.canvas');
+            function scale() {
+                const vw = document.documentElement.clientWidth;
+                const s = vw / 1442;
+                canvas.style.zoom = s;
+            }
+            scale();
+            window.addEventListener('resize', scale);
+        })();
+
+        // ── Projects hover interaction ──
+        (function () {
+            const projectImages = {
+                '4boys': 'assets/2025_LORIASHVILI_KINGKONG_MYSSIA__143.jpg',
+                'only': 'assets/_DSC1553.jpg',
+                'japan': 'assets/24_MUNE_LORIASHVILI_05.jpg',
+                'from': 'assets/image 29.png',
+                'strip': 'assets/2025_STAFFIE_loriashvili_02.jpg',
+                'feet': 'assets/25_WHISPER_NEMESIS_15.jpg'
+            };
+
+            const barIds = {
+                '4boys': 'bar-4boys',
+                'only': 'bar-only',
+                'japan': 'bar-japan',
+                'strip': 'bar-strip',
+                'feet': 'bar-feet'
+            };
+
+            const projImgWrapper = document.querySelector('.proj-couple');
+            const projImg = document.getElementById('proj-img');
+            const greenStripe = document.getElementById('green-stripe-from');
+            const projLines = document.querySelectorAll('.proj-line[data-project]');
+
+            projLines.forEach(function (el) {
+                const proj = el.dataset.project;
+
+                el.addEventListener('mouseenter', function () {
+                    // Change image
+                    if (projectImages[proj]) {
+                        projImg.src = projectImages[proj];
+                        // Move image exactly above the green bar
+                        const topPos = el.offsetTop - 153;
+                        projImgWrapper.style.top = topPos + 'px';
+                        projImgWrapper.style.opacity = '1';
+                    }
+
+                    // Add yellow text class
+                    el.classList.add('hovered');
+
+                    // Show green bar for non-"from" projects
+                    if (proj !== 'from' && barIds[proj]) {
+                        const bar = document.getElementById(barIds[proj]);
+                        if (bar) bar.style.height = el.offsetHeight + 'px';
+                    }
+
+                    // For "from" — show the green stripe
+                    if (proj === 'from') {
+                        greenStripe.style.height = el.offsetHeight + 'px';
+                    }
+                });
+
+                el.addEventListener('mouseleave', function () {
+                    // Hide image
+                    projImgWrapper.style.opacity = '0';
+
+                    // Remove yellow text
+                    el.classList.remove('hovered');
+
+                    // Hide green bar
+                    if (proj !== 'from' && barIds[proj]) {
+                        const bar = document.getElementById(barIds[proj]);
+                        if (bar) bar.style.height = '0';
+                    }
+
+                    // For "from" — hide the green stripe
+                    if (proj === 'from') {
+                        greenStripe.style.height = '0';
+                    }
+                });
+            });
+        })();
+
+        // Footer stretch effect on scroll
+        (function () {
+            const footerLogo = document.querySelector('.footer-logo');
+            if (!footerLogo) return;
+
+            window.addEventListener('scroll', function () {
+                requestAnimationFrame(function () {
+                    // Calculate scroll distance to the very bottom
+                    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollPos = window.scrollY;
+                    const distanceToBottom = maxScroll - scrollPos;
+
+                    let scale = 1;
+
+                    // If reached the very bottom (within 20px of scroll length)
+                    if (distanceToBottom <= 20) {
+                        footerLogo.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                        footerLogo.style.transform = 'scaleY(1)';
+                    } else if (distanceToBottom < 900) {
+                        // Start stretching when within 900 px of the bottom
+                        footerLogo.style.transition = 'none';
+                        const progress = 1 - (distanceToBottom / 900);
+                        // Exponential stretch for extreme effect, from scale 1 up to 1.5
+                        scale = 1 + Math.pow(progress, 3) * 0.5;
+                        footerLogo.style.transform = `scaleY(${scale})`;
+                    } else {
+                        // Normal state
+                        footerLogo.style.transition = 'none';
+                        footerLogo.style.transform = 'scaleY(1)';
+                    }
+                });
+            });
+        })();
+
+        // ── Telegram image trail effect ──
+        (function () {
+            const tgBlock = document.querySelector('.bg-blue2');
+            if (tgBlock) {
+                const tgImages = [
+                    'assets/telegram/photo_2026-03-24_09-53-02.jpg',
+                    'assets/telegram/photo_2026-03-31_14-33-22.jpg',
+                    'assets/telegram/photo_2026-04-01_19-49-05.jpg',
+                    'assets/telegram/photo_2026-04-18_20-09-45 (2).jpg',
+                    'assets/telegram/photo_2026-04-18_20-09-45.jpg',
+                    'assets/telegram/photo_2026-04-22_17-35-07.jpg',
+                    'assets/telegram/photo_2026-04-27_17-02-05 (2).jpg',
+                    'assets/telegram/photo_2026-04-27_17-02-06.jpg'
+                ];
+                let lastX = 0;
+                let lastY = 0;
+                let imgIndex = 0;
+
+                tgBlock.addEventListener('mousemove', function (e) {
+                    const x = e.offsetX;
+                    const y = e.offsetY;
+
+                    if (e.target !== tgBlock) return; // avoid spawning inside images if they catch events
+
+                    const dist = Math.hypot(x - lastX, y - lastY);
+                    if (dist < 50) return;
+
+                    lastX = x; lastY = y;
+
+                    const img = document.createElement('img');
+                    img.src = tgImages[imgIndex % tgImages.length];
+                    imgIndex++;
+
+                    img.style.position = 'absolute';
+                    img.style.width = '180px';
+                    img.style.left = (x - 90) + 'px';
+                    img.style.top = (y - 135) + 'px';
+                    img.style.objectFit = 'cover';
+                    img.style.pointerEvents = 'none';
+                    img.style.transform = `rotate(${(Math.random() - 0.5) * 40}deg)`;
+                    img.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+                    img.style.opacity = '1';
+
+                    tgBlock.appendChild(img);
+
+                    void img.offsetWidth; // trigger layout
+
+                    setTimeout(() => {
+                        img.style.opacity = '0';
+                        img.style.transform = img.style.transform + ' scale(0.8)';
+                    }, 800);
+
+                    setTimeout(() => {
+                        if (img.parentNode) img.parentNode.removeChild(img);
+                    }, 1800);
+                });
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

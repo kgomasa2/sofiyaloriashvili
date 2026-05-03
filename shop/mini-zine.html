@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440">
+    <title>Mini Zine · SHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Babylonica&family=Beau+Rivage&family=Bitcount+Prop+Single&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/base.css">
+    <link rel="stylesheet" href="../assets/detail.css">
+</head>
+
+<body>
+    <div class="canvas-wrap">
+        <div class="canvas">
+
+            <div class="header-fixed">
+                <div class="logo-block">
+                    <a href="../index.html"><img src="../assets/Group.svg" alt="SOFIYA"></a>
+                </div>
+                <a href="../projects.html" class="nav-item">PROJECTS</a>
+                <a href="../shop.html" class="nav-item">SHOP</a>
+                <a href="../about.html" class="nav-item">ABOUT</a>
+                <a href="../contact.html" class="nav-item">CONTACT</a>
+            </div>
+
+            <div class="page-top"></div>
+
+            <main>
+                <section class="product-detail">
+                    <div class="pd-gallery">
+                        <div class="pd-main-image">
+                            <img id="pd-main" src="../assets/image 33.png" alt="Mini Zine">
+                        </div>
+                        <div class="pd-thumbs">
+                            <div class="pd-thumb is-active" data-src="../assets/image 33.png">
+                                <img src="../assets/image 33.png" alt=""></div>
+                            <div class="pd-thumb" data-src="../assets/image 30.png">
+                                <img src="../assets/image 30.png" alt=""></div>
+                            <div class="pd-thumb" data-src="../assets/image 31.png">
+                                <img src="../assets/image 31.png" alt=""></div>
+                            <div class="pd-thumb" data-src="../assets/image 32.png">
+                                <img src="../assets/image 32.png" alt=""></div>
+                        </div>
+                    </div>
+
+                    <div class="pd-info">
+                        <div class="pd-breadcrumb"><a href="../shop.html">Shop</a> · Zines</div>
+                        <h1 class="pd-title">Mini Zine</h1>
+                        <div class="pd-pub">Self-published · 2025</div>
+
+                        <div class="pd-price-row">
+                            <div class="pd-price">$20</div>
+                            <div class="pd-stock">In stock</div>
+                        </div>
+
+                        <div class="pd-desc">
+                            <p>Pocket-sized 32-page zine, made on a risograph in two colors. Stapled in the studio,
+                                slightly wonky, full of love.</p>
+                        </div>
+
+                        <dl class="pd-specs">
+                            <dt>Format</dt>
+                            <dd>A6 (105 × 148 mm)</dd>
+                            <dt>Pages</dt>
+                            <dd>32</dd>
+                            <dt>Binding</dt>
+                            <dd>Saddle stitched</dd>
+                            <dt>Print</dt>
+                            <dd>Risograph, 2 colors</dd>
+                            <dt>Edition</dt>
+                            <dd>Open</dd>
+                        </dl>
+
+                        <form class="pd-buy" onsubmit="event.preventDefault();">
+                            <input class="pd-qty" type="number" name="qty" value="1" min="1" max="9">
+                            <button class="pd-add" type="submit">Add to cart</button>
+                        </form>
+
+                        <p class="pd-shipping">Worldwide shipping · Free above $120 · Returns accepted within 14 days
+                        </p>
+                    </div>
+                </section>
+
+                <section class="pd-related">
+                    <h2>You may also like</h2>
+                    <div class="pd-related-grid">
+                        <a class="pd-related-card" href="chiken-wing-paperwork.html">
+                            <div class="rc-image"><img src="../assets/image 30.png" alt=""></div>
+                            <div class="rc-info">
+                                <div class="rc-title">Chiken Wing</div>
+                                <div class="rc-price">$60</div>
+                            </div>
+                        </a>
+                        <a class="pd-related-card" href="sub-4-only-u-and-me.html">
+                            <div class="rc-image"><img src="../assets/image 31.png" alt=""></div>
+                            <div class="rc-info">
+                                <div class="rc-title">SUB#4</div>
+                                <div class="rc-price">$34</div>
+                            </div>
+                        </a>
+                        <a class="pd-related-card" href="strip-strip-tee.html">
+                            <div class="rc-image"><img src="../assets/2025_STAFFIE_loriashvili_02.jpg" alt=""></div>
+                            <div class="rc-info">
+                                <div class="rc-title">Strip Strip Tee</div>
+                                <div class="rc-price">$45</div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="site-footer">
+                <div class="footer-links">
+                    <a href="#">instagram</a>
+                    <a href="#">onlyfans</a>
+                    <a href="#">e-mail</a>
+                </div>
+                <div class="footer-logo-container">
+                    <img src="../assets/logo_footer.svg" alt="SOFIYA LORIASHVILI" class="footer-logo">
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="../assets/base.js"></script>
+    <script>
+        (function () {
+            const main = document.getElementById('pd-main');
+            document.querySelectorAll('.pd-thumb').forEach(function (t) {
+                t.addEventListener('click', function () {
+                    document.querySelectorAll('.pd-thumb').forEach(x => x.classList.remove('is-active'));
+                    t.classList.add('is-active');
+                    main.src = t.dataset.src;
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

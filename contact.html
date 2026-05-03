@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440">
+    <title>CONTACT — SOFIYA LORIASHVILI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Babylonica&family=Beau+Rivage&family=Bitcount+Prop+Single&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/base.css">
+    <style>
+        /* ──────── CONTACT PAGE ──────── */
+        .contact-page {
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+
+        .contact-heading {
+            font-family: 'Babylonica', cursive;
+            font-size: 320px;
+            line-height: 0.85;
+            letter-spacing: -8px;
+            color: var(--c-red);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            padding: 0 8px;
+        }
+
+        /* Left: contact methods (each row is editable in CMS) */
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            /* CMS: append <a class="contact-method">…</a> here */
+        }
+
+        .contact-method {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+            padding: 32px 36px;
+            background: var(--c-gray);
+            color: var(--c-red);
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .contact-method:hover {
+            background: var(--c-red);
+            color: var(--c-yellow);
+        }
+
+        .cm-label {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 52px;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .cm-handle {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 20px;
+            letter-spacing: -0.4px;
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        /* Right: form */
+        .contact-form {
+            background: var(--c-blue);
+            padding: 56px 56px 64px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .contact-form h2 {
+            font-family: 'Casino', serif;
+            font-size: 110px;
+            line-height: 0.85;
+            letter-spacing: -3px;
+            color: var(--c-red);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .contact-form label {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-family: 'Benzin', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--c-red);
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 22px;
+            letter-spacing: -0.4px;
+            color: var(--c-red);
+            background: var(--c-yellow);
+            border: 2px solid var(--c-red);
+            padding: 14px 18px;
+            outline: none;
+            width: 100%;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 160px;
+            font-family: 'ArialNarrow', sans-serif;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            background: var(--c-white);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .submit-btn {
+            align-self: flex-start;
+            background: var(--c-red);
+            color: var(--c-yellow);
+            border: none;
+            padding: 18px 36px;
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            background: var(--c-yellow);
+            color: var(--c-red);
+        }
+
+        /* Studio info under contacts */
+        .studio-info {
+            margin-top: 60px;
+            padding: 60px 80px;
+            background: var(--c-red);
+            color: var(--c-yellow);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .studio-block h3 {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            opacity: 0.7;
+        }
+
+        .studio-block p {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 22px;
+            line-height: 1.3;
+            letter-spacing: -0.4px;
+        }
+
+        .studio-block a {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="canvas-wrap">
+        <div class="canvas">
+
+            <div class="header-fixed">
+                <div class="logo-block">
+                    <a href="index.html"><img src="assets/Group.svg" alt="SOFIYA"></a>
+                </div>
+                <a href="projects.html" class="nav-item">PROJECTS</a>
+                <a href="shop.html" class="nav-item">SHOP</a>
+                <a href="about.html" class="nav-item">ABOUT</a>
+                <a href="contact.html" class="nav-item">CONTACT</a>
+            </div>
+
+            <div class="page-top"></div>
+
+            <main class="contact-page">
+
+                <h1 class="contact-heading hover-blink">contact</h1>
+
+                <section class="contact-grid">
+
+                    <div class="contact-methods">
+                        <!-- BEGIN: contact method (CMS-repeatable) -->
+                        <a class="contact-method" href="https://instagram.com/" target="_blank" rel="noopener">
+                            <span class="cm-label">Instagram</span>
+                            <span class="cm-handle">@sofiya.loriashvili</span>
+                        </a>
+                        <!-- END: contact method -->
+
+                        <a class="contact-method" href="https://onlyfans.com/" target="_blank" rel="noopener">
+                            <span class="cm-label">OnlyFans</span>
+                            <span class="cm-handle">@sofiya</span>
+                        </a>
+                        <a class="contact-method" href="https://t.me/" target="_blank" rel="noopener">
+                            <span class="cm-label">Telegram</span>
+                            <span class="cm-handle">@sofiya_l</span>
+                        </a>
+                        <a class="contact-method" href="mailto:hello@sofiya.art">
+                            <span class="cm-label">E-mail</span>
+                            <span class="cm-handle">hello@sofiya.art</span>
+                        </a>
+                        <a class="contact-method" href="mailto:press@sofiya.art">
+                            <span class="cm-label">Press</span>
+                            <span class="cm-handle">press@sofiya.art</span>
+                        </a>
+                    </div>
+
+                    <form class="contact-form" id="contact-form" autocomplete="off">
+                        <h2>Get in touch</h2>
+
+                        <div class="form-row">
+                            <label>
+                                Name
+                                <input type="text" name="name" required>
+                            </label>
+                            <label>
+                                E-mail
+                                <input type="email" name="email" required>
+                            </label>
+                        </div>
+
+                        <label>
+                            Subject
+                            <select name="subject">
+                                <option>Collaboration</option>
+                                <option>Commission</option>
+                                <option>Press / interview</option>
+                                <option>Print order</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            Message
+                            <textarea name="message" required></textarea>
+                        </label>
+
+                        <button type="submit" class="submit-btn">Send →</button>
+                    </form>
+                </section>
+
+                <section class="studio-info">
+                    <div class="studio-block">
+                        <h3>Studio</h3>
+                        <p>Paris, FR<br>By appointment only</p>
+                    </div>
+                    <div class="studio-block">
+                        <h3>Representation</h3>
+                        <p>For commercial enquiries:<br><a href="mailto:agent@sofiya.art">agent@sofiya.art</a></p>
+                    </div>
+                    <div class="studio-block">
+                        <h3>Press kit</h3>
+                        <p><a href="#">Download PDF</a> — bio, hi-res images, exhibition history.</p>
+                    </div>
+                </section>
+
+            </main>
+
+            <footer class="site-footer">
+                <div class="footer-links">
+                    <a href="#">instagram</a>
+                    <a href="#">onlyfans</a>
+                    <a href="#">e-mail</a>
+                </div>
+                <div class="footer-logo-container">
+                    <img src="assets/logo_footer.svg" alt="SOFIYA LORIASHVILI" class="footer-logo">
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="assets/base.js"></script>
+</body>
+
+</html>

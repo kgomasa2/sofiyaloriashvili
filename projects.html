@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440">
+    <title>PROJECTS — SOFIYA LORIASHVILI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Babylonica&family=Beau+Rivage&family=Bitcount+Prop+Single&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/base.css">
+    <style>
+        /* ──────── PROJECTS PAGE ──────── */
+        .projects-page {
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+
+        .page-heading.projects {
+            font-family: 'eUkraineHead', sans-serif;
+            font-size: 180px;
+            color: var(--c-red);
+            letter-spacing: -8px;
+        }
+
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            /* CMS: append <article class="project-card">…</article> here */
+        }
+
+        .project-card {
+            position: relative;
+            display: block;
+            width: 100%;
+            color: inherit;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .project-card + .project-card {
+            border-top: 8px solid var(--c-yellow);
+        }
+
+        .project-card .pc-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #1f3d2e;
+        }
+
+        .project-card .pc-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .project-card:hover .pc-image img {
+            transform: scale(1.03);
+        }
+
+        .project-card .pc-meta {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 56px 64px;
+            color: var(--c-yellow);
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0.55) 0%,
+                    rgba(0, 0, 0, 0) 30%,
+                    rgba(0, 0, 0, 0) 60%,
+                    rgba(0, 0, 0, 0.65) 100%);
+            pointer-events: none;
+        }
+
+        .pc-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .pc-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-family: 'Benzin', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .pc-tag {
+            background: var(--c-yellow);
+            color: var(--c-red);
+            padding: 6px 14px;
+            border-radius: 999px;
+        }
+
+        .pc-year {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .pc-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+            pointer-events: auto;
+        }
+
+        .pc-text {
+            max-width: 880px;
+        }
+
+        .pc-title {
+            font-family: 'Casino', serif;
+            font-size: 140px;
+            line-height: 0.85;
+            letter-spacing: -4px;
+            text-transform: uppercase;
+            color: var(--c-yellow);
+            margin-bottom: 12px;
+        }
+
+        .pc-subtitle {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 22px;
+            line-height: 1.15;
+            letter-spacing: -0.4px;
+            color: var(--c-yellow);
+            opacity: 0.95;
+            max-width: 720px;
+        }
+
+        .pc-view {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            color: var(--c-yellow);
+            text-transform: uppercase;
+            border: 2px solid var(--c-yellow);
+            padding: 14px 28px;
+            transition: background 0.2s, color 0.2s;
+            pointer-events: auto;
+            white-space: nowrap;
+        }
+
+        .project-card:hover .pc-view {
+            background: var(--c-yellow);
+            color: var(--c-red);
+        }
+
+        /* Per-project title font variations matching landing styling */
+        .pc-title.f-benzin {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+        }
+
+        .pc-title.f-bayon {
+            font-family: 'Bayon', sans-serif;
+            font-size: 160px;
+        }
+
+        .pc-title.f-babylonica {
+            font-family: 'Babylonica', cursive;
+            font-size: 180px;
+        }
+
+        .pc-title.f-cochin {
+            font-family: 'Cochin', 'Playfair Display', serif;
+        }
+
+        .pc-title.f-beau {
+            font-family: 'Beau Rivage', cursive;
+            font-size: 180px;
+            text-transform: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="canvas-wrap">
+        <div class="canvas">
+
+            <div class="header-fixed">
+                <div class="logo-block">
+                    <a href="index.html"><img src="assets/Group.svg" alt="SOFIYA"></a>
+                </div>
+                <a href="projects.html" class="nav-item">PROJECTS</a>
+                <a href="shop.html" class="nav-item">SHOP</a>
+                <a href="about.html" class="nav-item">ABOUT</a>
+                <a href="contact.html" class="nav-item">CONTACT</a>
+            </div>
+
+            <div class="page-top"></div>
+
+            <main class="projects-page">
+
+                <h1 class="page-heading projects hover-blink">PROJECTS</h1>
+
+                <section class="projects-list">
+
+                    <!-- BEGIN: project card (CMS-repeatable) -->
+                    <a href="projects/4-the-boyz.html" class="project-card" data-slug="4-the-boyz">
+                        <div class="pc-image">
+                            <img src="assets/2025_LORIASHVILI_KINGKONG_MYSSIA__143.jpg" alt="4 the boyz">
+                        </div>
+                        <div class="pc-meta">
+                            <div class="pc-top">
+                                <div class="pc-tags">
+                                    <span class="pc-tag">Photography</span>
+                                    <span class="pc-tag">Portrait</span>
+                                </div>
+                                <div class="pc-year">2025</div>
+                            </div>
+                            <div class="pc-bottom">
+                                <div class="pc-text">
+                                    <h2 class="pc-title f-benzin">4 the boyz</h2>
+                                    <p class="pc-subtitle">A series exploring masculinity and brotherhood through
+                                        intimate portraiture.</p>
+                                </div>
+                                <span class="pc-view">View project →</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- END: project card -->
+
+                    <a href="projects/only-you-and-me.html" class="project-card" data-slug="only-you-and-me">
+                        <div class="pc-image">
+                            <img src="assets/_DSC1553.jpg" alt="only you and me">
+                        </div>
+                        <div class="pc-meta">
+                            <div class="pc-top">
+                                <div class="pc-tags">
+                                    <span class="pc-tag">Editorial</span>
+                                    <span class="pc-tag">Intimacy</span>
+                                </div>
+                                <div class="pc-year">2024</div>
+                            </div>
+                            <div class="pc-bottom">
+                                <div class="pc-text">
+                                    <h2 class="pc-title f-bayon">only you and me</h2>
+                                    <p class="pc-subtitle">A diary of love and isolation. Featured in Fisheye Magazine
+                                        and exhibited at Festival d'Arles 2024.</p>
+                                </div>
+                                <span class="pc-view">View project →</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="projects/ukraine.html" class="project-card" data-slug="ukraine">
+                        <div class="pc-image">
+                            <img src="assets/image 29.png" alt="ukraine">
+                        </div>
+                        <div class="pc-meta">
+                            <div class="pc-top">
+                                <div class="pc-tags">
+                                    <span class="pc-tag">Documentary</span>
+                                    <span class="pc-tag">Home</span>
+                                </div>
+                                <div class="pc-year">2022 — ongoing</div>
+                            </div>
+                            <div class="pc-bottom">
+                                <div class="pc-text">
+                                    <h2 class="pc-title f-cochin">FROM UKRAINE</h2>
+                                    <p class="pc-subtitle">An ongoing visual letter from home — daily life, people and
+                                        landscapes between war and tenderness.</p>
+                                </div>
+                                <span class="pc-view">View project →</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="projects/japan.html" class="project-card" data-slug="japan">
+                        <div class="pc-image">
+                            <img src="assets/24_MUNE_LORIASHVILI_05.jpg" alt="japan">
+                        </div>
+                        <div class="pc-meta">
+                            <div class="pc-top">
+                                <div class="pc-tags">
+                                    <span class="pc-tag">Travel</span>
+                                    <span class="pc-tag">Series</span>
+                                </div>
+                                <div class="pc-year">2024</div>
+                            </div>
+                            <div class="pc-bottom">
+                                <div class="pc-text">
+                                    <h2 class="pc-title f-babylonica">japan</h2>
+                                    <p class="pc-subtitle">31 days in Japan — published in Dazed and exhibited at the
+                                        Design Festa Gallery.</p>
+                                </div>
+                                <span class="pc-view">View project →</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="projects/strip-strip.html" class="project-card" data-slug="strip-strip">
+                        <div class="pc-image">
+                            <img src="assets/2025_STAFFIE_loriashvili_02.jpg" alt="strip strip">
+                        </div>
+                        <div class="pc-meta">
+                            <div class="pc-top">
+                                <div class="pc-tags">
+                                    <span class="pc-tag">Performance</span>
+                                    <span class="pc-tag">Body</span>
+                                </div>
+                                <div class="pc-year">2025</div>
+                            </div>
+                            <div class="pc-bottom">
+                                <div class="pc-text">
+                                    <h2 class="pc-title">strip strip</h2>
+                                    <p class="pc-subtitle">A study of the gaze, performance and the body as a site of
+                                        autonomy.</p>
+                                </div>
+                                <span class="pc-view">View project →</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="projects/feet.html" class="project-card" data-slug="feet">
+                        <div class="pc-image">
+                            <img src="assets/25_WHISPER_NEMESIS_15.jpg" alt="feet">
+                        </div>
+                        <div class="pc-meta">
+                            <div class="pc-top">
+                                <div class="pc-tags">
+                                    <span class="pc-tag">Fragments</span>
+                                    <span class="pc-tag">Detail</span>
+                                </div>
+                                <div class="pc-year">2025</div>
+                            </div>
+                            <div class="pc-bottom">
+                                <div class="pc-text">
+                                    <h2 class="pc-title f-beau">Feet</h2>
+                                    <p class="pc-subtitle">A small fetish for the unnoticed — feet, ankles and the
+                                        ground beneath us.</p>
+                                </div>
+                                <span class="pc-view">View project →</span>
+                            </div>
+                        </div>
+                    </a>
+
+                </section>
+            </main>
+
+            <footer class="site-footer">
+                <div class="footer-links">
+                    <a href="#">instagram</a>
+                    <a href="#">onlyfans</a>
+                    <a href="#">e-mail</a>
+                </div>
+                <div class="footer-logo-container">
+                    <img src="assets/logo_footer.svg" alt="SOFIYA LORIASHVILI" class="footer-logo">
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="assets/base.js"></script>
+</body>
+
+</html>

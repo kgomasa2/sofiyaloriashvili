@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440">
+    <title>Strip Strip — Tee · SHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Babylonica&family=Beau+Rivage&family=Bitcount+Prop+Single&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/base.css">
+    <link rel="stylesheet" href="../assets/detail.css">
+    <style>
+        .pd-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pd-option-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .pd-option {
+            border: 2px solid var(--c-red);
+            background: var(--c-yellow);
+            color: var(--c-red);
+            font-family: 'Benzin', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 10px 16px;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .pd-option.is-active,
+        .pd-option:hover {
+            background: var(--c-red);
+            color: var(--c-yellow);
+        }
+
+        .pd-option-label {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--c-red);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas-wrap">
+        <div class="canvas">
+
+            <div class="header-fixed">
+                <div class="logo-block">
+                    <a href="../index.html"><img src="../assets/Group.svg" alt="SOFIYA"></a>
+                </div>
+                <a href="../projects.html" class="nav-item">PROJECTS</a>
+                <a href="../shop.html" class="nav-item">SHOP</a>
+                <a href="../about.html" class="nav-item">ABOUT</a>
+                <a href="../contact.html" class="nav-item">CONTACT</a>
+            </div>
+
+            <div class="page-top"></div>
+
+            <main>
+                <section class="product-detail">
+                    <div class="pd-gallery">
+                        <div class="pd-main-image">
+                            <img id="pd-main" src="../assets/2025_STAFFIE_loriashvili_02.jpg" alt="Strip Strip Tee">
+                        </div>
+                        <div class="pd-thumbs">
+                            <div class="pd-thumb is-active" data-src="../assets/2025_STAFFIE_loriashvili_02.jpg">
+                                <img src="../assets/2025_STAFFIE_loriashvili_02.jpg" alt=""></div>
+                            <div class="pd-thumb" data-src="../assets/telegram/photo_2026-04-22_17-35-07.jpg">
+                                <img src="../assets/telegram/photo_2026-04-22_17-35-07.jpg" alt=""></div>
+                            <div class="pd-thumb" data-src="../assets/telegram/photo_2026-04-22_17-35-08.jpg">
+                                <img src="../assets/telegram/photo_2026-04-22_17-35-08.jpg" alt=""></div>
+                            <div class="pd-thumb" data-src="../assets/25_WHISPER_NEMESIS_15.jpg">
+                                <img src="../assets/25_WHISPER_NEMESIS_15.jpg" alt=""></div>
+                        </div>
+                    </div>
+
+                    <div class="pd-info">
+                        <div class="pd-breadcrumb"><a href="../shop.html">Shop</a> · Merch</div>
+                        <h1 class="pd-title">Strip Strip — Tee</h1>
+                        <div class="pd-pub">100% organic cotton · Printed in Paris</div>
+
+                        <div class="pd-price-row">
+                            <div class="pd-price">$45</div>
+                            <div class="pd-stock">In stock</div>
+                        </div>
+
+                        <div class="pd-desc">
+                            <p>Heavy-weight 220 gsm organic cotton tee. Screen-printed front and back in the studio,
+                                each piece slightly different.</p>
+                        </div>
+
+                        <div class="pd-options">
+                            <div>
+                                <div class="pd-option-label">Color</div>
+                                <div class="pd-option-row" data-group="color">
+                                    <button type="button" class="pd-option is-active">Black</button>
+                                    <button type="button" class="pd-option">Yellow</button>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="pd-option-label">Size</div>
+                                <div class="pd-option-row" data-group="size">
+                                    <button type="button" class="pd-option">XS</button>
+                                    <button type="button" class="pd-option">S</button>
+                                    <button type="button" class="pd-option is-active">M</button>
+                                    <button type="button" class="pd-option">L</button>
+                                    <button type="button" class="pd-option">XL</button>
+                                    <button type="button" class="pd-option">XXL</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <dl class="pd-specs">
+                            <dt>Material</dt>
+                            <dd>100% organic cotton, 220 gsm</dd>
+                            <dt>Print</dt>
+                            <dd>Screen print, 2 sides</dd>
+                            <dt>Made in</dt>
+                            <dd>Paris, FR</dd>
+                            <dt>Care</dt>
+                            <dd>Wash cold, inside out</dd>
+                        </dl>
+
+                        <form class="pd-buy" onsubmit="event.preventDefault();">
+                            <input class="pd-qty" type="number" name="qty" value="1" min="1" max="9">
+                            <button class="pd-add" type="submit">Add to cart</button>
+                        </form>
+
+                        <p class="pd-shipping">Worldwide shipping · Free above $120 · Returns accepted within 14 days
+                        </p>
+                    </div>
+                </section>
+
+                <section class="pd-related">
+                    <h2>You may also like</h2>
+                    <div class="pd-related-grid">
+                        <a class="pd-related-card" href="japan-print.html">
+                            <div class="rc-image"><img src="../assets/24_MUNE_LORIASHVILI_05.jpg" alt=""></div>
+                            <div class="rc-info">
+                                <div class="rc-title">Japan №12</div>
+                                <div class="rc-price">$90</div>
+                            </div>
+                        </a>
+                        <a class="pd-related-card" href="mini-zine.html">
+                            <div class="rc-image"><img src="../assets/image 33.png" alt=""></div>
+                            <div class="rc-info">
+                                <div class="rc-title">Mini Zine</div>
+                                <div class="rc-price">$20</div>
+                            </div>
+                        </a>
+                        <a class="pd-related-card" href="4-the-boyz-book.html">
+                            <div class="rc-image"><img src="../assets/2025_LORIASHVILI_KINGKONG_MYSSIA__143.jpg" alt="">
+                            </div>
+                            <div class="rc-info">
+                                <div class="rc-title">4 the boyz</div>
+                                <div class="rc-price">$120</div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="site-footer">
+                <div class="footer-links">
+                    <a href="#">instagram</a>
+                    <a href="#">onlyfans</a>
+                    <a href="#">e-mail</a>
+                </div>
+                <div class="footer-logo-container">
+                    <img src="../assets/logo_footer.svg" alt="SOFIYA LORIASHVILI" class="footer-logo">
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="../assets/base.js"></script>
+    <script>
+        (function () {
+            const main = document.getElementById('pd-main');
+            document.querySelectorAll('.pd-thumb').forEach(function (t) {
+                t.addEventListener('click', function () {
+                    document.querySelectorAll('.pd-thumb').forEach(x => x.classList.remove('is-active'));
+                    t.classList.add('is-active');
+                    main.src = t.dataset.src;
+                });
+            });
+            document.querySelectorAll('.pd-option-row').forEach(function (row) {
+                row.addEventListener('click', function (e) {
+                    const btn = e.target.closest('.pd-option');
+                    if (!btn) return;
+                    row.querySelectorAll('.pd-option').forEach(b => b.classList.remove('is-active'));
+                    btn.classList.add('is-active');
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440">
+    <title>SHOP — SOFIYA LORIASHVILI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Babylonica&family=Beau+Rivage&family=Bitcount+Prop+Single&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/base.css">
+    <style>
+        /* ──────── SHOP PAGE ──────── */
+        .shop-page {
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+
+        .shop-heading {
+            font-family: 'Bitcount Prop Single', monospace;
+            font-size: 220px;
+            line-height: 1;
+            letter-spacing: -8px;
+            color: var(--c-red);
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Marquee */
+        .shop-marquee {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            font-family: 'Bitcount Prop Single', monospace;
+            font-size: 90px;
+            line-height: 1;
+            letter-spacing: -3px;
+            color: var(--c-gray);
+            text-transform: uppercase;
+            margin: 30px 0 60px;
+        }
+
+        .shop-marquee-track {
+            display: inline-block;
+            animation: marquee-x 18s linear infinite;
+        }
+
+        .shop-marquee-track span {
+            display: inline-block;
+            padding-right: 50px;
+        }
+
+        @keyframes marquee-x {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Filters bar (CMS-driven, just toggleable) */
+        .shop-filters {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0 80px 50px;
+        }
+
+        .shop-filter {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--c-red);
+            background: var(--c-yellow);
+            border: 2px solid var(--c-red);
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .shop-filter:hover,
+        .shop-filter.is-active {
+            background: var(--c-red);
+            color: var(--c-yellow);
+        }
+
+        /* Grid container */
+        .shop-grid {
+            display: grid;
+            /* Repeating 12-col grid: items declare colSpan via classes */
+            grid-template-columns: repeat(12, 1fr);
+            gap: 8px;
+            background: var(--c-yellow);
+            padding: 0 8px;
+            /* CMS: append <article class="shop-card span-X">…</article> here */
+        }
+
+        /* Span helpers — pick one per card for layout variety */
+        .span-12 {
+            grid-column: span 12;
+        }
+
+        .span-8 {
+            grid-column: span 8;
+        }
+
+        .span-6 {
+            grid-column: span 6;
+        }
+
+        .span-4 {
+            grid-column: span 4;
+        }
+
+        .span-3 {
+            grid-column: span 3;
+        }
+
+        /* Card — flow-based, content blocks editable independently */
+        .shop-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--c-gray);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .shop-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .shop-card .sc-image {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: #1f3d2e;
+            background-image:
+                linear-gradient(0deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .shop-card .sc-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Sold-out / new badges */
+        .sc-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: var(--c-red);
+            color: var(--c-yellow);
+            padding: 6px 12px;
+            z-index: 2;
+        }
+
+        .sc-badge.sold {
+            background: var(--c-gray);
+            color: var(--c-red);
+        }
+
+        .shop-card .sc-info {
+            padding: 20px 22px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: var(--c-gray);
+        }
+
+        .sc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .sc-title {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 36px;
+            letter-spacing: -1px;
+            color: var(--c-red);
+            text-transform: uppercase;
+            line-height: 0.95;
+            flex: 1;
+        }
+
+        .span-3 .sc-title {
+            font-size: 26px;
+        }
+
+        .span-12 .sc-title {
+            font-size: 64px;
+            letter-spacing: -2px;
+        }
+
+        .sc-price {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 36px;
+            letter-spacing: -1px;
+            color: var(--c-red);
+            white-space: nowrap;
+        }
+
+        .span-3 .sc-price {
+            font-size: 26px;
+        }
+
+        .span-12 .sc-price {
+            font-size: 64px;
+        }
+
+        .sc-pub {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 16px;
+            letter-spacing: -0.4px;
+            color: var(--c-red);
+            opacity: 0.85;
+        }
+
+        .sc-meta {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 15px;
+            letter-spacing: -0.4px;
+            color: var(--c-red);
+            line-height: 1.3;
+            opacity: 0.85;
+        }
+
+        .sc-buy {
+            align-self: flex-start;
+            background: var(--c-white);
+            color: var(--c-red);
+            border: none;
+            padding: 12px 24px;
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+            margin-top: 6px;
+        }
+
+        .sc-buy:hover {
+            background: var(--c-red);
+            color: var(--c-yellow);
+        }
+
+        .shop-card.is-sold .sc-buy {
+            background: var(--c-gray);
+            color: var(--c-red);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="canvas-wrap">
+        <div class="canvas">
+
+            <div class="header-fixed">
+                <div class="logo-block">
+                    <a href="index.html"><img src="assets/Group.svg" alt="SOFIYA"></a>
+                </div>
+                <a href="projects.html" class="nav-item">PROJECTS</a>
+                <a href="shop.html" class="nav-item">SHOP</a>
+                <a href="about.html" class="nav-item">ABOUT</a>
+                <a href="contact.html" class="nav-item">CONTACT</a>
+            </div>
+
+            <div class="page-top"></div>
+
+            <main class="shop-page">
+
+                <h1 class="shop-heading hover-blink">SHOP</h1>
+
+                <div class="shop-marquee">
+                    <div class="shop-marquee-track">
+                        <span>BOOKS · PRINTS · ZINES · BOOKS · PRINTS · ZINES · BOOKS · PRINTS · ZINES ·&nbsp;</span>
+                        <span>BOOKS · PRINTS · ZINES · BOOKS · PRINTS · ZINES · BOOKS · PRINTS · ZINES ·&nbsp;</span>
+                    </div>
+                </div>
+
+                <div class="shop-filters" id="shop-filters">
+                    <button class="shop-filter is-active" data-filter="all">All</button>
+                    <button class="shop-filter" data-filter="books">Books</button>
+                    <button class="shop-filter" data-filter="prints">Prints</button>
+                    <button class="shop-filter" data-filter="zines">Zines</button>
+                    <button class="shop-filter" data-filter="merch">Merch</button>
+                </div>
+
+                <section class="shop-grid" id="shop-grid">
+
+                    <!-- BEGIN: shop card (CMS-repeatable). Use span-3 / span-4 / span-6 / span-8 / span-12 for layout -->
+                    <a class="shop-card span-8" data-category="books" href="shop/sub-4-only-u-and-me.html">
+                        <div class="sc-image">
+                            <span class="sc-badge">New</span>
+                            <img src="assets/image 31.png" alt="Sub#4 Only U and Me">
+                        </div>
+                        <div class="sc-info">
+                            <div class="sc-row">
+                                <h3 class="sc-title">SUB#4 — Only U and Me</h3>
+                                <div class="sc-price">$34</div>
+                            </div>
+                            <div class="sc-pub">Fisheye éditions</div>
+                            <div class="sc-meta">140 × 210 mm · 96 pages · Edition of 500</div>
+                            <span class="sc-buy">Buy</span>
+                        </div>
+                    </a>
+                    <!-- END: shop card -->
+
+                    <a class="shop-card span-4" data-category="zines" href="shop/chiken-wing-paperwork.html">
+                        <div class="sc-image">
+                            <img src="assets/image 30.png" alt="Chiken Wing">
+                        </div>
+                        <div class="sc-info">
+                            <div class="sc-row">
+                                <h3 class="sc-title">Chiken Wing</h3>
+                                <div class="sc-price">$60</div>
+                            </div>
+                            <div class="sc-pub">PAPERWORK</div>
+                            <div class="sc-meta">100 pages · Perfect bound · 5.82 × 8.26<br>Edition of 100</div>
+                            <span class="sc-buy">Buy</span>
+                        </div>
+                    </a>
+
+                    <a class="shop-card span-4" data-category="prints" href="shop/untitled-7.html">
+                        <div class="sc-image">
+                            <img src="assets/image 32.png" alt="Print">
+                        </div>
+                        <div class="sc-info">
+                            <div class="sc-row">
+                                <h3 class="sc-title">Untitled №7</h3>
+                                <div class="sc-price">$70</div>
+                            </div>
+                            <div class="sc-pub">Signed Giclée print</div>
+                            <div class="sc-meta">A3 · Edition of 30</div>
+                            <span class="sc-buy">Buy</span>
+                        </div>
+                    </a>
+
+                    <a class="shop-card span-4" data-category="zines" href="shop/mini-zine.html">
+                        <div class="sc-image">
+                            <img src="assets/image 33.png" alt="Mini Zine">
+                        </div>
+                        <div class="sc-info">
+                            <div class="sc-row">
+                                <h3 class="sc-title">Mini Zine</h3>
+                                <div class="sc-price">$20</div>
+                            </div>
+                            <div class="sc-pub">Self-published</div>
+                            <div class="sc-meta">A6 · 32 pages · Stapled</div>
+                            <span class="sc-buy">Buy</span>
+                        </div>
+                    </a>
+
+                    <a class="shop-card span-4 is-sold" data-category="prints" href="shop/from-ukraine-3.html">
+                        <div class="sc-image">
+                            <span class="sc-badge sold">Sold out</span>
+                            <img src="assets/image 29.png" alt="From Ukraine print">
+                        </div>
+                        <div class="sc-info">
+                            <div class="sc-row">
+                                <h3 class="sc-title">From Ukraine — №3</h3>
+                                <div class="sc-price">$80</div>
+                            </div>
+                            <div class="sc-pub">Limited print</div>
+                            <div class="sc-meta">A2 · Edition of 20</div>
+                            <span class="sc-buy">Sold out</span>
+                        </div>
+                    </a>
+
+                    <a class="shop-card span-12" data-category="books" href="shop/4-the-boyz-book.html">
+                        <div class="sc-image">
+                            <span class="sc-badge">Featured</span>
+                            <img src="assets/2025_LORIASHVILI_KINGKONG_MYSSIA__143.jpg" alt="4 the boyz book">
+                        </div>
+                        <div class="sc-info">
+                            <div class="sc-row">
+                                <h3 class="sc-title">4 the boyz — book</h3>
+                                <div class="sc-price">$120</div>
+                            </div>
+                            <div class="sc-pub">Hardcover · 240 pages · 24 × 32 cm</div>
+                            <div class="sc-meta">First edition · Signed &amp; numbered · Edition of 250</div>
+                            <span class="sc-buy">Buy</span>
+                        </div>
+                    </a>
+
+                    <a class="shop-card span-6" data-category="merch" href="shop/strip-strip-tee.html">
+                        <div class="sc-image">
+                            <img src="assets/2025_STAFFIE_loriashvili_02.jpg" alt="Tee">
+                        </div>
+                        <div class="sc-info">
+                            <div class="sc-row">
+                                <h3 class="sc-title">Strip Strip — Tee</h3>
+                                <div class="sc-price">$45</div>
+                            </div>
+                            <div class="sc-pub">100% organic cotton</div>
+                            <div class="sc-meta">XS — XXL · Black / Yellow</div>
+                            <span class="sc-buy">Buy</span>
+                        </div>
+                    </a>
+
+                    <a class="shop-card span-6" data-category="prints" href="shop/japan-print.html">
+                        <div class="sc-image">
+                            <img src="assets/24_MUNE_LORIASHVILI_05.jpg" alt="Japan print">
+                        </div>
+                        <div class="sc-info">
+                            <div class="sc-row">
+                                <h3 class="sc-title">Japan — №12</h3>
+                                <div class="sc-price">$90</div>
+                            </div>
+                            <div class="sc-pub">Signed archival print</div>
+                            <div class="sc-meta">A3 · Edition of 25</div>
+                            <span class="sc-buy">Buy</span>
+                        </div>
+                    </a>
+
+                </section>
+            </main>
+
+            <footer class="site-footer">
+                <div class="footer-links">
+                    <a href="#">instagram</a>
+                    <a href="#">onlyfans</a>
+                    <a href="#">e-mail</a>
+                </div>
+                <div class="footer-logo-container">
+                    <img src="assets/logo_footer.svg" alt="SOFIYA LORIASHVILI" class="footer-logo">
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="assets/base.js"></script>
+    <script>
+        // Simple client-side category filter (CMS-friendly: just adds .is-hidden)
+        (function () {
+            const filters = document.querySelectorAll('.shop-filter');
+            const cards = document.querySelectorAll('.shop-card');
+            filters.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    filters.forEach(b => b.classList.remove('is-active'));
+                    btn.classList.add('is-active');
+                    const f = btn.dataset.filter;
+                    cards.forEach(function (card) {
+                        const match = f === 'all' || card.dataset.category === f;
+                        card.style.display = match ? '' : 'none';
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

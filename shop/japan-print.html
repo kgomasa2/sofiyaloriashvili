@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440">
+    <title>Japan №12 · SHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Babylonica&family=Beau+Rivage&family=Bitcount+Prop+Single&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/base.css">
+    <link rel="stylesheet" href="../assets/detail.css">
+</head>
+
+<body>
+    <div class="canvas-wrap">
+        <div class="canvas">
+
+            <div class="header-fixed">
+                <div class="logo-block">
+                    <a href="../index.html"><img src="../assets/Group.svg" alt="SOFIYA"></a>
+                </div>
+                <a href="../projects.html" class="nav-item">PROJECTS</a>
+                <a href="../shop.html" class="nav-item">SHOP</a>
+                <a href="../about.html" class="nav-item">ABOUT</a>
+                <a href="../contact.html" class="nav-item">CONTACT</a>
+            </div>
+
+            <div class="page-top"></div>
+
+            <main>
+                <section class="product-detail">
+                    <div class="pd-gallery">
+                        <div class="pd-main-image">
+                            <img id="pd-main" src="../assets/24_MUNE_LORIASHVILI_05.jpg" alt="Japan №12">
+                        </div>
+                        <div class="pd-thumbs">
+                            <div class="pd-thumb is-active" data-src="../assets/24_MUNE_LORIASHVILI_05.jpg">
+                                <img src="../assets/24_MUNE_LORIASHVILI_05.jpg" alt=""></div>
+                            <div class="pd-thumb" data-src="../assets/telegram/photo_2026-03-31_14-33-22.jpg">
+                                <img src="../assets/telegram/photo_2026-03-31_14-33-22.jpg" alt=""></div>
+                            <div class="pd-thumb" data-src="../assets/telegram/photo_2026-04-01_19-49-05.jpg">
+                                <img src="../assets/telegram/photo_2026-04-01_19-49-05.jpg" alt=""></div>
+                            <div class="pd-thumb" data-src="../assets/telegram/photo_2026-04-01_19-49-15.jpg">
+                                <img src="../assets/telegram/photo_2026-04-01_19-49-15.jpg" alt=""></div>
+                        </div>
+                    </div>
+
+                    <div class="pd-info">
+                        <div class="pd-breadcrumb"><a href="../shop.html">Shop</a> · Prints</div>
+                        <h1 class="pd-title">Japan — №12</h1>
+                        <div class="pd-pub">Signed archival print · 2024</div>
+
+                        <div class="pd-price-row">
+                            <div class="pd-price">$90</div>
+                            <div class="pd-stock">In stock — 14 of 25</div>
+                        </div>
+
+                        <div class="pd-desc">
+                            <p>From the Japan series — frame №12, shot in a kissaten near Asakusa station on a slow
+                                Tuesday afternoon.</p>
+                            <p>Archival print on cotton rag, signed and numbered. Ships flat in a protective sleeve.</p>
+                        </div>
+
+                        <dl class="pd-specs">
+                            <dt>Format</dt>
+                            <dd>A3 (297 × 420 mm)</dd>
+                            <dt>Paper</dt>
+                            <dd>Hahnemühle Photo Rag 308 gsm</dd>
+                            <dt>Edition</dt>
+                            <dd>25 signed copies</dd>
+                            <dt>Year</dt>
+                            <dd>2024</dd>
+                        </dl>
+
+                        <form class="pd-buy" onsubmit="event.preventDefault();">
+                            <input class="pd-qty" type="number" name="qty" value="1" min="1" max="3">
+                            <button class="pd-add" type="submit">Add to cart</button>
+                        </form>
+
+                        <p class="pd-shipping">Worldwide shipping · Free above $120 · Returns accepted within 14 days
+                        </p>
+                    </div>
+                </section>
+
+                <section class="pd-related">
+                    <h2>You may also like</h2>
+                    <div class="pd-related-grid">
+                        <a class="pd-related-card" href="untitled-7.html">
+                            <div class="rc-image"><img src="../assets/image 32.png" alt=""></div>
+                            <div class="rc-info">
+                                <div class="rc-title">Untitled №7</div>
+                                <div class="rc-price">$70</div>
+                            </div>
+                        </a>
+                        <a class="pd-related-card" href="from-ukraine-3.html">
+                            <div class="rc-image"><img src="../assets/image 29.png" alt=""></div>
+                            <div class="rc-info">
+                                <div class="rc-title">From Ukraine №3</div>
+                                <div class="rc-price">$80</div>
+                            </div>
+                        </a>
+                        <a class="pd-related-card" href="4-the-boyz-book.html">
+                            <div class="rc-image"><img src="../assets/2025_LORIASHVILI_KINGKONG_MYSSIA__143.jpg" alt="">
+                            </div>
+                            <div class="rc-info">
+                                <div class="rc-title">4 the boyz</div>
+                                <div class="rc-price">$120</div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="site-footer">
+                <div class="footer-links">
+                    <a href="#">instagram</a>
+                    <a href="#">onlyfans</a>
+                    <a href="#">e-mail</a>
+                </div>
+                <div class="footer-logo-container">
+                    <img src="../assets/logo_footer.svg" alt="SOFIYA LORIASHVILI" class="footer-logo">
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="../assets/base.js"></script>
+    <script>
+        (function () {
+            const main = document.getElementById('pd-main');
+            document.querySelectorAll('.pd-thumb').forEach(function (t) {
+                t.addEventListener('click', function () {
+                    document.querySelectorAll('.pd-thumb').forEach(x => x.classList.remove('is-active'));
+                    t.classList.add('is-active');
+                    main.src = t.dataset.src;
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

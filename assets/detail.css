@@ -1,0 +1,548 @@
+/* ──────── DETAIL PAGES (project & product) ──────── */
+
+/* ===== PROJECT DETAIL ===== */
+
+.proj-hero {
+    padding: 100px 80px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+}
+
+.proj-hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.proj-hero-meta .pc-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-family: 'Benzin', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.proj-hero-meta .pc-tag {
+    background: var(--c-red);
+    color: var(--c-yellow);
+    padding: 6px 14px;
+    border-radius: 999px;
+}
+
+.proj-hero-meta .pc-year {
+    font-family: 'Benzin', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: 0;
+    color: var(--c-red);
+}
+
+.proj-title {
+    font-family: 'Casino', serif;
+    font-size: 200px;
+    line-height: 0.85;
+    letter-spacing: -6px;
+    color: var(--c-red);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.proj-title.f-benzin {
+    font-family: 'Benzin', sans-serif;
+    font-weight: 800;
+}
+
+.proj-title.f-bayon {
+    font-family: 'Bayon', sans-serif;
+    font-size: 220px;
+}
+
+.proj-title.f-babylonica {
+    font-family: 'Babylonica', cursive;
+    font-size: 280px;
+}
+
+.proj-title.f-cochin {
+    font-family: 'Cochin', 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.proj-title.f-beau {
+    font-family: 'Beau Rivage', cursive;
+    font-size: 280px;
+    text-transform: none;
+}
+
+.proj-subtitle {
+    font-family: 'ArialNarrow', sans-serif;
+    font-size: 26px;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+    color: var(--c-red);
+    max-width: 620px;
+}
+
+/* Cover image */
+.proj-cover {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #1f3d2e;
+}
+
+.proj-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Description */
+.proj-desc {
+    padding: 100px 80px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.proj-desc .desc-side {
+    font-family: 'Benzin', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--c-red);
+}
+
+.proj-desc .desc-side dt {
+    margin-top: 22px;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.proj-desc .desc-side dt:first-child {
+    margin-top: 0;
+}
+
+.proj-desc .desc-side dd {
+    font-size: 18px;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+
+.proj-desc .desc-body p {
+    font-family: 'ArialNarrow', sans-serif;
+    font-size: 24px;
+    line-height: 1.35;
+    letter-spacing: -0.4px;
+    color: var(--c-red);
+    margin-bottom: 22px;
+    max-width: 800px;
+}
+
+/* Gallery */
+.proj-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--c-yellow);
+}
+
+.gallery-row {
+    width: 100%;
+    display: grid;
+    gap: 8px;
+}
+
+.gallery-row.full {
+    grid-template-columns: 1fr;
+}
+
+.gallery-row.split-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.gallery-row.split-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gallery-row.split-asym {
+    grid-template-columns: 2fr 1fr;
+}
+
+.gallery-row.split-asym-r {
+    grid-template-columns: 1fr 2fr;
+}
+
+.gallery-row .g-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #1f3d2e;
+}
+
+.gallery-row.full .g-img {
+    aspect-ratio: 16 / 9;
+}
+
+.gallery-row .g-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.gallery-row .g-img:hover img {
+    transform: scale(1.04);
+}
+
+/* Tall portrait variant */
+.gallery-row .g-img.portrait {
+    aspect-ratio: 3 / 4;
+}
+
+/* Project navigation */
+.proj-nav {
+    padding: 100px 80px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 40px;
+    border-top: 4px solid var(--c-red);
+}
+
+.proj-nav a {
+    font-family: 'Benzin', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: var(--c-red);
+    transition: color 0.15s;
+}
+
+.proj-nav a:hover {
+    color: var(--c-blue);
+}
+
+.proj-nav .nav-prev {
+    text-align: left;
+}
+
+.proj-nav .nav-back {
+    text-align: center;
+    border: 2px solid var(--c-red);
+    padding: 14px 28px;
+}
+
+.proj-nav .nav-back:hover {
+    background: var(--c-red);
+    color: var(--c-yellow);
+}
+
+.proj-nav .nav-next {
+    text-align: right;
+}
+
+/* ===== PRODUCT DETAIL ===== */
+
+.product-detail {
+    padding: 100px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Left: image stack */
+.pd-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: sticky;
+    top: 80px;
+}
+
+.pd-main-image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--c-gray);
+}
+
+.pd-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pd-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.pd-thumb {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: var(--c-gray);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.15s;
+}
+
+.pd-thumb.is-active {
+    border-color: var(--c-red);
+}
+
+.pd-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Right: info */
+.pd-info {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.pd-breadcrumb {
+    font-family: 'Benzin', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--c-red);
+    opacity: 0.65;
+}
+
+.pd-breadcrumb a {
+    text-decoration: underline;
+}
+
+.pd-title {
+    font-family: 'Benzin', sans-serif;
+    font-weight: 800;
+    font-size: 84px;
+    letter-spacing: -2.5px;
+    line-height: 0.9;
+    color: var(--c-red);
+    text-transform: uppercase;
+}
+
+.pd-pub {
+    font-family: 'ArialNarrow', sans-serif;
+    font-size: 22px;
+    color: var(--c-red);
+    opacity: 0.85;
+}
+
+.pd-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    border-top: 2px solid var(--c-red);
+    border-bottom: 2px solid var(--c-red);
+    padding: 24px 0;
+}
+
+.pd-price {
+    font-family: 'Benzin', sans-serif;
+    font-weight: 800;
+    font-size: 64px;
+    letter-spacing: -2px;
+    color: var(--c-red);
+}
+
+.pd-stock {
+    font-family: 'Benzin', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--c-green);
+}
+
+.pd-stock.low {
+    color: var(--c-red);
+}
+
+.pd-stock.sold {
+    color: var(--c-gray);
+}
+
+.pd-desc {
+    font-family: 'ArialNarrow', sans-serif;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+    color: var(--c-red);
+}
+
+.pd-desc p + p {
+    margin-top: 12px;
+}
+
+/* Specs table */
+.pd-specs {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0;
+    border-top: 1px solid var(--c-red);
+}
+
+.pd-specs dt,
+.pd-specs dd {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--c-red);
+    font-family: 'ArialNarrow', sans-serif;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+    color: var(--c-red);
+}
+
+.pd-specs dt {
+    font-family: 'Benzin', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* Add to cart form */
+.pd-buy {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+    margin-top: 8px;
+}
+
+.pd-qty {
+    width: 100px;
+    border: 2px solid var(--c-red);
+    background: var(--c-yellow);
+    color: var(--c-red);
+    font-family: 'Benzin', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    text-align: center;
+    padding: 14px 0;
+    outline: none;
+}
+
+.pd-add {
+    flex: 1;
+    background: var(--c-red);
+    color: var(--c-yellow);
+    border: none;
+    font-family: 'Benzin', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.pd-add:hover {
+    background: var(--c-yellow);
+    color: var(--c-red);
+}
+
+.pd-add[disabled] {
+    background: var(--c-gray);
+    color: var(--c-red);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.pd-shipping {
+    font-family: 'ArialNarrow', sans-serif;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    color: var(--c-red);
+    opacity: 0.7;
+    line-height: 1.3;
+}
+
+/* Related products */
+.pd-related {
+    padding: 80px 80px 100px;
+    border-top: 4px solid var(--c-red);
+}
+
+.pd-related h2 {
+    font-family: 'Casino', serif;
+    font-size: 100px;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    color: var(--c-red);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.pd-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.pd-related-card {
+    background: var(--c-gray);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+}
+
+.pd-related-card:hover {
+    transform: translateY(-4px);
+}
+
+.pd-related-card .rc-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #1f3d2e;
+}
+
+.pd-related-card .rc-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pd-related-card .rc-info {
+    padding: 18px 22px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.pd-related-card .rc-title {
+    font-family: 'Benzin', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: -0.6px;
+    text-transform: uppercase;
+    color: var(--c-red);
+    line-height: 1;
+}
+
+.pd-related-card .rc-price {
+    font-family: 'Benzin', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: -0.6px;
+    color: var(--c-red);
+    white-space: nowrap;
+}

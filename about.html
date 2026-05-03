@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440">
+    <title>ABOUT — SOFIYA LORIASHVILI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Babylonica&family=Beau+Rivage&family=Bitcount+Prop+Single&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/base.css">
+    <style>
+        /* ──────── ABOUT PAGE ──────── */
+        .about-page {
+            padding-top: 100px;
+            padding-bottom: 80px;
+        }
+
+        /* Intro section: portrait + bio */
+        .about-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            padding: 0 80px 100px;
+            align-items: center;
+        }
+
+        .about-portrait {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            background: var(--c-blue);
+        }
+
+        .about-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-bio h1 {
+            font-family: 'Casino', serif;
+            font-size: 180px;
+            line-height: 0.85;
+            letter-spacing: -6px;
+            color: var(--c-red);
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .about-bio p {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 22px;
+            line-height: 1.3;
+            letter-spacing: -0.4px;
+            color: var(--c-red);
+            margin-bottom: 18px;
+        }
+
+        /* CV sections */
+        .cv-section {
+            padding: 80px 80px 40px;
+        }
+
+        .cv-section + .cv-section {
+            border-top: 4px solid var(--c-red);
+        }
+
+        .cv-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cv-heading.exhibitions {
+            font-family: 'Beau Rivage', cursive;
+            font-size: 220px;
+            line-height: 1;
+            letter-spacing: -6px;
+            color: var(--c-red);
+        }
+
+        .cv-heading.media {
+            font-family: 'Bangers', cursive;
+            font-size: 220px;
+            letter-spacing: -6px;
+            color: var(--c-red);
+            text-transform: uppercase;
+        }
+
+        /* CV list — flow layout, each item is one row, easy to map from CMS */
+        .cv-list {
+            list-style: none;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .cv-row {
+            display: grid;
+            grid-template-columns: 140px 1fr 200px;
+            gap: 32px;
+            align-items: baseline;
+            padding: 22px 0;
+            border-top: 1px solid var(--c-red);
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 22px;
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+            color: var(--c-red);
+        }
+
+        .cv-list .cv-row:last-child {
+            border-bottom: 1px solid var(--c-red);
+        }
+
+        .cv-year {
+            font-family: 'Benzin', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: 0;
+            white-space: nowrap;
+        }
+
+        .cv-title {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .cv-title em {
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        .cv-place {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 18px;
+            text-align: right;
+            opacity: 0.85;
+        }
+
+        .cv-row.media-row {
+            grid-template-columns: 280px 1fr 60px;
+        }
+
+        .cv-row .cv-link {
+            text-align: right;
+            text-decoration: underline;
+            font-family: 'Benzin', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .cv-row:hover {
+            background: var(--c-red);
+            color: var(--c-yellow);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="canvas-wrap">
+        <div class="canvas">
+
+            <div class="header-fixed">
+                <div class="logo-block">
+                    <a href="index.html"><img src="assets/Group.svg" alt="SOFIYA"></a>
+                </div>
+                <a href="projects.html" class="nav-item">PROJECTS</a>
+                <a href="shop.html" class="nav-item">SHOP</a>
+                <a href="about.html" class="nav-item">ABOUT</a>
+                <a href="contact.html" class="nav-item">CONTACT</a>
+            </div>
+
+            <div class="page-top"></div>
+
+            <main class="about-page">
+
+                <section class="about-intro">
+                    <div class="about-portrait">
+                        <img src="assets/Screenshot 2026-04-27 at 17.07.12 1.png" alt="Sofiya Loriashvili">
+                    </div>
+                    <div class="about-bio">
+                        <h1>About</h1>
+                        <p>Sofiya Loriashvili is a contemporary artist working at the intersection of photography,
+                            painting and experimental visual narratives.</p>
+                        <p>Her work explores the transformation of classical forms through modern technical lenses —
+                            mysticism, architectural rhythm and anatomical deconstruction — with a sophisticated use of
+                            color and texture.</p>
+                        <p>Born in Ukraine, currently based between Paris and Tbilisi.</p>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2 class="cv-heading exhibitions">Exhibitions</h2>
+                    <ul class="cv-list" id="exhibitions-list">
+                        <!-- BEGIN: exhibition row (CMS-repeatable) -->
+                        <li class="cv-row">
+                            <span class="cv-year">2025</span>
+                            <span class="cv-title"><em>"Dissonant Shelter"</em> — collective exhibition</span>
+                            <span class="cv-place">229 lab · October</span>
+                        </li>
+                        <!-- END: exhibition row -->
+
+                        <li class="cv-row">
+                            <span class="cv-year">2025</span>
+                            <span class="cv-title"><em>"En plein coeur"</em> — Guerlain collective exhibition</span>
+                            <span class="cv-place">22 Oct — 16 Nov</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2024</span>
+                            <span class="cv-title">Japan — collective exhibition at the Design Festa Gallery</span>
+                            <span class="cv-place">November</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2024</span>
+                            <span class="cv-title">Le Sample — Maison 2024</span>
+                            <span class="cv-place">Paris</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2024</span>
+                            <span class="cv-title">Festival d'Arles — 10/10 Fisheye, <em>"ONLY YOU AND ME"</em></span>
+                            <span class="cv-place">Arles</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2023</span>
+                            <span class="cv-title">Museum of Warsaw — projection of <em>"Rezavod"</em></span>
+                            <span class="cv-place">18.08.2023</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2023</span>
+                            <span class="cv-title">Arles "Night of the Year" — projection of <em>"Rezavod"</em></span>
+                            <span class="cv-place">Arles</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2022</span>
+                            <span class="cv-title">59 rue Notre Dame de Nazareth — <em>"Approches du bonheur"</em></span>
+                            <span class="cv-place">30.06 — 06.07</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2022</span>
+                            <span class="cv-title">Stock Gallery — <em>« Ça fait comme si on était demain alors qu'on
+                                    est déjà hier »</em></span>
+                            <span class="cv-place">06.05.2022</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2022</span>
+                            <span class="cv-title">Chapelle XIV — projection &amp; talk</span>
+                            <span class="cv-place">14.04.2022</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2022</span>
+                            <span class="cv-title">DOC — <em>« SLAVA UKRAÏNI »</em>, collective exhibition</span>
+                            <span class="cv-place">13.03.2022</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2022</span>
+                            <span class="cv-title">35–37 — <em>« LOOK AT US »</em>, permanent solo exhibition</span>
+                            <span class="cv-place">18.01.2022</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2021</span>
+                            <span class="cv-title">Espace Cosme — <em>« Place's I've »</em>, solo exhibition</span>
+                            <span class="cv-place">Paris</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2021</span>
+                            <span class="cv-title">35–37 — <em>« CHAOS »</em>, collective exhibition</span>
+                            <span class="cv-place">26.08.2021</span>
+                        </li>
+                        <li class="cv-row">
+                            <span class="cv-year">2021</span>
+                            <span class="cv-title">Espace Cosme — <em>« éxutoire »</em>, collective</span>
+                            <span class="cv-place">01.07.2021</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="cv-section">
+                    <h2 class="cv-heading media">Media</h2>
+                    <ul class="cv-list" id="media-list">
+                        <!-- BEGIN: media row (CMS-repeatable) -->
+                        <li class="cv-row media-row">
+                            <span class="cv-year">Libération</span>
+                            <span class="cv-title">Only U and Me</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <!-- END: media row -->
+
+                        <li class="cv-row media-row">
+                            <span class="cv-year">Joia Magazine</span>
+                            <span class="cv-title">Feature</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <li class="cv-row media-row">
+                            <span class="cv-year">Perimetro Magazine</span>
+                            <span class="cv-title">Feature</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <li class="cv-row media-row">
+                            <span class="cv-year">Fisheye Magazine</span>
+                            <span class="cv-title">The perfect woman is a love doll</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <li class="cv-row media-row">
+                            <span class="cv-year">Dazed</span>
+                            <span class="cv-title">31 days in Japan</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <li class="cv-row media-row">
+                            <span class="cv-year">Dazed</span>
+                            <span class="cv-title">My Book</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <li class="cv-row media-row">
+                            <span class="cv-year">Fisheye Magazine</span>
+                            <span class="cv-title">My Book</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <li class="cv-row media-row">
+                            <span class="cv-year">Metal Magazine</span>
+                            <span class="cv-title">Interview</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <li class="cv-row media-row">
+                            <span class="cv-year">VICE</span>
+                            <span class="cv-title">Feature №3</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <li class="cv-row media-row">
+                            <span class="cv-year">i-D</span>
+                            <span class="cv-title">Poignant photographs of daily life in Ukraine</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <li class="cv-row media-row">
+                            <span class="cv-year">VICE</span>
+                            <span class="cv-title">Feature №2</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <li class="cv-row media-row">
+                            <span class="cv-year">VICE</span>
+                            <span class="cv-title">Feature №1</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                        <li class="cv-row media-row">
+                            <span class="cv-year">Konbini</span>
+                            <span class="cv-title">Interview</span>
+                            <a class="cv-link" href="#">Read</a>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+
+            <footer class="site-footer">
+                <div class="footer-links">
+                    <a href="#">instagram</a>
+                    <a href="#">onlyfans</a>
+                    <a href="#">e-mail</a>
+                </div>
+                <div class="footer-logo-container">
+                    <img src="assets/logo_footer.svg" alt="SOFIYA LORIASHVILI" class="footer-logo">
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="assets/base.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,278 @@
+/* ──────── LOCAL FONTS ──────── */
+@font-face {
+    font-family: 'Compagnon';
+    src: url('../fonts/Compagnon-Bold.otf') format('opentype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Compagnon';
+    src: url('../fonts/Compagnon-Medium.otf') format('opentype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Compagnon';
+    src: url('../fonts/Compagnon-Roman.otf') format('opentype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Compagnon';
+    src: url('../fonts/Compagnon-Light.otf') format('opentype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Compagnon';
+    src: url('../fonts/Compagnon-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Benzin';
+    src: url('../fonts/Benzin-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Benzin';
+    src: url('../fonts/Benzin-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Benzin';
+    src: url('../fonts/Benzin-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Casino';
+    src: url('../fonts/Casino.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Casino';
+    src: url('../fonts/Casino-Italic.ttf') format('truetype');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Casino3DFilledMarquee';
+    src: url('../fonts/Casino3DFilledMarquee.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ArialNarrow';
+    src: url('../fonts/Arial Narrow.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'ArialNarrow';
+    src: url('../fonts/Arial Narrow Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'eUkraineHead';
+    src: url('../fonts/e-UkraineHead-LOGO.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Bayon';
+    src: url('../fonts/Bayon-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+/* ──────── DESIGN TOKENS ──────── */
+:root {
+    --c-yellow: #fff70b;
+    --c-red: #fa2935;
+    --c-gray: #b5b5b5;
+    --c-blue: #81d0fc;
+    --c-green: #09d24b;
+    --c-white: #ffffff;
+    --canvas-w: 1442px;
+}
+
+/* ──────── RESET ──────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--c-yellow);
+    font-family: 'ArialNarrow', Arial, sans-serif;
+    color: var(--c-red);
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ──────── CANVAS WRAP (matches landing 1442px scaled via zoom) ──────── */
+.canvas-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: var(--c-yellow);
+    position: relative;
+}
+
+.canvas {
+    position: relative;
+    width: var(--canvas-w);
+    background: var(--c-yellow);
+    margin: 0 auto;
+}
+
+/* ──────── HEADER NAV ──────── */
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--canvas-w);
+    height: 55px;
+    z-index: 50;
+    display: flex;
+    gap: 4px;
+    align-items: flex-start;
+}
+
+.nav-item {
+    flex: 1;
+    height: 55px;
+    background: var(--c-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Benzin', sans-serif;
+    font-weight: 800;
+    font-size: 19.4px;
+    letter-spacing: -0.58px;
+    color: var(--c-red);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s;
+}
+
+.nav-item:hover,
+.nav-item.is-active {
+    color: var(--c-yellow);
+}
+
+.logo-block {
+    width: 121px;
+    height: 84px;
+    background: var(--c-gray);
+    flex-shrink: 0;
+}
+
+.logo-block img {
+    width: 100%;
+    height: 100%;
+}
+
+/* page top spacer so content starts below the fixed nav */
+.page-top {
+    height: 84px;
+}
+
+/* ──────── HOVER COLOR BLINK (shared with landing) ──────── */
+@keyframes blinkColors {
+
+    0%,
+    100% {
+        color: #FA2935;
+    }
+
+    25% {
+        color: #B5B5B5;
+    }
+
+    50% {
+        color: #81D0FC;
+    }
+
+    75% {
+        color: #09D24B;
+    }
+}
+
+.hover-blink:hover {
+    animation: blinkColors 0.45s infinite step-end;
+}
+
+/* ──────── FOOTER (shared) ──────── */
+.site-footer {
+    position: relative;
+    width: 100%;
+    padding-top: 120px;
+    padding-bottom: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 90px;
+    justify-content: center;
+    margin-bottom: 60px;
+    font-family: 'ArialNarrow', sans-serif;
+    font-size: 16px;
+    letter-spacing: -0.48px;
+    color: var(--c-red);
+}
+
+.footer-links a {
+    text-decoration: underline;
+}
+
+.footer-logo-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.footer-logo {
+    width: 1300px;
+    transform-origin: bottom center;
+    will-change: transform;
+}
+
+/* ──────── PAGE TITLE (shared) ──────── */
+.page-heading {
+    text-align: center;
+    margin: 60px 0 40px;
+    font-family: 'Casino', serif;
+    font-size: 220px;
+    line-height: 0.9;
+    letter-spacing: -6px;
+    color: var(--c-red);
+    text-transform: uppercase;
+}
+
+/* ──────── RESPONSIVE SCALING ──────── */
+@media (max-width: 1442px) {
+    .canvas-wrap {
+        overflow-x: hidden;
+    }
+}
