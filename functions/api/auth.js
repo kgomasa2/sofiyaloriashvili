@@ -43,17 +43,24 @@ export async function onRequestGet(context) {
     return new Response('OAuth server error', { status: 500 });
   }
 
-  /* ── Step 3: Post result back to Decap CMS opener window ── */
+  /* — Step 3: Post result back to Decap CMS opener window — */
   const message = tokenData.error || !tokenData.access_token
     ? `authorization:github:error:${JSON.stringify({ error: tokenData.error_description || 'OAuth failed' })}`
     : `authorization:github:success:${JSON.stringify({ token: tokenData.access_token, provider: 'github' })}`;
 
-  const html = `<!DOCTYPE html><html><body><script>
-    (function () {
-      window.opener && window.opener.postMessage(${JSON.stringify(message)}, '*');
-      window.close();
-    })();
-  \u003c/script\u003e</body></html>`;
+  const html = `<!doctype html>
+<html><body><script>
+(function() {
+  function receiveMessage(e) {
+    window.opener.postMessage(${JSON.stringify(message)}, e.origin);
+    window.removeEventListener("message", receiveMessage, false);
+  }
+  window.addEventListener("message", receiveMessage, false);
+  window.opener.postMessage("authorizing:github", "*");
+})();
+</script></body></html>`;
 
-  return new Response(html, { headers: { 'Content-Type': 'text/html' } });
+  return new Response(html, {
+    headers: { 'Content-Type': 'text/html' }
+  });
 }
