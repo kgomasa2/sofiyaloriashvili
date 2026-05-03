@@ -7,20 +7,20 @@
  *   GITHUB_CLIENT_SECRET  — from your GitHub OAuth App
  */
 
-const GITHUB_AUTH_URL  = 'https://github.com/login/oauth/authorize';
+const GITHUB_AUTH_URL = 'https://github.com/login/oauth/authorize';
 const GITHUB_TOKEN_URL = 'https://github.com/login/oauth/access_token';
 
 export async function onRequestGet(context) {
   const { request, env } = context;
-  const url  = new URL(request.url);
+  const url = new URL(request.url);
   const code = url.searchParams.get('code');
 
   /* ── Step 1: No code yet → redirect to GitHub login ── */
   if (!code) {
     const params = new URLSearchParams({
-      client_id:    env.GITHUB_CLIENT_ID,
-      scope:        'repo,user',
-      redirect_uri: `${url.origin}/api/auth`,
+      client_id: env.GITHUB_CLIENT_ID,
+      scope: 'repo,user',
+      redirect_uri: `https://www.adultxoma.com/api/auth`,
     });
     return Response.redirect(`${GITHUB_AUTH_URL}?${params}`, 302);
   }
@@ -29,13 +29,13 @@ export async function onRequestGet(context) {
   let tokenData;
   try {
     const resp = await fetch(GITHUB_TOKEN_URL, {
-      method:  'POST',
+      method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
-        client_id:     env.GITHUB_CLIENT_ID,
+        client_id: env.GITHUB_CLIENT_ID,
         client_secret: env.GITHUB_CLIENT_SECRET,
         code,
-        redirect_uri:  `${url.origin}/api/auth`,
+        redirect_uri: `https://www.adultxoma.com/api/auth`,
       }),
     });
     tokenData = await resp.json();
