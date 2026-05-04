@@ -8,155 +8,94 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Bangers&family=Babylonica&family=Beau+Rivage&family=Bitcount+Prop+Single&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Babylonica&family=Beau+Rivage&family=Bitcount+Prop+Single&family=EB+Garamond:wght@400;700&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/base.css">
     <style>
         /* ──────── PROJECTS PAGE ──────── */
         .projects-page {
-            padding-top: 120px;
+            padding-top: 160px;
             padding-bottom: 80px;
         }
 
         .page-heading.projects {
-            font-family: 'eUkraineHead', sans-serif;
-            font-size: 180px;
+            font-family: 'EBGaramondInitials', 'EB Garamond', serif;
+            font-size: 220px;
+            line-height: 1;
+            letter-spacing: -6px;
             color: var(--c-red);
-            letter-spacing: -8px;
+            margin: 0 0 60px;
         }
 
-        .projects-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 0 10px;
-            /* CMS: append <article class="project-card">…</article> here */
+        /* 3-column grid matching shop page margins */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            background: var(--c-yellow);
+            padding: 0 8px;
         }
 
         .project-card {
-            position: relative;
-            display: block;
-            width: 100%;
-            color: inherit;
-            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            background: var(--c-red);
             overflow: hidden;
-            background: var(--c-yellow);
-            padding: 10px 10px 32px;
+            color: var(--c-yellow);
         }
 
-        .project-card.c-yellow { background: var(--c-yellow); }
-        .project-card.c-blue { background: var(--c-blue); }
-        .project-card.c-red { background: var(--c-red); }
-        .project-card.c-green { background: var(--c-green); }
-
         .project-card .pc-image {
-            position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 4 / 3;
             overflow: hidden;
-            background: #1f3d2e;
         }
 
         .project-card .pc-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            display: block;
         }
 
-        .project-card:hover .pc-image img {
-            transform: scale(1.03);
-        }
-
-        .project-card .pc-meta {
-            position: absolute;
-            inset: 10px 10px 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 56px 64px;
-            color: var(--c-yellow);
-            background: linear-gradient(180deg,
-                    rgba(0, 0, 0, 0) 0%,
-                    rgba(0, 0, 0, 0) 60%,
-                    rgba(0, 0, 0, 0.65) 100%);
-            pointer-events: none;
-        }
-
-        .pc-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 40px;
-            pointer-events: auto;
-        }
-
-        .pc-text {
-            max-width: 880px;
+        .pc-footer {
+            padding: 20px 24px 28px;
+            background: var(--c-red);
         }
 
         .pc-title {
             font-family: 'Casino', serif;
-            font-size: 140px;
-            line-height: 0.85;
-            letter-spacing: -4px;
-            text-transform: uppercase;
-            color: var(--c-yellow);
-            margin-bottom: 12px;
-        }
-
-        .pc-subtitle {
-            font-family: 'ArialNarrow', sans-serif;
-            font-size: 22px;
-            line-height: 1.15;
-            letter-spacing: -0.4px;
-            color: var(--c-yellow);
-            opacity: 0.95;
-            max-width: 720px;
-        }
-
-        .pc-view {
-            font-family: 'Benzin', sans-serif;
-            font-weight: 800;
-            font-size: 28px;
-            letter-spacing: -0.5px;
+            font-size: 58px;
+            line-height: 1;
+            letter-spacing: -2px;
             color: var(--c-yellow);
             text-transform: uppercase;
-            border: 2px solid var(--c-yellow);
-            padding: 14px 28px;
-            transition: background 0.2s, color 0.2s;
-            pointer-events: auto;
-            white-space: nowrap;
         }
 
-        .project-card:hover .pc-view {
-            background: var(--c-yellow);
-            color: var(--c-red);
-        }
-
-        /* Per-project title font variations matching landing styling */
         .pc-title.f-benzin {
             font-family: 'Benzin', sans-serif;
             font-weight: 800;
+            font-size: 50px;
         }
 
         .pc-title.f-bayon {
             font-family: 'Bayon', sans-serif;
-            font-size: 160px;
+            font-size: 62px;
         }
 
         .pc-title.f-babylonica {
             font-family: 'Babylonica', cursive;
-            font-size: 180px;
+            font-size: 72px;
+            text-transform: none;
         }
 
         .pc-title.f-cochin {
             font-family: 'Cochin', 'Playfair Display', serif;
+            font-size: 56px;
         }
 
         .pc-title.f-beau {
             font-family: 'Beau Rivage', cursive;
-            font-size: 180px;
+            font-size: 72px;
             text-transform: none;
         }
     </style>
@@ -183,103 +122,59 @@
 
                 <h1 class="page-heading projects hover-blink">PROJECTS</h1>
 
-                <section class="projects-list">
+                <section class="projects-grid">
 
-                    <!-- BEGIN: project card (CMS-repeatable) -->
-                    <a href="projects/4-the-boyz.html" class="project-card c-red" data-slug="4-the-boyz">
+                    <a href="projects/4-the-boyz.html" class="project-card" data-slug="4-the-boyz">
                         <div class="pc-image">
                             <img src="assets/2025_LORIASHVILI_KINGKONG_MYSSIA__143.jpg" alt="4 the boyz">
                         </div>
-                        <div class="pc-meta">
-                            <div class="pc-bottom">
-                                <div class="pc-text">
-                                    <h2 class="pc-title f-benzin">4 the boyz</h2>
-                                    <p class="pc-subtitle">A series exploring masculinity and brotherhood through
-                                        intimate portraiture.</p>
-                                </div>
-                                <span class="pc-view">View project →</span>
-                            </div>
+                        <div class="pc-footer">
+                            <h2 class="pc-title f-benzin">4 the boyz</h2>
                         </div>
                     </a>
-                    <!-- END: project card -->
 
-                    <a href="projects/only-you-and-me.html" class="project-card c-blue" data-slug="only-you-and-me">
+                    <a href="projects/only-you-and-me.html" class="project-card" data-slug="only-you-and-me">
                         <div class="pc-image">
                             <img src="assets/_DSC1553.jpg" alt="only you and me">
                         </div>
-                        <div class="pc-meta">
-                            <div class="pc-bottom">
-                                <div class="pc-text">
-                                    <h2 class="pc-title f-bayon">only you and me</h2>
-                                    <p class="pc-subtitle">A diary of love and isolation. Featured in Fisheye Magazine
-                                        and exhibited at Festival d'Arles 2024.</p>
-                                </div>
-                                <span class="pc-view">View project →</span>
-                            </div>
+                        <div class="pc-footer">
+                            <h2 class="pc-title f-bayon">only you and me</h2>
                         </div>
                     </a>
 
-                    <a href="projects/ukraine.html" class="project-card c-yellow" data-slug="ukraine">
+                    <a href="projects/ukraine.html" class="project-card" data-slug="ukraine">
                         <div class="pc-image">
-                            <img src="assets/image 29.png" alt="ukraine">
+                            <img src="assets/image 29.png" alt="FROM UKRAINE">
                         </div>
-                        <div class="pc-meta">
-                            <div class="pc-bottom">
-                                <div class="pc-text">
-                                    <h2 class="pc-title f-cochin">FROM UKRAINE</h2>
-                                    <p class="pc-subtitle">An ongoing visual letter from home — daily life, people and
-                                        landscapes between war and tenderness.</p>
-                                </div>
-                                <span class="pc-view">View project →</span>
-                            </div>
+                        <div class="pc-footer">
+                            <h2 class="pc-title f-cochin">FROM UKRAINE</h2>
                         </div>
                     </a>
 
-                    <a href="projects/japan.html" class="project-card c-green" data-slug="japan">
+                    <a href="projects/japan.html" class="project-card" data-slug="japan">
                         <div class="pc-image">
                             <img src="assets/24_MUNE_LORIASHVILI_05.jpg" alt="japan">
                         </div>
-                        <div class="pc-meta">
-                            <div class="pc-bottom">
-                                <div class="pc-text">
-                                    <h2 class="pc-title f-babylonica">japan</h2>
-                                    <p class="pc-subtitle">31 days in Japan — published in Dazed and exhibited at the
-                                        Design Festa Gallery.</p>
-                                </div>
-                                <span class="pc-view">View project →</span>
-                            </div>
+                        <div class="pc-footer">
+                            <h2 class="pc-title f-babylonica">japan</h2>
                         </div>
                     </a>
 
-                    <a href="projects/strip-strip.html" class="project-card c-blue" data-slug="strip-strip">
+                    <a href="projects/strip-strip.html" class="project-card" data-slug="strip-strip">
                         <div class="pc-image">
                             <img src="assets/2025_STAFFIE_loriashvili_02.jpg" alt="strip strip">
                         </div>
-                        <div class="pc-meta">
-                            <div class="pc-bottom">
-                                <div class="pc-text">
-                                    <h2 class="pc-title">strip strip</h2>
-                                    <p class="pc-subtitle">A study of the gaze, performance and the body as a site of
-                                        autonomy.</p>
-                                </div>
-                                <span class="pc-view">View project →</span>
-                            </div>
+                        <div class="pc-footer">
+                            <h2 class="pc-title">strip strip</h2>
                         </div>
                     </a>
 
-                    <a href="projects/feet.html" class="project-card c-red" data-slug="feet">
+                    <a href="projects/feet.html" class="project-card" data-slug="feet">
                         <div class="pc-image">
                             <img src="assets/25_WHISPER_NEMESIS_15.jpg" alt="feet">
                         </div>
-                        <div class="pc-meta">
-                            <div class="pc-bottom">
-                                <div class="pc-text">
-                                    <h2 class="pc-title f-beau">Feet</h2>
-                                    <p class="pc-subtitle">A small fetish for the unnoticed — feet, ankles and the
-                                        ground beneath us.</p>
-                                </div>
-                                <span class="pc-view">View project →</span>
-                            </div>
+                        <div class="pc-footer">
+                            <h2 class="pc-title f-beau">Feet</h2>
                         </div>
                     </a>
 

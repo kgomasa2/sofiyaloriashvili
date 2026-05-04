@@ -14,7 +14,7 @@
     <style>
         /* ──────── SHOP PAGE ──────── */
         .shop-page {
-            padding-top: 120px;
+            padding-top: 160px;
             padding-bottom: 80px;
         }
 
@@ -26,104 +26,31 @@
             color: var(--c-red);
             text-transform: uppercase;
             text-align: center;
-            margin-bottom: 30px;
+            margin: 60px 0 40px;
         }
 
-        /* Marquee */
-        .shop-marquee {
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            font-family: 'Bitcount Prop Single', monospace;
-            font-size: 90px;
-            line-height: 1;
-            letter-spacing: -3px;
-            color: var(--c-gray);
-            text-transform: uppercase;
-            margin: 30px 0 60px;
-        }
-
-        .shop-marquee-track {
-            display: inline-block;
-            animation: marquee-x 18s linear infinite;
-        }
-
-        .shop-marquee-track span {
-            display: inline-block;
-            padding-right: 50px;
-        }
-
-        @keyframes marquee-x {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* Filters bar (CMS-driven, just toggleable) */
-        .shop-filters {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 0 80px 50px;
-        }
-
-        .shop-filter {
-            font-family: 'Benzin', sans-serif;
-            font-weight: 700;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            color: var(--c-red);
-            background: var(--c-yellow);
-            border: 2px solid var(--c-red);
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background 0.15s, color 0.15s;
-        }
-
-        .shop-filter:hover,
-        .shop-filter.is-active {
-            background: var(--c-red);
-            color: var(--c-yellow);
-        }
-
-        /* Grid container — fixed 3-col layout */
+        /* Grid container — 3-col layout */
         .shop-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
             background: var(--c-yellow);
             padding: 0 8px;
-            /* CMS: append <article class="shop-card">…</article> here */
         }
 
-        /* Card — flow-based, content blocks editable independently */
+        /* Card */
         .shop-card {
             display: flex;
             flex-direction: column;
             background: var(--c-gray);
             position: relative;
             overflow: hidden;
-            transition: transform 0.2s;
-        }
-
-        .shop-card:hover {
-            transform: translateY(-4px);
         }
 
         .shop-card .sc-image {
             width: 100%;
             aspect-ratio: 4 / 3;
-            background: #1f3d2e;
-            background-image:
-                linear-gradient(0deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
+            background: var(--c-gray);
             overflow: hidden;
             position: relative;
         }
@@ -258,21 +185,6 @@
 
                 <h1 class="shop-heading hover-blink">SHOP</h1>
 
-                <div class="shop-marquee">
-                    <div class="shop-marquee-track">
-                        <span>BOOKS · PRINTS · ZINES · BOOKS · PRINTS · ZINES · BOOKS · PRINTS · ZINES ·&nbsp;</span>
-                        <span>BOOKS · PRINTS · ZINES · BOOKS · PRINTS · ZINES · BOOKS · PRINTS · ZINES ·&nbsp;</span>
-                    </div>
-                </div>
-
-                <div class="shop-filters" id="shop-filters">
-                    <button class="shop-filter is-active" data-filter="all">All</button>
-                    <button class="shop-filter" data-filter="books">Books</button>
-                    <button class="shop-filter" data-filter="prints">Prints</button>
-                    <button class="shop-filter" data-filter="zines">Zines</button>
-                    <button class="shop-filter" data-filter="merch">Merch</button>
-                </div>
-
                 <section class="shop-grid" id="shop-grid">
                     <!-- Cards rendered dynamically from data/shop.json -->
                 </section>
@@ -332,27 +244,8 @@
 
                         grid.appendChild(card);
                     });
-
-                    // Init filters after cards are rendered
-                    initFilters();
                 })
                 .catch(err => console.error('Failed to load shop data:', err));
-
-            function initFilters() {
-                const filters = document.querySelectorAll('.shop-filter');
-                const cards = document.querySelectorAll('.shop-card');
-                filters.forEach(function (btn) {
-                    btn.addEventListener('click', function () {
-                        filters.forEach(b => b.classList.remove('is-active'));
-                        btn.classList.add('is-active');
-                        const f = btn.dataset.filter;
-                        cards.forEach(function (card) {
-                            const match = f === 'all' || card.dataset.category === f;
-                            card.style.display = match ? '' : 'none';
-                        });
-                    });
-                });
-            }
         })();
     </script>
 </body>

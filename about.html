@@ -14,7 +14,7 @@
     <style>
         /* ──────── ABOUT PAGE ──────── */
         .about-page {
-            padding-top: 100px;
+            padding-top: 160px;
             padding-bottom: 80px;
             display: flex;
             flex-direction: column;
@@ -23,172 +23,117 @@
             padding-right: 10px;
         }
 
-        /* Intro plate: portrait + bio (blue plate, red text) */
+        /* First panel: grey, centered About title + bio */
         .about-intro {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            padding: 60px 60px;
+            background: var(--c-gray);
+            padding: 60px 80px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            background: var(--c-blue);
-            transition: background 0.2s, color 0.2s;
+            gap: 32px;
         }
 
-        .about-intro:hover {
-            background: var(--c-red);
-        }
-
-        .about-intro:hover .about-bio h1,
-        .about-intro:hover .about-bio p {
-            color: var(--c-yellow);
-        }
-
-        .about-portrait {
-            width: 100%;
-            aspect-ratio: 4 / 5;
-            overflow: hidden;
-            background: var(--c-yellow);
-        }
-
-        .about-portrait img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-bio h1 {
+        .about-title {
             font-family: 'Casino', serif;
             font-size: 180px;
-            line-height: 0.85;
+            line-height: 1;
             letter-spacing: -6px;
-            color: var(--c-red);
+            color: var(--c-yellow);
             text-transform: uppercase;
-            margin-bottom: 40px;
-            transition: color 0.2s;
         }
 
-        .about-bio p {
+        .about-desc p {
             font-family: 'ArialNarrow', sans-serif;
-            font-size: 22px;
-            line-height: 1.3;
-            letter-spacing: -0.4px;
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: -0.3px;
             color: var(--c-red);
-            margin-bottom: 18px;
-            transition: color 0.2s;
+            text-align: center;
+            margin-bottom: 10px;
         }
 
-        /* CV plate sections */
+        .about-desc p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Two-column CV panels */
+        .cv-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
         .cv-section {
-            padding: 60px 60px 60px;
-            transition: background 0.2s, color 0.2s;
+            padding: 50px 40px 60px;
         }
 
         .cv-section.exhibitions-section {
-            background: var(--c-yellow);
-        }
-
-        .cv-section.exhibitions-section:hover {
-            background: var(--c-red);
-        }
-
-        .cv-section.exhibitions-section:hover .cv-heading,
-        .cv-section.exhibitions-section:hover .cv-row {
-            color: var(--c-yellow);
-        }
-
-        .cv-section.exhibitions-section:hover .cv-row {
-            border-color: var(--c-yellow);
+            background: var(--c-blue);
         }
 
         .cv-section.media-section {
             background: var(--c-green);
         }
 
-        .cv-section.media-section .cv-heading,
-        .cv-section.media-section .cv-row,
-        .cv-section.media-section .cv-row .cv-link {
-            color: var(--c-blue);
-        }
-
-        .cv-section.media-section .cv-row {
-            border-color: var(--c-blue);
-        }
-
-        .cv-section.media-section:hover {
-            background: var(--c-blue);
-        }
-
-        .cv-section.media-section:hover .cv-heading,
-        .cv-section.media-section:hover .cv-row,
-        .cv-section.media-section:hover .cv-row .cv-link {
-            color: var(--c-green);
-        }
-
-        .cv-section.media-section:hover .cv-row {
-            border-color: var(--c-green);
-        }
-
         .cv-heading {
             text-align: center;
-            margin-bottom: 60px;
-            transition: color 0.2s;
+            margin-bottom: 40px;
         }
 
         .cv-heading.exhibitions {
             font-family: 'Beau Rivage', cursive;
-            font-size: 220px;
+            font-size: 160px;
             line-height: 1;
-            letter-spacing: -6px;
+            letter-spacing: -4px;
             color: var(--c-red);
         }
 
         .cv-heading.media {
             font-family: 'Bangers', cursive;
-            font-size: 220px;
-            letter-spacing: -6px;
-            color: var(--c-blue);
+            font-size: 160px;
+            line-height: 1;
+            letter-spacing: -4px;
+            color: var(--c-red);
             text-transform: uppercase;
         }
 
-        /* CV list — flow layout, each item is one row, easy to map from CMS */
         .cv-list {
             list-style: none;
-            max-width: 1120px;
-            margin: 0 auto;
             padding: 0;
         }
 
         .cv-row {
             display: grid;
-            grid-template-columns: 140px 1fr 200px;
-            gap: 32px;
+            grid-template-columns: 70px 1fr 110px;
+            gap: 16px;
             align-items: baseline;
-            padding: 22px 0;
-            border-top: 1px solid currentColor;
+            padding: 14px 0;
             font-family: 'ArialNarrow', sans-serif;
-            font-size: 22px;
-            line-height: 1.2;
+            font-size: 18px;
+            line-height: 1.3;
             letter-spacing: -0.3px;
             color: var(--c-red);
-            transition: color 0.2s, border-color 0.2s;
         }
 
-        .cv-list .cv-row:last-child {
-            border-bottom: 1px solid currentColor;
+        .cv-row.media-row {
+            grid-template-columns: 130px 1fr 50px;
         }
 
         .cv-year {
             font-family: 'Benzin', sans-serif;
             font-weight: 800;
-            font-size: 22px;
+            font-size: 16px;
             letter-spacing: 0;
             white-space: nowrap;
+            color: var(--c-red);
         }
 
         .cv-title {
             font-family: 'ArialNarrow', sans-serif;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 400;
+            color: var(--c-red);
         }
 
         .cv-title em {
@@ -198,13 +143,10 @@
 
         .cv-place {
             font-family: 'ArialNarrow', sans-serif;
-            font-size: 18px;
+            font-size: 15px;
             text-align: right;
-            opacity: 0.85;
-        }
-
-        .cv-row.media-row {
-            grid-template-columns: 280px 1fr 60px;
+            opacity: 0.8;
+            color: var(--c-red);
         }
 
         .cv-row .cv-link {
@@ -212,10 +154,16 @@
             text-decoration: underline;
             font-family: 'Benzin', sans-serif;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            transition: color 0.2s;
+            color: var(--c-red);
+        }
+
+        /* Disable hover on ABOUT nav item */
+        .header-fixed .nav-item[href="about.html"]:hover {
+            color: var(--c-red);
+            background: var(--c-gray);
         }
     </style>
 </head>
@@ -239,29 +187,27 @@
 
             <main class="about-page">
 
+                <!-- First grey panel: About title + bio -->
                 <section class="about-intro">
-                    <div class="about-portrait">
-                        <img src="assets/Screenshot 2026-04-27 at 17.07.12 1.png" alt="Sofiya Loriashvili">
-                    </div>
-                    <div class="about-bio">
-                        <h1>About</h1>
-                        <div id="bio-text"><!-- loaded from JSON --></div>
-                    </div>
+                    <h1 class="about-title">About</h1>
+                    <div id="bio-text" class="about-desc"></div>
                 </section>
 
-                <section class="cv-section exhibitions-section">
-                    <h2 class="cv-heading exhibitions">Exhibitions</h2>
-                    <ul class="cv-list" id="exhibitions-list">
-                        <!-- loaded from JSON -->
-                    </ul>
-                </section>
+                <!-- Two-column: Exhibitions (blue) + Media (green) -->
+                <div class="cv-columns">
 
-                <section class="cv-section media-section">
-                    <h2 class="cv-heading media">Media</h2>
-                    <ul class="cv-list" id="media-list">
-                        <!-- loaded from JSON -->
-                    </ul>
-                </section>
+                    <section class="cv-section exhibitions-section">
+                        <h2 class="cv-heading exhibitions">Exhibitions</h2>
+                        <ul class="cv-list" id="exhibitions-list"></ul>
+                    </section>
+
+                    <section class="cv-section media-section">
+                        <h2 class="cv-heading media">Media</h2>
+                        <ul class="cv-list" id="media-list"></ul>
+                    </section>
+
+                </div>
+
             </main>
 
             <footer class="site-footer">
@@ -280,7 +226,6 @@
 
     <script src="assets/base.js"></script>
     <script>
-        // ── Render about page from JSON ──
         (function () {
             fetch('data/about.json')
                 .then(r => r.json())
