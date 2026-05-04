@@ -92,36 +92,22 @@
             color: var(--c-yellow);
         }
 
-        /* Grid container */
+        /* Grid container — fixed 3-column uniform grid */
         .shop-grid {
             display: grid;
-            /* Repeating 12-col grid: items declare colSpan via classes */
-            grid-template-columns: repeat(12, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 8px;
             background: var(--c-yellow);
             padding: 0 8px;
-            /* CMS: append <article class="shop-card span-X">…</article> here */
         }
 
-        /* Span helpers — pick one per card for layout variety */
-        .span-12 {
-            grid-column: span 12;
-        }
-
-        .span-8 {
-            grid-column: span 8;
-        }
-
-        .span-6 {
-            grid-column: span 6;
-        }
-
-        .span-4 {
-            grid-column: span 4;
-        }
-
+        /* Span classes ignored — all cards are the same uniform tile */
+        .span-12,
+        .span-8,
+        .span-6,
+        .span-4,
         .span-3 {
-            grid-column: span 3;
+            grid-column: auto;
         }
 
         /* Card — flow-based, content blocks editable independently */
@@ -195,7 +181,7 @@
         .sc-title {
             font-family: 'Benzin', sans-serif;
             font-weight: 800;
-            font-size: 36px;
+            font-size: 32px;
             letter-spacing: -1px;
             color: var(--c-red);
             text-transform: uppercase;
@@ -203,30 +189,13 @@
             flex: 1;
         }
 
-        .span-3 .sc-title {
-            font-size: 26px;
-        }
-
-        .span-12 .sc-title {
-            font-size: 64px;
-            letter-spacing: -2px;
-        }
-
         .sc-price {
             font-family: 'Benzin', sans-serif;
             font-weight: 800;
-            font-size: 36px;
+            font-size: 32px;
             letter-spacing: -1px;
             color: var(--c-red);
             white-space: nowrap;
-        }
-
-        .span-3 .sc-price {
-            font-size: 26px;
-        }
-
-        .span-12 .sc-price {
-            font-size: 64px;
         }
 
         .sc-pub {

@@ -44,6 +44,7 @@
         }
 
         .contact-method {
+            flex: 1;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -162,37 +163,6 @@
             color: var(--c-red);
         }
 
-        /* Studio info under contacts */
-        .studio-info {
-            margin-top: 60px;
-            padding: 60px 80px;
-            background: var(--c-red);
-            color: var(--c-yellow);
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
-        }
-
-        .studio-block h3 {
-            font-family: 'Benzin', sans-serif;
-            font-weight: 700;
-            font-size: 18px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            opacity: 0.7;
-        }
-
-        .studio-block p {
-            font-family: 'ArialNarrow', sans-serif;
-            font-size: 22px;
-            line-height: 1.3;
-            letter-spacing: -0.4px;
-        }
-
-        .studio-block a {
-            text-decoration: underline;
-        }
     </style>
 </head>
 
@@ -221,27 +191,23 @@
 
                     <div class="contact-methods">
                         <!-- BEGIN: contact method (CMS-repeatable) -->
-                        <a class="contact-method" href="https://instagram.com/" target="_blank" rel="noopener">
-                            <span class="cm-label">Instagram</span>
-                            <span class="cm-handle">@sofiya.loriashvili</span>
-                        </a>
-                        <!-- END: contact method -->
-
-                        <a class="contact-method" href="https://onlyfans.com/" target="_blank" rel="noopener">
-                            <span class="cm-label">OnlyFans</span>
-                            <span class="cm-handle">@sofiya</span>
-                        </a>
-                        <a class="contact-method" href="https://t.me/" target="_blank" rel="noopener">
-                            <span class="cm-label">Telegram</span>
-                            <span class="cm-handle">@sofiya_l</span>
-                        </a>
                         <a class="contact-method" href="mailto:hello@sofiya.art">
                             <span class="cm-label">E-mail</span>
                             <span class="cm-handle">hello@sofiya.art</span>
                         </a>
-                        <a class="contact-method" href="mailto:press@sofiya.art">
-                            <span class="cm-label">Press</span>
-                            <span class="cm-handle">press@sofiya.art</span>
+                        <!-- END: contact method -->
+
+                        <a class="contact-method" href="https://t.me/" target="_blank" rel="noopener">
+                            <span class="cm-label">Telegram</span>
+                            <span class="cm-handle">@sofiya_l</span>
+                        </a>
+                        <a class="contact-method" href="https://onlyfans.com/" target="_blank" rel="noopener">
+                            <span class="cm-label">OnlyFans</span>
+                            <span class="cm-handle">@sofiya</span>
+                        </a>
+                        <a class="contact-method" href="https://instagram.com/" target="_blank" rel="noopener">
+                            <span class="cm-label">Instagram</span>
+                            <span class="cm-handle">@sofiya.loriashvili</span>
                         </a>
                     </div>
 
@@ -277,21 +243,6 @@
 
                         <button type="submit" class="submit-btn">Send →</button>
                     </form>
-                </section>
-
-                <section class="studio-info">
-                    <div class="studio-block">
-                        <h3>Studio</h3>
-                        <p>Paris, FR<br>By appointment only</p>
-                    </div>
-                    <div class="studio-block">
-                        <h3>Representation</h3>
-                        <p>For commercial enquiries:<br><a href="mailto:agent@sofiya.art">agent@sofiya.art</a></p>
-                    </div>
-                    <div class="studio-block">
-                        <h3>Press kit</h3>
-                        <p><a href="#">Download PDF</a> — bio, hi-res images, exhibition history.</p>
-                    </div>
                 </section>
 
             </main>
