@@ -1,45 +1,56 @@
 /* ──────── DETAIL PAGES (project & product) ──────── */
 
+/* ===== PER-PROJECT PAGE BACKGROUND ===== */
+body.proj-bg-blue,
+body.proj-bg-blue .canvas-wrap,
+body.proj-bg-blue .canvas {
+    background: var(--c-blue);
+}
+
+body.proj-bg-green,
+body.proj-bg-green .canvas-wrap,
+body.proj-bg-green .canvas {
+    background: var(--c-green);
+}
+
+body.proj-bg-red,
+body.proj-bg-red .canvas-wrap,
+body.proj-bg-red .canvas {
+    background: var(--c-red);
+}
+
+body.proj-bg-red,
+body.proj-bg-red .proj-title,
+body.proj-bg-red .proj-subtitle,
+body.proj-bg-red .desc-side,
+body.proj-bg-red .desc-side dt,
+body.proj-bg-red .desc-side dd,
+body.proj-bg-red .desc-body p,
+body.proj-bg-red .proj-nav a {
+    color: var(--c-yellow);
+}
+
+body.proj-bg-red .proj-nav {
+    border-top-color: var(--c-yellow);
+}
+
+body.proj-bg-red .proj-nav .nav-back {
+    border-color: var(--c-yellow);
+}
+
+body.proj-bg-red .proj-nav .nav-back:hover {
+    background: var(--c-yellow);
+    color: var(--c-red);
+}
+
 /* ===== PROJECT DETAIL ===== */
 
 .proj-hero {
     padding: 100px 80px 60px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: end;
 }
 
 .proj-hero-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.proj-hero-meta .pc-tags {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    font-family: 'Benzin', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.proj-hero-meta .pc-tag {
-    background: var(--c-red);
-    color: var(--c-yellow);
-    padding: 6px 14px;
-    border-radius: 999px;
-}
-
-.proj-hero-meta .pc-year {
-    font-family: 'Benzin', sans-serif;
-    font-weight: 800;
-    font-size: 28px;
-    letter-spacing: 0;
-    color: var(--c-red);
+    display: none;
 }
 
 .proj-title {

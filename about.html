@@ -14,16 +14,24 @@
     <style>
         /* ──────── ABOUT PAGE ──────── */
         .about-page {
-            padding-top: 100px;
-            padding-bottom: 80px;
+            padding: 100px 15px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
-        /* Intro section: portrait + bio */
-        .about-intro {
+        /* Plate base */
+        .about-plate {
+            padding: 60px 60px 70px;
+        }
+
+        /* About plate: blue bg, red text */
+        .about-plate.intro {
+            background: var(--c-blue);
+            color: var(--c-red);
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 64px;
-            padding: 0 80px 100px;
             align-items: center;
         }
 
@@ -31,7 +39,6 @@
             width: 100%;
             aspect-ratio: 4 / 5;
             overflow: hidden;
-            background: var(--c-blue);
         }
 
         .about-portrait img {
@@ -59,13 +66,16 @@
             margin-bottom: 18px;
         }
 
-        /* CV sections */
-        .cv-section {
-            padding: 80px 80px 40px;
+        /* Exhibitions plate: yellow bg, red text */
+        .about-plate.exhibitions {
+            background: var(--c-yellow);
+            color: var(--c-red);
         }
 
-        .cv-section + .cv-section {
-            border-top: 4px solid var(--c-red);
+        /* Media plate: green bg, blue text */
+        .about-plate.media {
+            background: var(--c-green);
+            color: var(--c-blue);
         }
 
         .cv-heading {
@@ -73,7 +83,7 @@
             margin-bottom: 60px;
         }
 
-        .cv-heading.exhibitions {
+        .cv-heading.exhibitions-h {
             font-family: 'Beau Rivage', cursive;
             font-size: 220px;
             line-height: 1;
@@ -81,15 +91,15 @@
             color: var(--c-red);
         }
 
-        .cv-heading.media {
+        .cv-heading.media-h {
             font-family: 'Bangers', cursive;
             font-size: 220px;
             letter-spacing: -6px;
-            color: var(--c-red);
+            color: var(--c-blue);
             text-transform: uppercase;
         }
 
-        /* CV list — flow layout, each item is one row, easy to map from CMS */
+        /* CV list — no dividers */
         .cv-list {
             list-style: none;
             max-width: 1120px;
@@ -102,17 +112,12 @@
             grid-template-columns: 140px 1fr 200px;
             gap: 32px;
             align-items: baseline;
-            padding: 22px 0;
-            border-top: 1px solid var(--c-red);
+            padding: 22px 24px;
             font-family: 'ArialNarrow', sans-serif;
             font-size: 22px;
             line-height: 1.2;
             letter-spacing: -0.3px;
-            color: var(--c-red);
-        }
-
-        .cv-list .cv-row:last-child {
-            border-bottom: 1px solid var(--c-red);
+            transition: background 0.2s, color 0.2s;
         }
 
         .cv-year {
@@ -155,8 +160,14 @@
             text-transform: uppercase;
         }
 
-        .cv-row:hover {
+        /* Hover: invert color combos per plate */
+        .about-plate.exhibitions .cv-row:hover {
             background: var(--c-red);
+            color: var(--c-yellow);
+        }
+
+        .about-plate.media .cv-row:hover {
+            background: var(--c-blue);
             color: var(--c-yellow);
         }
     </style>
@@ -181,7 +192,7 @@
 
             <main class="about-page">
 
-                <section class="about-intro">
+                <section class="about-plate intro">
                     <div class="about-portrait">
                         <img src="assets/Screenshot 2026-04-27 at 17.07.12 1.png" alt="Sofiya Loriashvili">
                     </div>
@@ -191,15 +202,15 @@
                     </div>
                 </section>
 
-                <section class="cv-section">
-                    <h2 class="cv-heading exhibitions">Exhibitions</h2>
+                <section class="about-plate exhibitions">
+                    <h2 class="cv-heading exhibitions-h">Exhibitions</h2>
                     <ul class="cv-list" id="exhibitions-list">
                         <!-- loaded from JSON -->
                     </ul>
                 </section>
 
-                <section class="cv-section">
-                    <h2 class="cv-heading media">Media</h2>
+                <section class="about-plate media">
+                    <h2 class="cv-heading media-h">Media</h2>
                     <ul class="cv-list" id="media-list">
                         <!-- loaded from JSON -->
                     </ul>
