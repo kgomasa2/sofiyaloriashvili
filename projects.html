@@ -28,7 +28,8 @@
         .projects-list {
             display: flex;
             flex-direction: column;
-            gap: 0;
+            gap: 10px;
+            padding: 0 10px;
             /* CMS: append <article class="project-card">…</article> here */
         }
 
@@ -39,11 +40,14 @@
             color: inherit;
             cursor: pointer;
             overflow: hidden;
+            background: var(--c-yellow);
+            padding: 10px 10px 32px;
         }
 
-        .project-card + .project-card {
-            border-top: 8px solid var(--c-yellow);
-        }
+        .project-card.c-yellow { background: var(--c-yellow); }
+        .project-card.c-blue { background: var(--c-blue); }
+        .project-card.c-red { background: var(--c-red); }
+        .project-card.c-green { background: var(--c-green); }
 
         .project-card .pc-image {
             position: relative;
@@ -66,51 +70,17 @@
 
         .project-card .pc-meta {
             position: absolute;
-            inset: 0;
+            inset: 10px 10px 32px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-end;
             padding: 56px 64px;
             color: var(--c-yellow);
             background: linear-gradient(180deg,
-                    rgba(0, 0, 0, 0.55) 0%,
-                    rgba(0, 0, 0, 0) 30%,
+                    rgba(0, 0, 0, 0) 0%,
                     rgba(0, 0, 0, 0) 60%,
                     rgba(0, 0, 0, 0.65) 100%);
             pointer-events: none;
-        }
-
-        .pc-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 40px;
-        }
-
-        .pc-tags {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            font-family: 'Benzin', sans-serif;
-            font-weight: 700;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .pc-tag {
-            background: var(--c-yellow);
-            color: var(--c-red);
-            padding: 6px 14px;
-            border-radius: 999px;
-        }
-
-        .pc-year {
-            font-family: 'Benzin', sans-serif;
-            font-weight: 700;
-            font-size: 18px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
         }
 
         .pc-bottom {
@@ -216,18 +186,11 @@
                 <section class="projects-list">
 
                     <!-- BEGIN: project card (CMS-repeatable) -->
-                    <a href="projects/4-the-boyz.html" class="project-card" data-slug="4-the-boyz">
+                    <a href="projects/4-the-boyz.html" class="project-card c-red" data-slug="4-the-boyz">
                         <div class="pc-image">
                             <img src="assets/2025_LORIASHVILI_KINGKONG_MYSSIA__143.jpg" alt="4 the boyz">
                         </div>
                         <div class="pc-meta">
-                            <div class="pc-top">
-                                <div class="pc-tags">
-                                    <span class="pc-tag">Photography</span>
-                                    <span class="pc-tag">Portrait</span>
-                                </div>
-                                <div class="pc-year">2025</div>
-                            </div>
                             <div class="pc-bottom">
                                 <div class="pc-text">
                                     <h2 class="pc-title f-benzin">4 the boyz</h2>
@@ -240,18 +203,11 @@
                     </a>
                     <!-- END: project card -->
 
-                    <a href="projects/only-you-and-me.html" class="project-card" data-slug="only-you-and-me">
+                    <a href="projects/only-you-and-me.html" class="project-card c-blue" data-slug="only-you-and-me">
                         <div class="pc-image">
                             <img src="assets/_DSC1553.jpg" alt="only you and me">
                         </div>
                         <div class="pc-meta">
-                            <div class="pc-top">
-                                <div class="pc-tags">
-                                    <span class="pc-tag">Editorial</span>
-                                    <span class="pc-tag">Intimacy</span>
-                                </div>
-                                <div class="pc-year">2024</div>
-                            </div>
                             <div class="pc-bottom">
                                 <div class="pc-text">
                                     <h2 class="pc-title f-bayon">only you and me</h2>
@@ -263,18 +219,11 @@
                         </div>
                     </a>
 
-                    <a href="projects/ukraine.html" class="project-card" data-slug="ukraine">
+                    <a href="projects/ukraine.html" class="project-card c-yellow" data-slug="ukraine">
                         <div class="pc-image">
                             <img src="assets/image 29.png" alt="ukraine">
                         </div>
                         <div class="pc-meta">
-                            <div class="pc-top">
-                                <div class="pc-tags">
-                                    <span class="pc-tag">Documentary</span>
-                                    <span class="pc-tag">Home</span>
-                                </div>
-                                <div class="pc-year">2022 — ongoing</div>
-                            </div>
                             <div class="pc-bottom">
                                 <div class="pc-text">
                                     <h2 class="pc-title f-cochin">FROM UKRAINE</h2>
@@ -286,18 +235,11 @@
                         </div>
                     </a>
 
-                    <a href="projects/japan.html" class="project-card" data-slug="japan">
+                    <a href="projects/japan.html" class="project-card c-green" data-slug="japan">
                         <div class="pc-image">
                             <img src="assets/24_MUNE_LORIASHVILI_05.jpg" alt="japan">
                         </div>
                         <div class="pc-meta">
-                            <div class="pc-top">
-                                <div class="pc-tags">
-                                    <span class="pc-tag">Travel</span>
-                                    <span class="pc-tag">Series</span>
-                                </div>
-                                <div class="pc-year">2024</div>
-                            </div>
                             <div class="pc-bottom">
                                 <div class="pc-text">
                                     <h2 class="pc-title f-babylonica">japan</h2>
@@ -309,18 +251,11 @@
                         </div>
                     </a>
 
-                    <a href="projects/strip-strip.html" class="project-card" data-slug="strip-strip">
+                    <a href="projects/strip-strip.html" class="project-card c-blue" data-slug="strip-strip">
                         <div class="pc-image">
                             <img src="assets/2025_STAFFIE_loriashvili_02.jpg" alt="strip strip">
                         </div>
                         <div class="pc-meta">
-                            <div class="pc-top">
-                                <div class="pc-tags">
-                                    <span class="pc-tag">Performance</span>
-                                    <span class="pc-tag">Body</span>
-                                </div>
-                                <div class="pc-year">2025</div>
-                            </div>
                             <div class="pc-bottom">
                                 <div class="pc-text">
                                     <h2 class="pc-title">strip strip</h2>
@@ -332,18 +267,11 @@
                         </div>
                     </a>
 
-                    <a href="projects/feet.html" class="project-card" data-slug="feet">
+                    <a href="projects/feet.html" class="project-card c-red" data-slug="feet">
                         <div class="pc-image">
                             <img src="assets/25_WHISPER_NEMESIS_15.jpg" alt="feet">
                         </div>
                         <div class="pc-meta">
-                            <div class="pc-top">
-                                <div class="pc-tags">
-                                    <span class="pc-tag">Fragments</span>
-                                    <span class="pc-tag">Detail</span>
-                                </div>
-                                <div class="pc-year">2025</div>
-                            </div>
                             <div class="pc-bottom">
                                 <div class="pc-text">
                                     <h2 class="pc-title f-beau">Feet</h2>

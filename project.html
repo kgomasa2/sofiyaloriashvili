@@ -92,9 +92,9 @@
             function renderProject(project, prev, next) {
                 document.title = (project.title || 'Project') + ' — SOFIYA LORIASHVILI';
 
-                const tagsHTML = (project.tags || [])
-                    .map(function (t) { return '<span class="pc-tag">' + escapeHtml(t) + '</span>'; })
-                    .join('');
+                if (project.bg) {
+                    document.body.classList.add('bg-' + project.bg);
+                }
 
                 const titleFont = project.titleFont ? ' ' + project.titleFont : '';
 
@@ -120,7 +120,6 @@
                 main.innerHTML =
                     '<section class="proj-hero">' +
                         '<div class="proj-hero-meta">' +
-                            '<div class="pc-tags">' + tagsHTML + '</div>' +
                             '<div class="pc-year">' + escapeHtml(project.year || '') + '</div>' +
                         '</div>' +
                         '<div>' +

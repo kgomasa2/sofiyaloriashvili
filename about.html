@@ -16,22 +16,38 @@
         .about-page {
             padding-top: 100px;
             padding-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
-        /* Intro section: portrait + bio */
+        /* Intro plate: portrait + bio (blue plate, red text) */
         .about-intro {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 64px;
-            padding: 0 80px 100px;
+            padding: 60px 60px;
             align-items: center;
+            background: var(--c-blue);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .about-intro:hover {
+            background: var(--c-red);
+        }
+
+        .about-intro:hover .about-bio h1,
+        .about-intro:hover .about-bio p {
+            color: var(--c-yellow);
         }
 
         .about-portrait {
             width: 100%;
             aspect-ratio: 4 / 5;
             overflow: hidden;
-            background: var(--c-blue);
+            background: var(--c-yellow);
         }
 
         .about-portrait img {
@@ -48,6 +64,7 @@
             color: var(--c-red);
             text-transform: uppercase;
             margin-bottom: 40px;
+            transition: color 0.2s;
         }
 
         .about-bio p {
@@ -57,20 +74,64 @@
             letter-spacing: -0.4px;
             color: var(--c-red);
             margin-bottom: 18px;
+            transition: color 0.2s;
         }
 
-        /* CV sections */
+        /* CV plate sections */
         .cv-section {
-            padding: 80px 80px 40px;
+            padding: 60px 60px 60px;
+            transition: background 0.2s, color 0.2s;
         }
 
-        .cv-section + .cv-section {
-            border-top: 4px solid var(--c-red);
+        .cv-section.exhibitions-section {
+            background: var(--c-yellow);
+        }
+
+        .cv-section.exhibitions-section:hover {
+            background: var(--c-red);
+        }
+
+        .cv-section.exhibitions-section:hover .cv-heading,
+        .cv-section.exhibitions-section:hover .cv-row {
+            color: var(--c-yellow);
+        }
+
+        .cv-section.exhibitions-section:hover .cv-row {
+            border-color: var(--c-yellow);
+        }
+
+        .cv-section.media-section {
+            background: var(--c-green);
+        }
+
+        .cv-section.media-section .cv-heading,
+        .cv-section.media-section .cv-row,
+        .cv-section.media-section .cv-row .cv-link {
+            color: var(--c-blue);
+        }
+
+        .cv-section.media-section .cv-row {
+            border-color: var(--c-blue);
+        }
+
+        .cv-section.media-section:hover {
+            background: var(--c-blue);
+        }
+
+        .cv-section.media-section:hover .cv-heading,
+        .cv-section.media-section:hover .cv-row,
+        .cv-section.media-section:hover .cv-row .cv-link {
+            color: var(--c-green);
+        }
+
+        .cv-section.media-section:hover .cv-row {
+            border-color: var(--c-green);
         }
 
         .cv-heading {
             text-align: center;
             margin-bottom: 60px;
+            transition: color 0.2s;
         }
 
         .cv-heading.exhibitions {
@@ -85,7 +146,7 @@
             font-family: 'Bangers', cursive;
             font-size: 220px;
             letter-spacing: -6px;
-            color: var(--c-red);
+            color: var(--c-blue);
             text-transform: uppercase;
         }
 
@@ -103,16 +164,17 @@
             gap: 32px;
             align-items: baseline;
             padding: 22px 0;
-            border-top: 1px solid var(--c-red);
+            border-top: 1px solid currentColor;
             font-family: 'ArialNarrow', sans-serif;
             font-size: 22px;
             line-height: 1.2;
             letter-spacing: -0.3px;
             color: var(--c-red);
+            transition: color 0.2s, border-color 0.2s;
         }
 
         .cv-list .cv-row:last-child {
-            border-bottom: 1px solid var(--c-red);
+            border-bottom: 1px solid currentColor;
         }
 
         .cv-year {
@@ -153,11 +215,7 @@
             font-size: 16px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-        }
-
-        .cv-row:hover {
-            background: var(--c-red);
-            color: var(--c-yellow);
+            transition: color 0.2s;
         }
     </style>
 </head>
@@ -191,14 +249,14 @@
                     </div>
                 </section>
 
-                <section class="cv-section">
+                <section class="cv-section exhibitions-section">
                     <h2 class="cv-heading exhibitions">Exhibitions</h2>
                     <ul class="cv-list" id="exhibitions-list">
                         <!-- loaded from JSON -->
                     </ul>
                 </section>
 
-                <section class="cv-section">
+                <section class="cv-section media-section">
                     <h2 class="cv-heading media">Media</h2>
                     <ul class="cv-list" id="media-list">
                         <!-- loaded from JSON -->
