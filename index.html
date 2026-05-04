@@ -682,8 +682,8 @@
             object-fit: cover;
         }
 
-        /* ──────── BIG GRASS PHOTO ──────── */
-        .grass-band {
+        /* ──────── CAROUSEL (replaces grass photo) ──────── */
+        .grass-carousel {
             position: absolute;
             top: 2108px;
             left: 1px;
@@ -692,11 +692,65 @@
             overflow: hidden;
         }
 
-        .grass-band img {
+        .gc-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .gc-slide.active {
+            opacity: 1;
+        }
+
+        .gc-slide img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
-            min-height: 100%;
+            display: block;
+        }
+
+        .gc-prev, .gc-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fa2935;
+            color: #fff70b;
+            border: none;
+            font-size: 48px;
+            line-height: 1;
+            padding: 16px 28px;
+            cursor: pointer;
+            z-index: 5;
+            opacity: 0.85;
+            transition: opacity 0.15s;
+        }
+
+        .gc-prev:hover, .gc-next:hover { opacity: 1; }
+        .gc-prev { left: 20px; }
+        .gc-next { right: 20px; }
+
+        .gc-dots {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 14px;
+            z-index: 5;
+        }
+
+        .gc-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 247, 11, 0.5);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .gc-dot.active {
+            background: #fa2935;
         }
 
         /* ──────── PROJECTS (red bg) ──────── */
@@ -1095,9 +1149,9 @@
                 <div class="inner"><img src="assets/Screenshot 2026-04-27 at 00.38 1.png" alt=""></div>
             </div>
 
-            <div class="media-top hover-blink">Media</div>
-            <div class="artifacts hover-blink">TELE-<br>GRAM</div>
-            <div class="exh-top hover-blink">Exhibitions</div>
+            <a href="about.html" class="media-top hover-blink">Media</a>
+            <a href="contact.html" class="artifacts hover-blink">TELE-<br>GRAM</a>
+            <a href="about.html" class="exh-top hover-blink">Exhibitions</a>
             <div class="main-logo">
                 <img src="assets/main logo.png" alt="SOFIYA LORIASHVILI">
             </div>
@@ -1122,8 +1176,8 @@
 
             <div class="img-couch"><img src="assets/image 34.png" alt=""></div>
 
-            <div class="exh-mid">Exhibitions</div>
-            <div class="media-mid">Media</div>
+            <a href="about.html" class="exh-mid">Exhibitions</a>
+            <a href="about.html" class="media-mid">Media</a>
 
             <div class="exh-list">
                 "Dissonant Shelter" 229 lab collective exhibition - october 2025
@@ -1186,7 +1240,22 @@
 
 
 
-            <div class="grass-band"><img src="assets/Rectangle 33.png" alt=""></div>
+            <div class="grass-carousel" id="grass-carousel">
+                <div class="gc-slide active"><img src="assets/Rectangle 33.png" alt=""></div>
+                <div class="gc-slide"><img src="assets/2025_LORIASHVILI_KINGKONG_MYSSIA__143.jpg" alt=""></div>
+                <div class="gc-slide"><img src="assets/_DSC1553.jpg" alt=""></div>
+                <div class="gc-slide"><img src="assets/24_MUNE_LORIASHVILI_05.jpg" alt=""></div>
+                <div class="gc-slide"><img src="assets/25_WHISPER_NEMESIS_15.jpg" alt=""></div>
+                <button class="gc-prev" aria-label="Previous">&#8592;</button>
+                <button class="gc-next" aria-label="Next">&#8594;</button>
+                <div class="gc-dots">
+                    <span class="gc-dot active"></span>
+                    <span class="gc-dot"></span>
+                    <span class="gc-dot"></span>
+                    <span class="gc-dot"></span>
+                    <span class="gc-dot"></span>
+                </div>
+            </div>
 
             <div class="bg-red"></div>
             <div class="projects-label proj-mid">Projects</div>
@@ -1401,6 +1470,66 @@
                         greenStripe.style.height = '0';
                     }
                 });
+            });
+        })();
+
+        // ── Carousel ──
+        (function () {
+            const carousel = document.getElementById('grass-carousel');
+            if (!carousel) return;
+            const slides = carousel.querySelectorAll('.gc-slide');
+            const dots = carousel.querySelectorAll('.gc-dot');
+            let current = 0;
+
+            function goTo(n) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = (n + slides.length) % slides.length;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            carousel.querySelector('.gc-prev').addEventListener('click', function () { goTo(current - 1); });
+            carousel.querySelector('.gc-next').addEventListener('click', function () { goTo(current + 1); });
+            dots.forEach(function (dot, i) {
+                dot.addEventListener('click', function () { goTo(i); });
+            });
+        })();
+
+        // ── Scroll-based image swap (img-couch) ──
+        (function () {
+            const imgEl = document.querySelector('.img-couch img');
+            if (!imgEl) return;
+            const canvas = document.querySelector('.canvas');
+
+            const images = [
+                'assets/image 34.png',
+                'assets/2025_LORIASHVILI_KINGKONG_MYSSIA__143.jpg',
+                'assets/_DSC1553.jpg',
+                'assets/24_MUNE_LORIASHVILI_05.jpg',
+                'assets/25_WHISPER_NEMESIS_15.jpg',
+                'assets/2025_STAFFIE_loriashvili_02.jpg'
+            ];
+
+            // Preload
+            images.forEach(function (src) {
+                var img = new Image();
+                img.src = src;
+            });
+
+            let lastIdx = 0;
+            window.addEventListener('scroll', function () {
+                const zoom = parseFloat(canvas.style.zoom) || 1;
+                const canvasY = window.scrollY / zoom;
+                const start = 900;
+                const end = 2050;
+                if (canvasY < start || canvasY > end) return;
+                const progress = (canvasY - start) / (end - start);
+                const idx = Math.min(Math.floor(progress * images.length), images.length - 1);
+                if (idx !== lastIdx) {
+                    lastIdx = idx;
+                    imgEl.src = images[idx];
+                }
             });
         })();
 
