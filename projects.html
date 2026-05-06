@@ -16,38 +16,45 @@
         .projects-page {
             padding-top: 160px;
             padding-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .projects-heading-wrap {
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            min-height: 200px;
         }
 
         .page-heading.projects {
             font-family: 'EBGaramondInitials', 'EB Garamond', serif;
-            font-size: 220px;
+            font-size: 176px;
             line-height: 1;
             letter-spacing: -6px;
             color: var(--c-red);
-            margin: 0 0 60px;
+            margin: 0;
         }
 
-        /* 3-column grid matching shop page margins */
+        /* 1-column full-width grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            background: var(--c-yellow);
-            padding: 0 8px;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            padding: 0 10px;
         }
 
         .project-card {
-            display: flex;
-            flex-direction: column;
-            background: var(--c-red);
+            display: block;
             overflow: hidden;
-            color: var(--c-yellow);
+            position: relative;
         }
 
         .project-card .pc-image {
             width: 100%;
-            aspect-ratio: 4 / 3;
+            aspect-ratio: 16 / 9;
             overflow: hidden;
+            position: relative;
         }
 
         .project-card .pc-image img {
@@ -57,46 +64,58 @@
             display: block;
         }
 
-        .pc-footer {
-            padding: 20px 24px 28px;
-            background: var(--c-red);
+        .pc-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 36px 32px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.52));
         }
 
         .pc-title {
             font-family: 'Casino', serif;
-            font-size: 58px;
+            font-size: 72px;
             line-height: 1;
             letter-spacing: -2px;
-            color: var(--c-yellow);
+            color: var(--c-white);
             text-transform: uppercase;
         }
 
         .pc-title.f-benzin {
             font-family: 'Benzin', sans-serif;
             font-weight: 800;
-            font-size: 50px;
+            font-size: 62px;
         }
 
         .pc-title.f-bayon {
             font-family: 'Bayon', sans-serif;
-            font-size: 62px;
+            font-size: 78px;
         }
 
         .pc-title.f-babylonica {
             font-family: 'Babylonica', cursive;
-            font-size: 72px;
+            font-size: 90px;
             text-transform: none;
         }
 
         .pc-title.f-cochin {
             font-family: 'Cochin', 'Playfair Display', serif;
-            font-size: 56px;
+            font-size: 70px;
         }
 
         .pc-title.f-beau {
             font-family: 'Beau Rivage', cursive;
-            font-size: 72px;
+            font-size: 90px;
             text-transform: none;
+        }
+
+        .pc-desc {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 8px;
+            letter-spacing: -0.3px;
         }
     </style>
 </head>
@@ -120,61 +139,69 @@
 
             <main class="projects-page">
 
-                <h1 class="page-heading projects hover-blink">PROJECTS</h1>
+                <div class="projects-heading-wrap">
+                    <h1 class="page-heading projects hover-blink">PROJECTS</h1>
+                </div>
 
                 <section class="projects-grid">
 
                     <a href="projects/4-the-boyz.html" class="project-card" data-slug="4-the-boyz">
                         <div class="pc-image">
                             <img src="assets/2025_LORIASHVILI_KINGKONG_MYSSIA__143.jpg" alt="4 the boyz">
-                        </div>
-                        <div class="pc-footer">
-                            <h2 class="pc-title f-benzin">4 the boyz</h2>
+                            <div class="pc-overlay">
+                                <h2 class="pc-title f-benzin">4 the boyz</h2>
+                                <p class="pc-desc">Bodies, gestures and the spaces between</p>
+                            </div>
                         </div>
                     </a>
 
                     <a href="projects/only-you-and-me.html" class="project-card" data-slug="only-you-and-me">
                         <div class="pc-image">
                             <img src="assets/_DSC1553.jpg" alt="only you and me">
-                        </div>
-                        <div class="pc-footer">
-                            <h2 class="pc-title f-bayon">only you and me</h2>
+                            <div class="pc-overlay">
+                                <h2 class="pc-title f-bayon">only you and me</h2>
+                                <p class="pc-desc">Intimacy in borrowed light</p>
+                            </div>
                         </div>
                     </a>
 
                     <a href="projects/ukraine.html" class="project-card" data-slug="ukraine">
                         <div class="pc-image">
                             <img src="assets/image 29.png" alt="FROM UKRAINE">
-                        </div>
-                        <div class="pc-footer">
-                            <h2 class="pc-title f-cochin">FROM UKRAINE</h2>
+                            <div class="pc-overlay">
+                                <h2 class="pc-title f-cochin">FROM UKRAINE</h2>
+                                <p class="pc-desc">War, home, and what remains</p>
+                            </div>
                         </div>
                     </a>
 
                     <a href="projects/japan.html" class="project-card" data-slug="japan">
                         <div class="pc-image">
                             <img src="assets/24_MUNE_LORIASHVILI_05.jpg" alt="japan">
-                        </div>
-                        <div class="pc-footer">
-                            <h2 class="pc-title f-babylonica">japan</h2>
+                            <div class="pc-overlay">
+                                <h2 class="pc-title f-babylonica">japan</h2>
+                                <p class="pc-desc">31 days — Tokyo, Kyoto, Osaka</p>
+                            </div>
                         </div>
                     </a>
 
                     <a href="projects/strip-strip.html" class="project-card" data-slug="strip-strip">
                         <div class="pc-image">
                             <img src="assets/2025_STAFFIE_loriashvili_02.jpg" alt="strip strip">
-                        </div>
-                        <div class="pc-footer">
-                            <h2 class="pc-title">strip strip</h2>
+                            <div class="pc-overlay">
+                                <h2 class="pc-title">strip strip</h2>
+                                <p class="pc-desc">The studio as stage</p>
+                            </div>
                         </div>
                     </a>
 
                     <a href="projects/feet.html" class="project-card" data-slug="feet">
                         <div class="pc-image">
                             <img src="assets/25_WHISPER_NEMESIS_15.jpg" alt="feet">
-                        </div>
-                        <div class="pc-footer">
-                            <h2 class="pc-title f-beau">Feet</h2>
+                            <div class="pc-overlay">
+                                <h2 class="pc-title f-beau">Feet</h2>
+                                <p class="pc-desc">A study in closeness</p>
+                            </div>
                         </div>
                     </a>
 

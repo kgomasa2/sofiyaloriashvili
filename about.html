@@ -23,15 +23,18 @@
             padding-right: 10px;
         }
 
-        /* First panel: grey, centered About title + bio */
+        /* First panel: transparent, centered About title + tagline */
         .about-intro {
-            background: var(--c-gray);
-            padding: 60px 80px;
+            background: transparent;
+            padding: 40px 80px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 32px;
+            justify-content: center;
+            gap: 20px;
+            flex-grow: 1;
+            min-height: 280px;
         }
 
         .about-title {
@@ -39,22 +42,16 @@
             font-size: 180px;
             line-height: 1;
             letter-spacing: -6px;
-            color: var(--c-yellow);
+            color: var(--c-gray);
             text-transform: uppercase;
         }
 
-        .about-desc p {
+        .about-tagline {
             font-family: 'ArialNarrow', sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
+            font-size: 22px;
             letter-spacing: -0.3px;
-            color: var(--c-red);
+            color: var(--c-gray);
             text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .about-desc p:last-child {
-            margin-bottom: 0;
         }
 
         /* Two-column CV panels */
@@ -187,10 +184,10 @@
 
             <main class="about-page">
 
-                <!-- First grey panel: About title + bio -->
+                <!-- About title + tagline -->
                 <section class="about-intro">
                     <h1 class="about-title">About</h1>
-                    <div id="bio-text" class="about-desc"></div>
+                    <p class="about-tagline">Sofia Loriashvili, The Contemporary Artist</p>
                 </section>
 
                 <!-- Two-column: Exhibitions (blue) + Media (green) -->
@@ -230,16 +227,6 @@
             fetch('data/about.json')
                 .then(r => r.json())
                 .then(data => {
-                    // Bio paragraphs
-                    const bioEl = document.getElementById('bio-text');
-                    if (bioEl && data.bio) {
-                        data.bio.forEach(text => {
-                            const p = document.createElement('p');
-                            p.textContent = text;
-                            bioEl.appendChild(p);
-                        });
-                    }
-
                     // Exhibitions
                     const exhList = document.getElementById('exhibitions-list');
                     if (exhList && data.exhibitions) {
