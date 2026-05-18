@@ -143,7 +143,7 @@
             position: relative;
             width: 1442px;
             background: #fff70b;
-            height: 8862px;
+            height: 7413px;
             overflow: hidden;
         }
 
@@ -188,15 +188,30 @@
 
         /* Top-left logo (red star/heart svg placeholder) */
         .logo-block {
-            width: 121px;
-            height: 84px;
+            width: 79px;
+            height: 55px;
             background: #b5b5b5;
             flex-shrink: 0;
+            overflow: hidden;
+            perspective: 400px;
         }
 
         .logo-block img {
             width: 100%;
             height: 100%;
+            object-fit: contain;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            backface-visibility: visible;
+        }
+
+        @keyframes logoYaw {
+            from { transform: rotateY(0deg); }
+            to   { transform: rotateY(360deg); }
+        }
+
+        .logo-block:hover img {
+            animation: logoYaw 3.5s linear infinite;
         }
 
         /* ──────── HERO TOP ──────── */
@@ -208,29 +223,37 @@
             cursor: pointer;
         }
 
-        @keyframes blinkColors {
-
-            0%,
-            100% {
-                color: #FA2935;
-            }
-
-            25% {
-                color: #B5B5B5;
-            }
-
-            50% {
-                color: #81D0FC;
-            }
-
-            75% {
-                color: #09D24B;
-            }
+        @keyframes blink-no-yellow {
+            0%   { color: #FA2935; }
+            25%  { color: #B5B5B5; }
+            50%  { color: #81D0FC; }
+            75%  { color: #09D24B; }
+        }
+        @keyframes blink-no-gray {
+            0%   { color: #FA2935; }
+            25%  { color: #81D0FC; }
+            50%  { color: #09D24B; }
+            75%  { color: #FFF70B; }
         }
 
-        .hover-blink:hover {
-            animation: blinkColors 0.45s infinite step-end;
+        .hover-blink {
+            animation: blink-no-yellow 2s infinite step-end;
         }
+
+        .nav-item {
+            animation: blink-no-gray 1.9s infinite step-end;
+        }
+
+        .header-fixed .nav-item:nth-child(2) { animation-duration: 1.7s; animation-delay: 0s; }
+        .header-fixed .nav-item:nth-child(3) { animation-duration: 2.3s; animation-delay: -0.5s; }
+        .header-fixed .nav-item:nth-child(4) { animation-duration: 1.5s; animation-delay: -1.1s; }
+        .header-fixed .nav-item:nth-child(5) { animation-duration: 2.6s; animation-delay: -1.7s; }
+
+        .media-top              { animation-duration: 1.7s; animation-delay: 0s; }
+        .artifacts              { animation-duration: 2.1s; animation-delay: -0.5s; }
+        .exh-top                { animation-duration: 2.5s; animation-delay: -1.1s; }
+        .projects-label.proj-top { animation-duration: 1.5s; animation-delay: -1.5s; }
+        .shop-dot.s0            { animation-duration: 2.8s; animation-delay: -2.0s; }
 
         /* Top "MEDIA" gray Bangers */
         .media-top {
@@ -355,7 +378,9 @@
 
         .shop-marquee-content {
             display: inline-block;
-            animation: marquee 15s linear infinite;
+            white-space: nowrap;
+            animation: marquee 45s linear infinite;
+            will-change: transform;
         }
 
         .shop-marquee-content span {
@@ -364,13 +389,8 @@
         }
 
         @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
+            from { transform: translate3d(0, 0, 0); }
+            to   { transform: translate3d(-50%, 0, 0); }
         }
 
         /* Hero photo crops */
@@ -517,9 +537,9 @@
         /* ──────── BLUE SECTION (huge SOFIYA + exhibitions) ──────── */
         .bg-blue1 {
             position: absolute;
-            left: -6px;
+            left: 0;
             top: 820px;
-            width: 1446px;
+            width: 1442px;
             height: 1296px;
             background: #81d0fc;
         }
@@ -686,8 +706,8 @@
         .grass-carousel {
             position: absolute;
             top: 2108px;
-            left: 1px;
-            width: 1439px;
+            left: 0;
+            width: 1442px;
             height: 896px;
             overflow: hidden;
         }
@@ -754,9 +774,9 @@
         /* ──────── PROJECTS (red bg) ──────── */
         .bg-red {
             position: absolute;
-            left: -1px;
+            left: 0;
             top: 3004px;
-            width: 1441px;
+            width: 1442px;
             height: 1271px;
             background: #fa2935;
         }
@@ -776,8 +796,8 @@
         /* Hover green bar that appears BEHIND the project name */
         .proj-hover-bar {
             position: absolute;
-            left: 1px;
-            width: 1439px;
+            left: 0;
+            width: 1442px;
             height: 0;
             background: #09d24b;
             z-index: 2;
@@ -828,8 +848,8 @@
         .green-stripe {
             position: absolute;
             top: 3648px;
-            left: 1px;
-            width: 1439px;
+            left: 0;
+            width: 1442px;
             height: 0;
             background: #09d24b;
             z-index: 2;
@@ -1023,10 +1043,10 @@
         /* ──────── TELEGRAM (blue) ──────── */
         .bg-blue2 {
             position: absolute;
-            left: -1px;
+            left: 0;
             top: 5931px;
             width: 1442px;
-            height: 970px;
+            height: 776px;
             background: #81d0fc;
             display: flex;
             align-items: center;
@@ -1073,7 +1093,7 @@
         /* contact row */
         .footer-link {
             position: absolute;
-            top: 8161px;
+            top: 6722px;
             font-family: 'ArialNarrow', sans-serif;
             font-size: 16px;
             letter-spacing: -0.48px;
@@ -1099,7 +1119,7 @@
         /* Big SVG footer */
         .footer-logo-container {
             position: absolute;
-            top: 8452px;
+            top: 7013px;
             left: 0;
             width: 1442px;
             height: 400px;
@@ -1264,15 +1284,15 @@
             <div class="proj-hover-bar" id="bar-strip" style="top:3790px;"></div>
             <div class="proj-hover-bar" id="bar-feet" style="top:3921px;"></div>
 
-            <div class="proj-line proj-4boys" data-project="4boys">4 the boyz</div>
-            <div class="proj-line proj-only" data-project="only">only you and me</div>
-            <div class="proj-line proj-japan" data-project="japan">japan</div>
+            <a href="projects/4-the-boyz.html" class="proj-line proj-4boys" data-project="4boys">4 the boyz</a>
+            <a href="projects/only-you-and-me.html" class="proj-line proj-only" data-project="only">only you and me</a>
+            <a href="projects/japan.html" class="proj-line proj-japan" data-project="japan">japan</a>
 
             <div class="green-stripe" id="green-stripe-from"></div>
-            <div class="proj-line proj-from" data-project="from">FROM UKRAINE</div>
+            <a href="projects/ukraine.html" class="proj-line proj-from" data-project="from">FROM UKRAINE</a>
 
-            <div class="proj-line proj-strip" data-project="strip">strip strip</div>
-            <div class="proj-line proj-feet" data-project="feet">Feet</div>
+            <a href="projects/strip-strip.html" class="proj-line proj-strip" data-project="strip">strip strip</a>
+            <a href="projects/feet.html" class="proj-line proj-feet" data-project="feet">Feet</a>
 
             <div class="proj-couple"><img id="proj-img" src="assets/image 29.png" alt=""></div>
 
@@ -1285,7 +1305,7 @@
 
             <div class="shop-section">
 
-                <div class="shop-item">
+                <a class="shop-item" href="shop/chiken-wing-paperwork.html">
                     <div class="shop-img">
                         <img src="assets/image 30.png" alt="Chiken Wing">
                     </div>
@@ -1300,12 +1320,12 @@
                                 <div class="shop-meta">100 pages<br>Perfect Bound<br>5.82 X 8.26<br>Edition of 100
                                     copies</div>
                             </div>
-                            <button class="shop-buy">BUY</button>
+                            <span class="shop-buy">BUY</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="shop-item">
+                <a class="shop-item" href="shop/sub-4-only-u-and-me.html">
                     <div class="shop-img">
                         <img src="assets/image 31.png" alt="Only U and Me">
                     </div>
@@ -1319,18 +1339,18 @@
                                 <div class="shop-pub">Fisheye éditions</div>
                                 <div class="shop-meta">140 × 210 mm<br>96 pages</div>
                             </div>
-                            <button class="shop-buy">BUY</button>
+                            <span class="shop-buy">BUY</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="shop-item">
+                <a class="shop-item" href="shop/4-the-boyz-book.html">
                     <div class="shop-img">
-                        <img src="assets/image 32.png" alt="Chiken Wing">
+                        <img src="assets/image 32.png" alt="4 the boyz">
                     </div>
                     <div class="shop-info">
                         <div class="shop-info-top">
-                            <div class="shop-title">CHIKEN WING</div>
+                            <div class="shop-title">4 THE BOYZ</div>
                             <div class="shop-price">$70</div>
                         </div>
                         <div class="shop-info-bottom">
@@ -1339,30 +1359,29 @@
                                 <div class="shop-meta">100 pages<br>Perfect Bound<br>5.82 X 8.26<br>Edition of 100
                                     copies</div>
                             </div>
-                            <button class="shop-buy">BUY</button>
+                            <span class="shop-buy">BUY</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="shop-item">
+                <a class="shop-item" href="shop/mini-zine.html">
                     <div class="shop-img">
-                        <img src="assets/image 33.png" alt="Chiken Wing">
+                        <img src="assets/image 33.png" alt="Mini Zine">
                     </div>
                     <div class="shop-info">
                         <div class="shop-info-top">
-                            <div class="shop-title">CHIKEN WING</div>
+                            <div class="shop-title">MINI ZINE</div>
                             <div class="shop-price">$20</div>
                         </div>
                         <div class="shop-info-bottom">
                             <div class="shop-details">
-                                <div class="shop-pub">published by PAPERWORK</div>
-                                <div class="shop-meta">100 pages<br>Perfect Bound<br>5.82 X 8.26<br>Edition of 100
-                                    copies</div>
+                                <div class="shop-pub">Self-published</div>
+                                <div class="shop-meta">A6 105 × 148 mm<br>32 pages<br>Risograph, 2 colors</div>
                             </div>
-                            <button class="shop-buy">BUY</button>
+                            <span class="shop-buy">BUY</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
             </div>
 
@@ -1371,8 +1390,6 @@
                     CHECK MY<br>TELEGRAM
                 </div>
             </div>
-
-            <div class="body-photo"><img src="assets/Screenshot 2026-04-27 at 17.07.12 1.png" alt=""></div>
 
             <a class="footer-link fl1" href="#">instagram</a>
             <a class="footer-link fl2" href="#">onlyfans</a>
@@ -1396,6 +1413,41 @@
             }
             scale();
             window.addEventListener('resize', scale);
+        })();
+
+        // ── Draggable hero images ──
+        (function () {
+            const canvas = document.querySelector('.canvas');
+            const els = document.querySelectorAll('.hero-crop, .crop-rifle');
+            els.forEach(function (el) {
+                el.style.cursor = 'grab';
+                el.addEventListener('mousedown', function (e) {
+                    e.preventDefault();
+                    const zoom = parseFloat(canvas.style.zoom) || 1;
+                    const startX = e.clientX;
+                    const startY = e.clientY;
+                    const cs = window.getComputedStyle(el);
+                    const startLeft = parseFloat(cs.left) || 0;
+                    const startTop = parseFloat(cs.top) || 0;
+                    el.style.cursor = 'grabbing';
+                    el.style.zIndex = 20;
+
+                    function onMove(ev) {
+                        const dx = (ev.clientX - startX) / zoom;
+                        const dy = (ev.clientY - startY) / zoom;
+                        el.style.left = (startLeft + dx) + 'px';
+                        el.style.top = (startTop + dy) + 'px';
+                    }
+                    function onUp() {
+                        document.removeEventListener('mousemove', onMove);
+                        document.removeEventListener('mouseup', onUp);
+                        el.style.cursor = 'grab';
+                    }
+                    document.addEventListener('mousemove', onMove);
+                    document.addEventListener('mouseup', onUp);
+                });
+                el.querySelectorAll('img').forEach(img => img.draggable = false);
+            });
         })();
 
         // ── Projects hover interaction ──
@@ -1584,13 +1636,15 @@
                 let imgIndex = 0;
 
                 tgBlock.addEventListener('mousemove', function (e) {
-                    const x = e.offsetX;
-                    const y = e.offsetY;
+                    if (e.target !== tgBlock) return;
 
-                    if (e.target !== tgBlock) return; // avoid spawning inside images if they catch events
+                    const canvas = document.querySelector('.canvas');
+                    const zoom = parseFloat(canvas.style.zoom) || 1;
+                    const x = e.offsetX / zoom;
+                    const y = e.offsetY / zoom;
 
                     const dist = Math.hypot(x - lastX, y - lastY);
-                    if (dist < 50) return;
+                    if (dist < 25) return;
 
                     lastX = x; lastY = y;
 
@@ -1598,13 +1652,14 @@
                     img.src = tgImages[imgIndex % tgImages.length];
                     imgIndex++;
 
+                    const W = 180;
                     img.style.position = 'absolute';
-                    img.style.width = '180px';
-                    img.style.left = (x - 90) + 'px';
-                    img.style.top = (y - 135) + 'px';
+                    img.style.width = W + 'px';
+                    img.style.left = (x - W / 2) + 'px';
+                    img.style.top = (y - W / 2) + 'px';
                     img.style.objectFit = 'cover';
                     img.style.pointerEvents = 'none';
-                    img.style.transform = `rotate(${(Math.random() - 0.5) * 40}deg)`;
+                    img.style.transform = `translate(0,0) rotate(${(Math.random() - 0.5) * 40}deg)`;
                     img.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
                     img.style.opacity = '1';
 
