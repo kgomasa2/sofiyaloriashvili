@@ -14,7 +14,7 @@
     <style>
         /* ──────── ABOUT PAGE ──────── */
         .about-page {
-            padding-top: 160px;
+            padding-top: 0;
             padding-bottom: 80px;
             display: flex;
             flex-direction: column;
@@ -26,15 +26,15 @@
         /* First panel: transparent, centered About title + tagline */
         .about-intro {
             background: transparent;
-            padding: 40px 80px;
+            padding: 0 80px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 5px;
             flex-grow: 1;
-            min-height: 280px;
+            min-height: 380px;
         }
 
         .about-title {
@@ -48,10 +48,22 @@
 
         .about-tagline {
             font-family: 'ArialNarrow', sans-serif;
-            font-size: 22px;
-            letter-spacing: -0.3px;
+            font-size: 14px;
+            letter-spacing: -0.2px;
             color: var(--c-gray);
             text-align: center;
+            margin-top: -30px;
+        }
+
+        .about-bio {
+            font-family: 'ArialNarrow', sans-serif;
+            font-size: 14px;
+            line-height: 1.3;
+            letter-spacing: -0.2px;
+            color: var(--c-gray);
+            text-align: center;
+            max-width: 864px;
+            margin: 6px auto 0;
         }
 
         /* Two-column CV panels */
@@ -126,6 +138,11 @@
             color: var(--c-red);
         }
 
+        .cv-row.media-row .cv-year {
+            white-space: normal;
+            line-height: 1.1;
+        }
+
         .cv-title {
             font-family: 'ArialNarrow', sans-serif;
             font-size: 18px;
@@ -141,7 +158,7 @@
         .cv-place {
             font-family: 'ArialNarrow', sans-serif;
             font-size: 15px;
-            text-align: right;
+            text-align: left;
             opacity: 0.8;
             color: var(--c-red);
         }
@@ -188,6 +205,13 @@
                 <section class="about-intro">
                     <h1 class="about-title">About</h1>
                     <p class="about-tagline">Sofia Loriashvili, The Contemporary Artist</p>
+                    <p class="about-bio">Born in Ukraine and currently based between Paris and Tbilisi, Sofiya
+                        Loriashvili works across photography, painting and experimental visual narratives — using
+                        the body, the interior and the printed page as a single continuous stage. Her practice moves
+                        between intimate portraiture and broader cultural document: zines, magazines, projections and
+                        exhibitions in spaces like Festival d'Arles, the Museum of Warsaw and Guerlain's collective
+                        shows. Recurring threads — desire, displacement, tenderness between strangers — let her treat
+                        the camera less like an observer and more like a participant in the room.</p>
                 </section>
 
                 <!-- Two-column: Exhibitions (blue) + Media (green) -->

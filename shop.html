@@ -14,7 +14,7 @@
     <style>
         /* ──────── SHOP PAGE ──────── */
         .shop-page {
-            padding-top: 160px;
+            padding-top: 0;
             padding-bottom: 80px;
             background: var(--c-green);
             display: flex;
@@ -25,7 +25,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 200px;
+            min-height: 320px;
         }
 
         .shop-heading {
@@ -97,7 +97,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background: var(--c-green);
+            background: var(--c-gray);
             min-height: 200px;
         }
 
@@ -165,11 +165,12 @@
             font-family: 'Benzin', sans-serif;
             font-weight: 800;
             font-size: 24px;
+            line-height: 0.8;
             letter-spacing: -0.5px;
             text-transform: uppercase;
             cursor: pointer;
             transition: background 0.15s, color 0.15s;
-            white-space: nowrap;
+            text-align: center;
             flex-shrink: 0;
         }
 
@@ -187,7 +188,7 @@
     </style>
 </head>
 
-<body>
+<body class="bg-green">
 
     <div class="canvas-wrap">
         <div class="canvas">

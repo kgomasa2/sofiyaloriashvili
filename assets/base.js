@@ -48,3 +48,12 @@
         }
     });
 })();
+
+// Wrap each word of .pd-related h2 in a <span> so flex justify-between can spread them
+(function () {
+    document.querySelectorAll('.pd-related h2').forEach(function (h) {
+        if (h.querySelector('span')) return;
+        const words = h.textContent.trim().split(/\s+/);
+        h.innerHTML = words.map(function (w) { return '<span>' + w + '</span>'; }).join('');
+    });
+})();
